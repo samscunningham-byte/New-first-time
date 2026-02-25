@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Topic Multiplier Workflow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#120d1b] dark:text-white min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#d7cfe7] dark:border-[#2d2445] px-10 py-3 bg-white dark:bg-[#1c142e]">
+<div class="flex items-center gap-4 text-[#120d1b] dark:text-white">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Topic Multiplier</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary" href="#">Workflows</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Library</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">New Workflow</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-[#d7cfe7]" data-alt="User profile avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMMOlnWqZQ2F1fGwx2ScCO-RihV3Cq1OEiA7_kEBQ08frdExlf9bD7qvSFO7tFH18ylTYbnH8gYgeZsrpWnm6vR4sbJ1JQ_U5MPzUTOUG10T20gzrzDxqhy4RcktF8Hb6VHiHRVCI8IzE9BM7R2vKLTnfJ70z3krIeDU1tFdKBcLAmQUkIq3kL1LtbuXYkw_5vGWOuAPrIf2NSNzztQfJ4aAjX6cikn0A5PD4pPBOESoyhyd3rflmxjgNavOqxvv0NJ7eHkk5CoSI");'></div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center py-10 px-6">
+<div class="max-w-[1200px] w-full flex flex-col gap-10">
+<!-- Page Heading Section -->
+<div class="flex flex-col gap-3">
+<p class="text-4xl font-black leading-tight tracking-[-0.033em]">Topic Multiplexer</p>
+<p class="text-[#664c9a] dark:text-[#a390ce] text-base font-normal leading-normal max-w-2xl">
+                        Transform a single seed topic into diverse content strategies across multiple personas instantly using AI-driven templates.
+                    </p>
+</div>
+<!-- Input Section -->
+<div class="bg-white dark:bg-[#1c142e] p-8 rounded-xl border border-[#d7cfe7] dark:border-[#2d2445] shadow-sm">
+<div class="flex flex-col md:flex-row items-end gap-4">
+<label class="flex flex-col flex-1">
+<p class="text-sm font-bold leading-normal pb-2 text-[#664c9a] dark:text-[#a390ce] uppercase tracking-wider">Seed Topic Input</p>
+<div class="flex w-full items-stretch">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none rounded-l-lg text-[#120d1b] dark:text-white border border-[#d7cfe7] dark:border-[#2d2445] bg-[#f9f8fc] dark:bg-[#251b3d] h-14 placeholder:text-[#664c9a]/50 p-4 text-base font-medium focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="e.g., Personal Branding, Remote Work, SaaS Growth..." value="Personal Branding"/>
+<div class="text-[#664c9a] flex border border-[#d7cfe7] dark:border-[#2d2445] bg-[#f9f8fc] dark:bg-[#251b3d] items-center justify-center px-4 rounded-r-lg border-l-0">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+</div>
+</label>
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined mr-2">temp_preferences_custom</span>
+<span class="truncate">Generate Variants</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="pb-3 overflow-x-auto">
+<div class="flex border-b border-[#d7cfe7] dark:border-[#2d2445] gap-8">
+<a class="flex items-center gap-2 border-b-[3px] border-primary text-primary pb-3 font-bold" href="#">
+<span class="material-symbols-outlined text-sm">grid_view</span>
+<p class="text-sm tracking-[0.015em]">Active Generation</p>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-transparent text-[#664c9a] dark:text-[#a390ce] pb-3 font-bold hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<p class="text-sm tracking-[0.015em]">Strategy Library</p>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-transparent text-[#664c9a] dark:text-[#a390ce] pb-3 font-bold hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">history</span>
+<p class="text-sm tracking-[0.015em]">History</p>
+</a>
+</div>
+</div>
+<!-- Workflow Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+<!-- Column 1: The Storyteller -->
+<div class="flex flex-col bg-white dark:bg-[#1c142e] rounded-xl border border-[#d7cfe7] dark:border-[#2d2445] shadow-sm overflow-hidden border-t-4 border-t-primary">
+<div class="p-5 border-b border-[#d7cfe7] dark:border-[#2d2445] bg-primary/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">menu_book</span>
+<div>
+<h3 class="font-extrabold text-lg text-[#120d1b] dark:text-white">The Storyteller</h3>
+<p class="text-xs text-[#664c9a] dark:text-[#a390ce] font-medium uppercase tracking-tight">Strategy: Narrative Loop</p>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="bg-background-light dark:bg-[#251b3d] p-4 rounded-lg border border-dashed border-[#d7cfe7] dark:border-[#2d2445]">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">Draft #1</span>
+<button class="text-[#664c9a] hover:text-primary"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+</div>
+<p class="text-sm leading-relaxed text-[#120d1b] dark:text-[#e0dbe9]">
+                                    "I used to think my brand was just a logo. Then 2020 happened. I was sitting in my living room, looking at a stack of business cards that meant nothing. That was the day I realized Personal Branding isn't about pixels—it's about the promise you keep to your audience..."
+                                </p>
+</div>
+<div class="mt-auto pt-4 flex gap-2">
+<button class="flex-1 flex items-center justify-center gap-2 border border-[#d7cfe7] dark:border-[#2d2445] rounded-lg py-2 px-3 text-sm font-bold hover:bg-background-light dark:hover:bg-[#2d2445] transition-colors">
+<span class="material-symbols-outlined text-base">edit_note</span> Refine
+                                </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary text-white rounded-lg py-2 px-3 text-sm font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-base">calendar_month</span> Schedule
+                                </button>
+</div>
+</div>
+</div>
+<!-- Column 2: The Educator -->
+<div class="flex flex-col bg-white dark:bg-[#1c142e] rounded-xl border border-[#d7cfe7] dark:border-[#2d2445] shadow-sm overflow-hidden border-t-4 border-t-green-500">
+<div class="p-5 border-b border-[#d7cfe7] dark:border-[#2d2445] bg-green-500/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 p-2 bg-green-500/10 rounded-lg">lightbulb</span>
+<div>
+<h3 class="font-extrabold text-lg text-[#120d1b] dark:text-white">The Educator</h3>
+<p class="text-xs text-[#664c9a] dark:text-[#a390ce] font-medium uppercase tracking-tight">Strategy: AIDA Framework</p>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="bg-background-light dark:bg-[#251b3d] p-4 rounded-lg border border-dashed border-[#d7cfe7] dark:border-[#2d2445]">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-green-500/10 text-green-600 text-[10px] font-bold rounded uppercase">Draft #1</span>
+<button class="text-[#664c9a] hover:text-primary"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+</div>
+<div class="text-sm leading-relaxed text-[#120d1b] dark:text-[#e0dbe9] space-y-2">
+<p><strong>A:</strong> 90% of SaaS founders ignore this one branding pillar.</p>
+<p><strong>I:</strong> It's called 'Authority Stacking'.</p>
+<p><strong>D:</strong> Imagine being the only logical choice in your niche.</p>
+<p><strong>A:</strong> Here are 3 steps to start tonight: <br/>1. Audit your LinkedIn... </p>
+</div>
+</div>
+<div class="mt-auto pt-4 flex gap-2">
+<button class="flex-1 flex items-center justify-center gap-2 border border-[#d7cfe7] dark:border-[#2d2445] rounded-lg py-2 px-3 text-sm font-bold hover:bg-background-light dark:hover:bg-[#2d2445] transition-colors">
+<span class="material-symbols-outlined text-base">edit_note</span> Refine
+                                </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary text-white rounded-lg py-2 px-3 text-sm font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-base">calendar_month</span> Schedule
+                                </button>
+</div>
+</div>
+</div>
+<!-- Column 3: The Contrarian -->
+<div class="flex flex-col bg-white dark:bg-[#1c142e] rounded-xl border border-[#d7cfe7] dark:border-[#2d2445] shadow-sm overflow-hidden border-t-4 border-t-orange-500">
+<div class="p-5 border-b border-[#d7cfe7] dark:border-[#2d2445] bg-orange-500/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500 p-2 bg-orange-500/10 rounded-lg">bolt</span>
+<div>
+<h3 class="font-extrabold text-lg text-[#120d1b] dark:text-white">The Contrarian</h3>
+<p class="text-xs text-[#664c9a] dark:text-[#a390ce] font-medium uppercase tracking-tight">Strategy: Pattern Interruption</p>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="bg-background-light dark:bg-[#251b3d] p-4 rounded-lg border border-dashed border-[#d7cfe7] dark:border-[#2d2445]">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-orange-500/10 text-orange-600 text-[10px] font-bold rounded uppercase">Draft #1</span>
+<button class="text-[#664c9a] hover:text-primary"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+</div>
+<p class="text-sm leading-relaxed text-[#120d1b] dark:text-[#e0dbe9]">
+                                    "Your Personal Brand is currently a liability, not an asset. Most gurus tell you to be 'authentic'. They're wrong. In a crowded market, 'authenticity' is a commodity. What you actually need is <strong>Strategic Dissonance</strong>. Here is why your current approach is failing you..."
+                                </p>
+</div>
+<div class="mt-auto pt-4 flex gap-2">
+<button class="flex-1 flex items-center justify-center gap-2 border border-[#d7cfe7] dark:border-[#2d2445] rounded-lg py-2 px-3 text-sm font-bold hover:bg-background-light dark:hover:bg-[#2d2445] transition-colors">
+<span class="material-symbols-outlined text-base">edit_note</span> Refine
+                                </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary text-white rounded-lg py-2 px-3 text-sm font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-base">calendar_month</span> Schedule
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer / Quick Action Bar -->
+<footer class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/80 dark:bg-[#1c142e]/80 backdrop-blur-md border border-[#d7cfe7] dark:border-[#2d2445] rounded-full px-8 py-3 shadow-2xl z-50 flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-bold text-[#664c9a] dark:text-[#a390ce] uppercase">AI Engine Online</span>
+</div>
+<div class="h-4 w-px bg-[#d7cfe7] dark:border-[#2d2445]"></div>
+<button class="flex items-center gap-1 text-sm font-bold hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">save</span> Save All
+            </button>
+<button class="flex items-center gap-1 text-sm font-bold hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">download</span> Export
+            </button>
+</footer>
+</div>
+</body></html>

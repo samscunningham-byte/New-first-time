@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Writer - Creator Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .toggle-checkbox:checked {
+            @apply right-0 border-primary;
+            right: 0;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            @apply bg-primary;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            @apply bg-gray-200 dark:bg-gray-800 rounded-full;
+        }
+        .gauge-ring {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 62.8;
+        }
+        .viral-glow {
+            box-shadow: 0 0 20px rgba(91, 19, 236, 0.4);
+        }
+        .prediction-glow {
+            box-shadow: 0 0 15px rgba(91, 19, 236, 0.2), 0 0 30px rgba(59, 130, 246, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#120d1b] dark:text-white min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex-shrink-0 border-r border-[#ebe7f3] dark:border-[#2d243d] bg-white dark:bg-[#1c142e] flex flex-col justify-between p-4 z-30">
+<div class="flex flex-col gap-8">
+<div class="flex gap-3 items-center px-2">
+<div class="bg-primary rounded-lg p-2 text-white">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-[#120d1b] dark:text-white text-base font-bold leading-none">Creator Hub</h1>
+<p class="text-[#664c9a] dark:text-gray-400 text-xs font-normal">AI Partner</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#120d1b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#ebe7f3] dark:bg-primary/20 text-primary dark:text-white font-semibold transition-colors" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="text-sm">AI Writer</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#120d1b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#120d1b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm font-medium">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#120d1b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="text-sm font-medium">Inspiration</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<div class="p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/10">
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Growth Plan</p>
+<p class="text-sm text-[#120d1b] dark:text-gray-200 mb-3">85% of monthly AI words used.</p>
+<button class="w-full bg-primary text-white text-xs font-bold py-2 rounded-lg hover:bg-primary/90 transition-opacity">
+                    Upgrade Plan
+                </button>
+</div>
+</div>
+</aside>
+<aside class="w-72 flex-shrink-0 border-r border-[#ebe7f3] dark:border-[#2d243d] bg-[#fcfbff] dark:bg-[#191328] flex flex-col z-20">
+<div class="p-6 border-b border-[#ebe7f3] dark:border-[#2d243d]">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-extrabold text-[#120d1b] dark:text-white uppercase tracking-wider">Hook Library</h3>
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full">160+</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+<input class="w-full pl-9 pr-4 py-2 bg-white dark:bg-[#231a36] border border-[#ebe7f3] dark:border-[#3d3352] rounded-lg text-xs focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-gray-400 transition-all" placeholder="Search frameworks..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-2">
+<div class="flex flex-col gap-1">
+<button class="w-full text-left p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 group transition-all border border-transparent hover:border-[#ebe7f3] dark:hover:border-[#3d3352]">
+<p class="text-[11px] font-bold text-primary uppercase tracking-tighter mb-1 opacity-60 group-hover:opacity-100">Proven Framework</p>
+<h4 class="text-sm font-bold text-[#120d1b] dark:text-white mb-1">The AIDA Formula</h4>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">Attention, Interest, Desire, and Action for maximum conversion.</p>
+</button>
+<button class="w-full text-left p-3 rounded-lg bg-white dark:bg-white/5 border border-[#ebe7f3] dark:border-[#3d3352] group shadow-sm">
+<p class="text-[11px] font-bold text-primary uppercase tracking-tighter mb-1">Popular</p>
+<h4 class="text-sm font-bold text-[#120d1b] dark:text-white mb-1">PAS Formula</h4>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">Problem, Agitate, Solve. The ultimate psychological trigger.</p>
+</button>
+<button class="w-full text-left p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 group transition-all border border-transparent hover:border-[#ebe7f3] dark:hover:border-[#3d3352]">
+<p class="text-[11px] font-bold text-primary uppercase tracking-tighter mb-1 opacity-60 group-hover:opacity-100">Engagement</p>
+<h4 class="text-sm font-bold text-[#120d1b] dark:text-white mb-1">The Slippery Slide Effect</h4>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">Make every sentence impossible to stop reading.</p>
+</button>
+<button class="w-full text-left p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 group transition-all border border-transparent hover:border-[#ebe7f3] dark:hover:border-[#3d3352]">
+<p class="text-[11px] font-bold text-primary uppercase tracking-tighter mb-1 opacity-60 group-hover:opacity-100">Contrarian</p>
+<h4 class="text-sm font-bold text-[#120d1b] dark:text-white mb-1">The Great Myth</h4>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">Challenge common industry beliefs to stop the scroll.</p>
+</button>
+<div class="px-3 py-6 text-center">
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">+155 more templates</span>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden bg-white dark:bg-[#161022]">
+<header class="flex-shrink-0 flex items-center justify-between border-b border-[#ebe7f3] dark:border-[#2d243d] bg-white dark:bg-[#1c142e] px-8 py-4 z-10">
+<div class="flex items-center gap-8">
+<h2 class="text-[#120d1b] dark:text-white text-xl font-bold tracking-tight">AI Writer</h2>
+<div class="flex items-center gap-3 px-4 py-1.5 bg-[#f6f6f8] dark:bg-[#2d243d] rounded-full border border-[#ebe7f3] dark:border-[#3d3352]">
+<span class="text-xs font-bold text-[#664c9a] dark:text-gray-400 uppercase tracking-tight">Script Mode</span>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer right-0 border-primary" id="scriptModeToggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-primary cursor-pointer" for="scriptModeToggle"></label>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4 px-3 py-1 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-md text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    AI Online
+                </div>
+<button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-base">rocket_launch</span>
+                    Optimize Post
+                </button>
+<div class="h-10 w-10 rounded-full border-2 border-primary/20 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJJ9uxB6zRNvol4SupJI0VgaQ1mwy45ScBSQd76cr0EArVIJ9z9i7OtS0jwEsi269quwFhu5PycsNFmy9zDyQWETXe7lNE2MI2XiNH424d7qqPM7oqlsgipGbQy0o4r19UabLy8nLRFD2Pp8K8fpkFKZmHKza1GgpYhVRIf5w_jbNdMQdnxjnYFBh5CIJmimxtCl01hEVoiDx88MDqFVWAvYkEu7J-weqR2xcujICmbsvlcK8ggtrXpotqbQN-7siy-gb8o-9Fl60');"></div>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden">
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+<div class="max-w-4xl mx-auto space-y-6 pb-24">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-extrabold text-[#120d1b] dark:text-white">New Video Script</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Using SLAY framework for maximum speed-to-value.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-white dark:bg-[#1c142e] border border-[#d7cfe7] dark:border-[#2d243d] text-[#120d1b] dark:text-gray-300 hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-xl">history</span>
+</button>
+<button class="p-2 rounded-lg bg-white dark:bg-[#1c142e] border border-[#d7cfe7] dark:border-[#2d243d] text-[#120d1b] dark:text-gray-300 hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-xl">share</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="relative group">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-primary rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
+<div class="flex flex-col gap-2 p-6 rounded-xl border-2 border-primary/10 bg-white dark:bg-[#1c142e] shadow-sm hover:border-primary/30 transition-all">
+<div class="flex justify-between items-center mb-1">
+<label class="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-base">anchor</span>
+                                        The Hook
+                                    </label>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-lg text-[10px] font-bold border border-green-200 dark:border-green-800">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+                                        SCANNING...
+                                    </div>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-lg font-bold text-[#120d1b] dark:text-white placeholder-gray-300 dark:placeholder-gray-600 resize-none" id="hook-textarea" placeholder="Start with a pattern interrupt..." rows="3">[Concept 1] = [Outcome 1]
+Why most people fail at [Common Process]...
+Wait for the end to see the 100% result.</textarea>
+<div class="flex justify-between items-center pt-2 border-t border-gray-50 dark:border-gray-800">
+<p class="text-[10px] text-gray-400 font-medium">Ideal: Under 3 seconds / 15 words</p>
+<button class="text-primary/60 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+</button>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-primary rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
+<div class="flex flex-col gap-2 p-6 rounded-xl border border-[#d7cfe7] dark:border-[#2d243d] bg-white dark:bg-[#1c142e] shadow-sm hover:border-primary/30 transition-all">
+<div class="flex justify-between items-center mb-1">
+<label class="text-xs font-bold text-[#664c9a] dark:text-gray-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-base">diamond</span>
+                                        The Value
+                                    </label>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-base text-[#120d1b] dark:text-white placeholder-gray-300 dark:placeholder-gray-600 min-h-[160px]" placeholder="Deliver the meat of the post immediately. No fluff.">Here is the [Step-by-Step] to achieving [Outcome 1]:
+1. [Actionable Tip A]
+2. [Actionable Tip B]
+3. [Actionable Tip C]
+The secret is [Key Insight].</textarea>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-primary rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
+<div class="flex flex-col gap-2 p-6 rounded-xl border border-[#d7cfe7] dark:border-[#2d243d] bg-white dark:bg-[#1c142e] shadow-sm hover:border-primary/30 transition-all">
+<div class="flex justify-between items-center mb-1">
+<label class="text-xs font-bold text-[#664c9a] dark:text-gray-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-base">call_made</span>
+                                        The Call to Action
+                                    </label>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-base font-semibold text-[#120d1b] dark:text-white placeholder-gray-300 dark:placeholder-gray-600 resize-none" placeholder="Tell them exactly what to do next..." rows="2">If you want my full [Resource Name], comment "[Keyword]" below and I'll send it over.</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="w-80 flex-shrink-0 border-l border-[#ebe7f3] dark:border-[#2d243d] bg-[#fcfbff] dark:bg-[#1c142e] flex flex-col z-20 overflow-y-auto custom-scrollbar">
+<div class="p-6 border-b border-[#ebe7f3] dark:border-[#2d243d]">
+<h3 class="text-sm font-extrabold text-[#120d1b] dark:text-white uppercase tracking-wider mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                        Virality Score
+                    </h3>
+<p class="text-[11px] text-gray-500 dark:text-gray-400">Real-time Hook analysis</p>
+</div>
+<div class="p-6 space-y-8">
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-green-500 text-sm font-bold">check</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-[#120d1b] dark:text-white mb-0.5">Sentence Length</h4>
+<p class="text-[10px] text-gray-500 dark:text-gray-400">First 3 lines are &lt; 6 words each. Perfect for mobile.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+<span class="material-symbols-outlined text-orange-500 text-sm font-bold">pending</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-[#120d1b] dark:text-white mb-0.5">Slippery Slide</h4>
+<p class="text-[10px] text-gray-500 dark:text-gray-400">Check for simple, non-multisyllabic words. Keep it readable.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/20">
+<span class="material-symbols-outlined text-red-500 text-sm font-bold">close</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-[#120d1b] dark:text-white mb-0.5">Credibility Check</h4>
+<p class="text-[10px] text-gray-500 dark:text-gray-400">Add metrics, $ figures, or authority mentions to build trust.</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-[#ebe7f3] dark:border-[#2d243d] flex flex-col items-center">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+<circle class="text-gray-100 dark:text-gray-800" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary gauge-ring transition-all duration-700" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-2xl font-black text-[#120d1b] dark:text-white">75%</span>
+<span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Viral Score</span>
+</div>
+</div>
+<div class="mt-6 w-full p-4 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center gap-2 viral-glow">
+<span class="material-symbols-outlined text-primary">auto_fix_normal</span>
+<span class="text-xs font-extrabold text-primary uppercase tracking-tight">Viral Ready Potential</span>
+</div>
+</div>
+</div>
+<div class="mx-6 mb-6 p-5 rounded-2xl bg-white dark:bg-[#231a36] border border-[#ebe7f3] dark:border-[#3d3352] prediction-glow transition-all hover:border-primary/30">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-extrabold text-[#120d1b] dark:text-white uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-500 text-lg">insights</span>
+                            Engagement Predictor
+                        </h3>
+<div class="flex gap-1">
+<span class="bg-primary/90 text-white text-[8px] font-black px-1.5 py-0.5 rounded border border-white/10 uppercase">Viral Hook</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="text-3xl font-black text-[#120d1b] dark:text-white tracking-tight">2.4k</div>
+<div class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Expected Engagement</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end mb-1">
+<span class="text-[9px] font-bold text-primary uppercase tracking-widest">Trending Potential</span>
+<span class="bg-green-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">Trending</span>
+</div>
+<div class="flex gap-1 h-2">
+<div class="flex-1 bg-primary rounded-l-sm"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-blue-500"></div>
+<div class="flex-1 bg-blue-500"></div>
+<div class="flex-1 bg-gray-200 dark:bg-gray-700"></div>
+<div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-r-sm"></div>
+</div>
+<div class="flex justify-between text-[9px] font-medium text-gray-400">
+<span>LOW</span>
+<span>PEAK</span>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0 space-y-4">
+<div class="p-4 bg-[#f1eeff] dark:bg-[#231a36] rounded-lg border border-[#ebe7f3] dark:border-transparent">
+<p class="text-[11px] font-bold text-primary mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tips_and_updates</span>
+                            PRO TIP
+                        </p>
+<p class="text-[10px] text-[#664c9a] dark:text-gray-400 leading-normal italic">
+                            "Hooks that use a negative constraint (e.g., 'Stop doing X') typically see 24% higher click-through rates."
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white dark:bg-[#1c142e] border border-[#d7cfe7] dark:border-[#2d243d] px-4 py-3 rounded-2xl shadow-2xl z-40">
+<div class="flex items-center gap-1 pr-4 border-r border-gray-100 dark:border-gray-800">
+<span class="text-xs font-bold text-gray-400 px-2 uppercase tracking-tighter">Tools</span>
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg text-gray-500">
+<span class="material-symbols-outlined text-xl">format_bold</span>
+</button>
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg text-gray-500">
+<span class="material-symbols-outlined text-xl">format_italic</span>
+</button>
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg text-gray-500">
+<span class="material-symbols-outlined text-xl">link</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-[10px] font-bold text-gray-400">
+<span class="text-primary">142</span> WORDS
+                </div>
+<button class="bg-primary text-white text-xs font-bold px-6 py-2 rounded-xl hover:opacity-90 transition-opacity">
+                    Schedule Script
+                </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

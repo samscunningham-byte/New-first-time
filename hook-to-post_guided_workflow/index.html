@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hook-to-Post Guided Workflow</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-panel {
+            background: rgba(22, 16, 34, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#120d1b] dark:text-[#f9f8fc] min-h-screen overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-[#ebe7f3] dark:border-[#2d2445] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-3">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs><clippath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clippath></defs>
+</svg>
+</div>
+<h2 class="text-lg font-extrabold tracking-tight">HookWriter AI</h2>
+</div>
+<!-- Integrated Progress Bar in Nav -->
+<div class="hidden md:flex flex-col items-center gap-1 min-w-[300px]">
+<div class="flex w-full justify-between items-center text-xs font-semibold px-1">
+<span class="text-primary">Step 2 of 3: Drafting</span>
+<span class="text-[#664c9a] dark:text-[#a089d1]">66% Complete</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#d7cfe7] dark:bg-[#2d2445] overflow-hidden">
+<div class="h-full bg-primary" style="width: 66%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">save</span>
+<span>Save Draft</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border border-[#ebe7f3] dark:border-[#2d2445]" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKpjYCAci8bku-z6rqQmWcBmMQLK9b1XJvudmJHQ9Tss3-J2c0F5qqldydC-FPKf4qWIPtpwzb0ApDLHQlOYj6aG9u1xWuH62bvsylua5TphKKLBVIYLo7m90PItnc1JyTm11ux6fdWSRcOrQxwVICFlZGjTy4RdO0AsR0W_SNyy4tq7zmfE_OYaQJ8bHQVe3Qw6jYrIjez_totNI0d40rUSv6EIYIN9PMDpj6TGdjUFwwvdhzs4IR6aPGp2WPUslIez2GkoM6LFU");'></div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-65px)] overflow-hidden">
+<!-- Left Panel: Hook Selector -->
+<aside class="w-[420px] border-r border-[#ebe7f3] dark:border-[#2d2445] flex flex-col bg-white dark:bg-[#1c142e]">
+<div class="p-6">
+<h3 class="text-xl font-bold mb-1">Pick a Viral Hook</h3>
+<p class="text-sm text-[#664c9a] dark:text-[#a089d1]">Choose a framework to start your post.</p>
+</div>
+<div class="flex-1 overflow-y-auto px-6 pb-6 no-scrollbar space-y-4">
+<!-- Hook Card 1: Selected -->
+<div class="group relative flex flex-col gap-3 p-4 rounded-xl border-2 border-primary bg-primary/5 dark:bg-primary/10 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Story-Driven</span>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-[#120d1b] dark:text-white">The Escape</h4>
+<p class="text-xs text-[#664c9a] dark:text-[#a089d1] mt-1">Start with a dramatic exit from a situation your audience hates.</p>
+</div>
+<div class="mt-2 p-3 bg-white/50 dark:bg-black/20 rounded-lg italic text-sm text-[#120d1b] dark:text-[#f9f8fc]/80 border border-primary/10">
+                        "I quit my 9-5 with $0 in the bank. 12 months later, I'm making 5x my previous salary. Here is how..."
+                    </div>
+</div>
+<!-- Hook Card 2 -->
+<div class="group relative flex flex-col gap-3 p-4 rounded-xl border border-[#ebe7f3] dark:border-[#2d2445] hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="bg-[#ebe7f3] dark:bg-[#2d2445] text-[#120d1b] dark:text-[#f9f8fc] text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Authority</span>
+</div>
+<div>
+<h4 class="text-base font-bold">The Counter-Intuitive Truth</h4>
+<p class="text-xs text-[#664c9a] dark:text-[#a089d1] mt-1">Challenge a common belief to grab instant attention.</p>
+</div>
+<div class="mt-2 p-3 bg-[#f6f6f8] dark:bg-[#2d2445]/30 rounded-lg italic text-sm opacity-60">
+                        "Stop networking. Start building. Most people think your network is your net worth, but they're wrong..."
+                    </div>
+</div>
+<!-- Hook Card 3 -->
+<div class="group relative flex flex-col gap-3 p-4 rounded-xl border border-[#ebe7f3] dark:border-[#2d2445] hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="bg-[#ebe7f3] dark:bg-[#2d2445] text-[#120d1b] dark:text-[#f9f8fc] text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Value</span>
+</div>
+<div>
+<h4 class="text-base font-bold">The Listicle</h4>
+<p class="text-xs text-[#664c9a] dark:text-[#a089d1] mt-1">Promise a specific number of actionable takeaways.</p>
+</div>
+<div class="mt-2 p-3 bg-[#f6f6f8] dark:bg-[#2d2445]/30 rounded-lg italic text-sm opacity-60">
+                        "7 AI tools that will save you 20 hours a week (and none of them are ChatGPT)..."
+                    </div>
+</div>
+<!-- Hook Card 4 -->
+<div class="group relative flex flex-col gap-3 p-4 rounded-xl border border-[#ebe7f3] dark:border-[#2d2445] hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="bg-[#ebe7f3] dark:bg-[#2d2445] text-[#120d1b] dark:text-[#f9f8fc] text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Mistake</span>
+</div>
+<div>
+<h4 class="text-base font-bold">The Costly Error</h4>
+<p class="text-xs text-[#664c9a] dark:text-[#a089d1] mt-1">Warn your audience about something they're doing wrong.</p>
+</div>
+<div class="mt-2 p-3 bg-[#f6f6f8] dark:bg-[#2d2445]/30 rounded-lg italic text-sm opacity-60">
+                        "I spent $10,000 on Facebook ads so you don't have to. Here's the #1 mistake that killed my ROI..."
+                    </div>
+</div>
+</div>
+</aside>
+<!-- Right Panel: Full Post Builder -->
+<section class="flex-1 flex flex-col relative bg-[#f9f8fc] dark:bg-[#161022]">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-8 py-6 border-b border-[#ebe7f3] dark:border-[#2d2445] bg-white dark:bg-[#1c142e]">
+<div>
+<h2 class="text-2xl font-bold tracking-tight">Full Post Builder</h2>
+<p class="text-sm text-[#664c9a] dark:text-[#a089d1]">Adapting to: <span class="text-primary font-bold">The Escape Framework</span></p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-[#ebe7f3] dark:border-[#2d2445] hover:bg-gray-50 dark:hover:bg-[#2d2445] transition-colors">
+<span class="material-symbols-outlined">auto_fix</span>
+</button>
+<button class="p-2 rounded-lg border border-[#ebe7f3] dark:border-[#2d2445] hover:bg-gray-50 dark:hover:bg-[#2d2445] transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Editor Area -->
+<div class="flex-1 overflow-y-auto p-8 no-scrollbar">
+<div class="max-w-2xl mx-auto space-y-8">
+<!-- Post Hook Segment -->
+<div class="space-y-2">
+<label class="text-[10px] font-black uppercase tracking-widest text-primary">The Hook</label>
+<div class="relative">
+<textarea class="w-full p-4 rounded-xl border border-primary bg-white dark:bg-[#1c142e] shadow-sm text-lg font-bold focus:ring-2 focus:ring-primary focus:border-transparent outline-none min-h-[100px] resize-none" placeholder="Write your hook here...">I quit my 9-5 with $0 in the bank. 12 months later, I'm making 5x my previous salary. Here is how...</textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-1">
+<span class="text-[10px] font-bold text-primary">HOOK STRENGTH: 94%</span>
+<div class="size-2 rounded-full bg-green-500 animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Contextual Scaffolding -->
+<div class="space-y-6">
+<!-- Step 1: The Struggle -->
+<div class="relative pl-6 border-l-2 border-dashed border-[#d7cfe7] dark:border-[#2d2445]">
+<div class="absolute -left-[9px] top-0 size-4 rounded-full bg-white dark:bg-[#1c142e] border-2 border-primary"></div>
+<label class="text-[10px] font-black uppercase tracking-widest text-[#664c9a] dark:text-[#a089d1]">The Struggle (Context)</label>
+<textarea class="w-full mt-2 p-4 rounded-xl border border-[#ebe7f3] dark:border-[#2d2445] bg-white dark:bg-[#1c142e] focus:border-primary focus:ring-1 focus:ring-primary outline-none min-h-[120px] transition-all" placeholder="Describe the pain point or the situation you escaped from..."></textarea>
+</div>
+<!-- Step 2: The Turning Point -->
+<div class="relative pl-6 border-l-2 border-dashed border-[#d7cfe7] dark:border-[#2d2445]">
+<div class="absolute -left-[9px] top-0 size-4 rounded-full bg-white dark:bg-[#1c142e] border-2 border-[#d7cfe7] dark:border-[#2d2445]"></div>
+<label class="text-[10px] font-black uppercase tracking-widest text-[#664c9a] dark:text-[#a089d1]">The Turning Point (Action)</label>
+<textarea class="w-full mt-2 p-4 rounded-xl border border-[#ebe7f3] dark:border-[#2d2445] bg-white dark:bg-[#1c142e] focus:border-primary focus:ring-1 focus:ring-primary outline-none min-h-[120px] transition-all" placeholder="What changed? What was the 'aha' moment?"></textarea>
+</div>
+<!-- Step 3: The Result -->
+<div class="relative pl-6 border-l-2 border-dashed border-[#d7cfe7] dark:border-[#2d2445]">
+<div class="absolute -left-[9px] top-0 size-4 rounded-full bg-white dark:bg-[#1c142e] border-2 border-[#d7cfe7] dark:border-[#2d2445]"></div>
+<label class="text-[10px] font-black uppercase tracking-widest text-[#664c9a] dark:text-[#a089d1]">The Result (The Prize)</label>
+<textarea class="w-full mt-2 p-4 rounded-xl border border-[#ebe7f3] dark:border-[#2d2445] bg-white dark:bg-[#1c142e] focus:border-primary focus:ring-1 focus:ring-primary outline-none min-h-[120px] transition-all" placeholder="Where are you now? Quantify the success..."></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action Bar -->
+<div class="absolute bottom-8 right-8 flex items-center gap-3">
+<button class="flex items-center gap-2 px-6 py-4 rounded-xl bg-white dark:bg-[#1c142e] border border-[#ebe7f3] dark:border-[#2d2445] text-sm font-bold shadow-xl hover:bg-gray-50 dark:hover:bg-[#2d2445] transition-all">
+<span class="material-symbols-outlined">content_copy</span>
+<span>Copy to Clipboard</span>
+</button>
+<button class="flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white text-sm font-bold shadow-2xl shadow-primary/40 hover:scale-[1.02] transition-all active:scale-[0.98]">
+<span>Finalize &amp; Publish</span>
+<span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+<!-- Suggestion Sidebar Overlay (Vertical Labels) -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-2 p-2 bg-white dark:bg-[#1c142e] border-y border-l border-[#ebe7f3] dark:border-[#2d2445] rounded-l-xl shadow-lg">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Add Image Idea">
+<span class="material-symbols-outlined">image</span>
+</button>
+<button class="p-2 text-[#664c9a] hover:bg-gray-100 dark:hover:bg-[#2d2445] rounded-lg transition-colors" title="Hashtag Generator">
+<span class="material-symbols-outlined">tag</span>
+</button>
+<button class="p-2 text-[#664c9a] hover:bg-gray-100 dark:hover:bg-[#2d2445] rounded-lg transition-colors" title="Tone Changer">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</section>
+</main>
+</body></html>

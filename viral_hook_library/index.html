@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Viral Hook Library - HookAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a6cc2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101a22",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hook-card:hover {
+            transform: translateY(-2px);
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7eef4] dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0d151c] dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">HookAI</h2>
+</div>
+<label class="flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden">
+<div class="text-[#49769c] flex border-none bg-[#e7eef4] dark:bg-slate-800 items-center justify-center pl-4">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-[#e7eef4] dark:bg-slate-800 text-[#0d151c] dark:text-white focus:ring-0 h-full placeholder:text-[#49769c] px-4 pl-2 text-sm" placeholder="Global search..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#0d151c] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-1" href="#">Hook Library</a>
+<a class="text-[#0d151c] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">My Drafts</a>
+<a class="text-[#0d151c] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all">
+<span>Upgrade Pro</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_HOUWmRdMICn8i3jquUnF-4tNPNSJ75OZJb8T5-tQRFjJfka0llsDsgP5whMBnqfoudQN-52Ohj4Xr1BINs441J9J6npmo-n-d1ZZJCK_yyoXos_FSS61oce-h7-G_qtBWvFAZVFYHN9n45tfOikiA__YXPmFIyr8IaAaPyrEx3aGTjGdsTeKoE1iwYNRuleNcYpOLE6FmEk6GdUyUTPM9n3BqPoVygECRjlyU7sYyx5YfJM1JTZtRzVST_AWf7yzUWkCwcVbOek");'></div>
+</div>
+</header>
+<main class="flex flex-col flex-1 max-w-[1200px] mx-auto w-full py-8 px-6">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-end gap-4 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-[#0d151c] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Viral Hook Library</h1>
+<p class="text-[#49769c] dark:text-slate-400 text-lg font-normal max-w-2xl">Browse 200+ proven LinkedIn templates to stop the scroll and drive maximum engagement for your personal brand.</p>
+</div>
+</div>
+<!-- Search and Filters Bar -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-4 mb-6">
+<div class="flex flex-col md:flex-row gap-4">
+<div class="flex-1">
+<label class="flex flex-col h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full border border-[#e7eef4] dark:border-slate-700 overflow-hidden">
+<div class="text-[#49769c] flex bg-[#f8fafc] dark:bg-slate-800 items-center justify-center px-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full border-none bg-white dark:bg-slate-900 text-[#0d151c] dark:text-white focus:ring-0 h-full placeholder:text-[#49769c] px-4 pl-2 text-base" placeholder="Search hooks by keywords, creators or strategies..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-3">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eef4] dark:bg-slate-800 px-4 hover:bg-[#d0deeb] dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-lg">tune</span>
+<p class="text-[#0d151c] dark:text-white text-sm font-medium">Tone: Professional</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eef4] dark:bg-slate-800 px-4 hover:bg-[#d0deeb] dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-lg">list</span>
+<p class="text-[#0d151c] dark:text-white text-sm font-medium">Post Type: All</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Category Tabs -->
+<div class="mb-8 border-b border-[#cedce8] dark:border-slate-800 flex overflow-x-auto no-scrollbar">
+<div class="flex gap-8 px-2">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] whitespace-nowrap px-4">Viral</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-[#49769c] pb-3 pt-2 hover:text-primary transition-all" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] whitespace-nowrap px-4">Story</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-[#49769c] pb-3 pt-2 hover:text-primary transition-all" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] whitespace-nowrap px-4">Carousel</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-[#49769c] pb-3 pt-2 hover:text-primary transition-all" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] whitespace-nowrap px-4">Success</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-[#49769c] pb-3 pt-2 hover:text-primary transition-all" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] whitespace-nowrap px-4">Funny</p>
+</a>
+</div>
+</div>
+<!-- Hook Grid (Masonry-like layout using columns) -->
+<div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+<!-- Hook Card 1 -->
+<div class="break-inside-avoid hook-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200" data-alt="Creator profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9pK-_S7lHChqcLxhvqpqKKV4n4DV4jekfKKPV_AjLu5sULZYdevz97aS-w8Ec4toGpAtBQG4HRAAASrpxyKpdnTzBarhcKeKGOQn8srBY-5OCUl0TBWPhO_M2SnnmXh-vFKsY7ZgVOJkzSJCmslF_YteO21CKPszkOmBkP9P75A51klQ2USvrvcfMQAVni3slQD3syFrIkoma19kyA8jqxsuacJ4C59cTsmnmtFWzOUHQNU587Zv8KlkP6zyjQPgQNGMdwFksk7o"); background-size: cover;'></div>
+<span class="text-xs font-bold text-[#0d151c] dark:text-white">Justin Welsh</span>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">The Escape Strategy</span>
+</div>
+<div>
+<p class="text-[11px] text-[#49769c] dark:text-slate-400 italic mb-2 font-medium">Why it works: Challenges the status quo and promises a better path.</p>
+<div class="bg-[#f8fafc] dark:bg-slate-800/50 rounded-lg p-4 border-l-4 border-primary">
+<p class="text-[#0d151c] dark:text-slate-200 text-sm leading-relaxed font-bold">
+                                    "I spent <span class="text-primary">[Time]</span> building a <span class="text-primary">[Business/Career]</span>. Here are 5 things I wish I knew before I <span class="text-primary">[Big Mistake]</span>."
+                                </p>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<button class="text-[#49769c] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2">
+                                Use This Template
+                                <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+<!-- Hook Card 2 -->
+<div class="break-inside-avoid hook-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200" data-alt="Creator profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4g7FlYOWDegYbTqxQQJImfve-YVEHAHvSragyK-aZHGPj4ua1aCudM8nNS5P1VKjjrEvpodgmGi9xCpp5BeCpVN4bGWONbhJnxnRvlKa5k-qtdCLo6HScA6dGqxdVrjIFR0zZ7l8JDOERVg1rY5ezU5UzRA4YyWbHmSNeVRowc4ECOu4MdrGIRKglQZJQSsiY5TqbAi1UGX8JkSk4aefFW2qc1XZG67dc2N2GJ5oUHvTmJT9DpNeKKA9_uQckr26OvbwRoYMmGyg"); background-size: cover;'></div>
+<span class="text-xs font-bold text-[#0d151c] dark:text-white">Sahil Bloom</span>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">The Paradox</span>
+</div>
+<div>
+<p class="text-[11px] text-[#49769c] dark:text-slate-400 italic mb-2 font-medium">Why it works: Uses counter-intuitive logic to pique curiosity.</p>
+<div class="bg-[#f8fafc] dark:bg-slate-800/50 rounded-lg p-4 border-l-4 border-primary">
+<p class="text-[#0d151c] dark:text-slate-200 text-sm leading-relaxed font-bold">
+                                    "The <span class="text-primary">[Topic]</span> Paradox: Why doing <span class="text-primary">[Action A]</span> actually leads to <span class="text-primary">[Opposite Result]</span>."
+                                </p>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<button class="text-[#49769c] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2">
+                                Use This Template
+                                <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+<!-- Hook Card 3 -->
+<div class="break-inside-avoid hook-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200" data-alt="Creator profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXybGneRRzz_YMyRX7GWAKbwqi--Lq1oE5-jBNzm9SMzObwN8vb8j19Bo8ajncVnWpARBjsiAwaxn4MfrURzGyJwvcSTFxv-XfQI8B8vmfEx0M1RzJ0_BmEM208cMeW1tBVsPkroFgG3UnHJQPQc_UXrtGefCG_PCM8bjpBMdnWo6sDthIkZWduCcKO4L1QtZmY31G2O2RfMKYrmo7NmUetcIHcZTOX4oFI-_xyCiXpkCFGg9JnH0Jzhd5eLiib2S4-ROcJrVpVRU"); background-size: cover;'></div>
+<span class="text-xs font-bold text-[#0d151c] dark:text-white">Jasmin Alić</span>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">The Big Lie</span>
+</div>
+<div>
+<p class="text-[11px] text-[#49769c] dark:text-slate-400 italic mb-2 font-medium">Why it works: Debunks common myths to establish authority.</p>
+<div class="bg-[#f8fafc] dark:bg-slate-800/50 rounded-lg p-4 border-l-4 border-primary">
+<p class="text-[#0d151c] dark:text-slate-200 text-sm leading-relaxed font-bold">
+                                    "Stop listening to <span class="text-primary">[Expert/Group]</span>. They've been telling you a lie about <span class="text-primary">[Topic]</span> for years. Here's the truth:"
+                                </p>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<button class="text-[#49769c] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2">
+                                Use This Template
+                                <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+<!-- Hook Card 4 -->
+<div class="break-inside-avoid hook-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200" data-alt="Creator profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnCGiMvUhk6ECxgbnRvjyfzV7lHVmU74UL3lR_Bzi2zUFDUfvdtPYMlzb2RDWaknKKUm6nrkMy5DchriipakCsXGS9i71BMS76vlaV1gEvrH3MujKy8OBoA1Tkarp36-xigBYIuq2OI7tcEVXnB8-OHjJW1EKxTKJzwD8uWn5QEcv2TerE37msr0MYcuPPr1m_rCYbBxbXee5RQd-zp19xQYx_tH2p7QgZAArqc5Hqd5yATmVD2zeD74EPIIEx5TSlkyv8dAuerxU"); background-size: cover;'></div>
+<span class="text-xs font-bold text-[#0d151c] dark:text-white">Lara Acosta</span>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">The Listicle</span>
+</div>
+<div>
+<p class="text-[11px] text-[#49769c] dark:text-slate-400 italic mb-2 font-medium">Why it works: Easy to consume and promises high value-per-second.</p>
+<div class="bg-[#f8fafc] dark:bg-slate-800/50 rounded-lg p-4 border-l-4 border-primary">
+<p class="text-[#0d151c] dark:text-slate-200 text-sm leading-relaxed font-bold">
+                                    "I analyzed 1,000 <span class="text-primary">[Industry Items]</span> so you don't have to. Here are the 7 <span class="text-primary">[Assets]</span> that actually generate <span class="text-primary">[Result]</span>:"
+                                </p>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<button class="text-[#49769c] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2">
+                                Use This Template
+                                <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+<!-- Hook Card 5 -->
+<div class="break-inside-avoid hook-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200" data-alt="Creator profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBS03syoFnfg0gu7FNrn6eePEpY9JJCK72oPMuvRGHUV1O7-JX8MVsdkE_o7yYQeLob85cB-TNv9fp9Ad9GzP6TFRd7UDoK41avM8XRhKkAy5D41qZc6rxaeUewdGQQgHAetZE4dTlIPXBTeI77mcsL3TAjeH0-cnTuK6p-xeDrxG3KqmtlKFcmR4h8QoL5YlPwRqt64NFDPUvh0jq7dBmREy0dJM5FB6RJDFRy-o5UgXVBwklWtlY6sXiwDR7XfFocXCQZgZZrnx0"); background-size: cover;'></div>
+<span class="text-xs font-bold text-[#0d151c] dark:text-white">Dickie Bush</span>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">The Velocity Hook</span>
+</div>
+<div>
+<p class="text-[11px] text-[#49769c] dark:text-slate-400 italic mb-2 font-medium">Why it works: Focuses on speed of implementation and results.</p>
+<div class="bg-[#f8fafc] dark:bg-slate-800/50 rounded-lg p-4 border-l-4 border-primary">
+<p class="text-[#0d151c] dark:text-slate-200 text-sm leading-relaxed font-bold">
+                                    "Give me 5 minutes, and I'll show you how to <span class="text-primary">[Task]</span> 10x faster using only <span class="text-primary">[Simple Tool]</span>. No <span class="text-primary">[Pain Point]</span> required."
+                                </p>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<button class="text-[#49769c] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2">
+                                Use This Template
+                                <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+<!-- Hook Card 6 -->
+<div class="break-inside-avoid hook-card bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7eef4] dark:border-slate-800 p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200" data-alt="Creator profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCTMqCyG4SnTDLXsI830lhVelN2_LqmUCix1mTxP1yEqBw34wI33fi-QpH0dPvGm7uCsuBt154zFipFlVZyQtFV8vqMxRHKEjdSUMb0ZvOlnd7CsvtXzXxDJrZ7e3y8wPR444exDH1RFOyrRE_dI1cXjzaPfQGRkcKnLPFdkMEa68nlMpHYT1JCYcmWWao-fo56iCW_D-41uBfnUbvhAZm0TKV3XytMxWMjGMoTsta5cjZZPjBnj48R6EWI5F2ngMUK1THjCOec4Q"); background-size: cover;'></div>
+<span class="text-xs font-bold text-[#0d151c] dark:text-white">Alex Hormozi</span>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">The Hard Pill</span>
+</div>
+<div>
+<p class="text-[11px] text-[#49769c] dark:text-slate-400 italic mb-2 font-medium">Why it works: Harsh truths build deep trust and filter for the right audience.</p>
+<div class="bg-[#f8fafc] dark:bg-slate-800/50 rounded-lg p-4 border-l-4 border-primary">
+<p class="text-[#0d151c] dark:text-slate-200 text-sm leading-relaxed font-bold">
+                                    "Unpopular opinion: If you can't <span class="text-primary">[Action]</span>, you'll never <span class="text-primary">[Goal]</span>. It’s not about <span class="text-primary">[False Variable]</span>, it’s about <span class="text-primary">[Real Reason]</span>."
+                                </p>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<button class="text-[#49769c] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2">
+                                Use This Template
+                                <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="flex justify-center mt-12 mb-8">
+<button class="flex items-center gap-2 px-8 py-3 bg-white dark:bg-slate-900 border border-[#e7eef4] dark:border-slate-700 text-[#0d151c] dark:text-white rounded-xl font-bold hover:bg-[#f8fafc] dark:hover:bg-slate-800 transition-all shadow-sm">
+                        Load More Templates
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer-ish info -->
+<footer class="py-6 border-t border-[#e7eef4] dark:border-slate-800 px-10 text-center">
+<p class="text-[#49769c] text-sm font-medium">© 2024 HookAI Platform. All hook strategies verified by AI analytics.</p>
+</footer>
+</div>
+</div>
+</body></html>

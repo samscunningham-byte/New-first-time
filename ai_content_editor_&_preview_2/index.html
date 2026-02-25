@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Post Architect - SLAY Method Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .tooltip-trigger:hover .tooltip-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#120d1b] dark:text-[#f9f8fc] overflow-hidden h-screen flex flex-col">
+<header class="flex items-center justify-between border-b border-[#ebe7f3] dark:border-[#2d243d] px-8 py-3 bg-white dark:bg-[#1c162a] z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="text-lg font-bold leading-tight tracking-tight">AI Post Architect <span class="ml-2 text-[10px] bg-primary/10 px-2 py-0.5 rounded text-primary uppercase">SLAY Method</span></h2>
+<div class="flex items-center gap-2 text-xs text-[#664c9a] dark:text-[#bbadd7]">
+<span>Drafting with SLAY</span>
+<span class="size-1 bg-[#d7cfe7] rounded-full"></span>
+<span>Just now</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-6 mr-6 border-r border-[#ebe7f3] dark:border-[#2d243d] pr-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Drafts</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Templates</a>
+<div class="relative tooltip-trigger">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                    Framework Examples
+                    <span class="material-symbols-outlined text-sm">info</span>
+</button>
+<div class="hidden tooltip-content absolute top-full mt-2 right-0 w-72 bg-white dark:bg-[#251d38] border border-[#d7cfe7] dark:border-[#3d3154] p-4 rounded-xl shadow-2xl z-[60]">
+<h4 class="font-bold text-sm mb-3 text-primary">Winning Structures</h4>
+<div class="space-y-3">
+<div class="p-2 bg-background-light dark:bg-[#1c162a] rounded border border-gray-100 dark:border-[#2d243d]">
+<p class="text-[10px] font-bold text-[#664c9a] dark:text-[#bbadd7] uppercase mb-1">The Contrarian</p>
+<p class="text-[11px] leading-relaxed">Punchy hook + Data proof + Personal lesson + Question</p>
+</div>
+<div class="p-2 bg-background-light dark:bg-[#1c162a] rounded border border-gray-100 dark:border-[#2d243d]">
+<p class="text-[10px] font-bold text-[#664c9a] dark:text-[#bbadd7] uppercase mb-1">The Storyteller</p>
+<p class="text-[11px] leading-relaxed">Emotional start + Conflict + Solution + Call to action</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#ebe7f3] dark:bg-[#2d243d] text-[#120d1b] dark:text-[#f9f8fc] text-sm font-bold">
+<span>Schedule</span>
+</button>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+<span>Post Now</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ml-2 border-2 border-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEJjZvTfLYQNLR0bnIqGmgToLjFEjIfWv9HqvKfqYn_3suwE1c2ESm5SW-Ra78MkucYVAu6Jh4hHbgl_gVRg3RPJdY8tFb936iIcgpIq-WmNJWYW-hiETkR7q_3oIH2pFIlSKSw0timIl9vmWumgbQQlXt7jUj4pjQpwT9M9ODZCz8XuvXur33ss2778QJmcPjpmk4aLM2lQXSvY4nYiC3y77bT93HQjUFP7d1eIaXXwqB6ur67zKH3uRuhW40_Mu3-ei2ylbRyrE");'></div>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden relative">
+<section class="flex-1 flex flex-col bg-white dark:bg-[#1c162a] border-r border-[#ebe7f3] dark:border-[#2d243d] relative">
+<div class="px-8 pt-6 pb-2">
+<label class="block text-[10px] font-bold text-[#664c9a] dark:text-[#bbadd7] uppercase tracking-widest mb-2">Topic Input</label>
+<div class="flex gap-2 p-1.5 bg-background-light dark:bg-[#251d38] border border-[#ebe7f3] dark:border-[#3d3154] rounded-xl focus-within:border-primary transition-all">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm font-medium py-1 px-3" placeholder="What should this post be about?" type="text" value="The future of AI in marketing operations"/>
+<button class="bg-primary text-white px-4 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                    Generate Draft
+                </button>
+</div>
+</div>
+<div class="flex items-center justify-between px-8 pt-4">
+<div class="flex gap-4">
+<button class="flex items-center gap-1 text-primary text-xs font-bold border-b-2 border-primary pb-2">
+<span class="material-symbols-outlined text-sm">edit_note</span> Editor
+                </button>
+<button class="flex items-center gap-1 text-[#664c9a] dark:text-[#bbadd7] text-xs font-bold pb-2 hover:text-primary">
+<span class="material-symbols-outlined text-sm">visibility</span> Preview
+                </button>
+</div>
+</div>
+<div class="flex-1 flex flex-col p-8 pt-4 overflow-y-auto no-scrollbar">
+<div class="flex gap-1 p-1 bg-white dark:bg-[#2d243d] shadow-xl border border-[#ebe7f3] dark:border-[#3d3154] rounded-xl w-fit mb-6">
+<button class="flex items-center gap-1 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span> Improve
+                </button>
+<div class="w-px h-4 bg-[#ebe7f3] dark:bg-[#3d3154] self-center"></div>
+<button class="flex items-center gap-1 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">
+<span class="material-symbols-outlined text-lg">content_cut</span> Shorten
+                </button>
+<div class="w-px h-4 bg-[#ebe7f3] dark:bg-[#3d3154] self-center"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">
+<span class="material-symbols-outlined text-lg">psychology</span> Change Tone
+                    <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="border-l-4 border-primary/20 pl-4">
+<span class="text-[10px] font-bold text-primary uppercase">Stop the scroll (Hook)</span>
+<textarea class="w-full text-lg font-bold leading-tight text-[#120d1b] dark:text-[#f9f8fc] bg-transparent border-none focus:ring-0 resize-none p-0 mt-1" rows="2">Most marketing teams are using AI wrong. 
+Here's why your "efficiency gains" are actually slowing you down:</textarea>
+</div>
+<div class="border-l-4 border-primary/20 pl-4">
+<span class="text-[10px] font-bold text-primary uppercase">Lead with value</span>
+<textarea class="w-full text-base leading-relaxed text-[#120d1b] dark:text-[#f9f8fc] bg-transparent border-none focus:ring-0 resize-none p-0 mt-1" rows="5">The secret isn't more content. It's better operations. 
+We analyzed 500+ workflows and found that 80% of teams are just automating bad processes. Instead, focus on:
+1. Data cleanliness before generation
+2. Human-in-the-loop validation
+3. Feedback cycles that actually loop back</textarea>
+</div>
+<div class="border-l-4 border-primary/20 pl-4">
+<span class="text-[10px] font-bold text-primary uppercase">Add personality</span>
+<textarea class="w-full text-base leading-relaxed text-[#120d1b] dark:text-[#f9f8fc] bg-transparent border-none focus:ring-0 resize-none p-0 mt-1" rows="3">I learned this the hard way after burning $10k on a "fully automated" campaign that yielded zero engagement. AI is a bicycle, not a self-driving car.</textarea>
+</div>
+<div class="border-l-4 border-primary/20 pl-4">
+<span class="text-[10px] font-bold text-primary uppercase">Yield to action</span>
+<textarea class="w-full text-base leading-relaxed text-[#120d1b] dark:text-[#f9f8fc] bg-transparent border-none focus:ring-0 resize-none p-0 mt-1" rows="2">What's your biggest bottleneck in marketing ops right now? Let's discuss below. 👇</textarea>
+</div>
+</div>
+<div class="flex items-center justify-between mt-8 py-3 border-t border-[#ebe7f3] dark:border-[#2d243d]">
+<div class="flex gap-4">
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">image</span></button>
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">mood</span></button>
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">bar_chart</span></button>
+</div>
+<div class="text-xs text-[#664c9a] dark:text-[#bbadd7] font-medium">
+                    842 / 3,000 characters
+                </div>
+</div>
+</div>
+</section>
+<aside class="w-80 flex flex-col bg-background-light dark:bg-[#161022] border-l border-[#ebe7f3] dark:border-[#2d243d] overflow-y-auto no-scrollbar">
+<div class="p-6 border-b border-[#ebe7f3] dark:border-[#2d243d] bg-white dark:bg-[#1c162a]">
+<h3 class="text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                SLAY Method Analysis
+            </h3>
+<p class="text-xs text-[#664c9a] dark:text-[#bbadd7] mt-1">Structure your post for maximum reach.</p>
+</div>
+<div class="p-6 space-y-6">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold">S</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-tight">Stop the Scroll</span>
+<span class="text-[10px] text-[#664c9a] dark:text-[#bbadd7]">The Hook</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-green-500 font-bold">check_circle</span>
+</div>
+<div class="w-full bg-[#d7cfe7] dark:bg-[#2d243d] h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-full"></div>
+</div>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] leading-relaxed">Great hook! You started with a contrarian statement that creates curiosity.</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-[#d7cfe7] dark:bg-[#2d243d] text-primary dark:text-[#bbadd7] flex items-center justify-center font-bold">L</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-tight">Lead with Value</span>
+<span class="text-[10px] text-[#664c9a] dark:text-[#bbadd7]">The Insight</span>
+</div>
+</div>
+<span class="text-[10px] font-bold text-primary">85%</span>
+</div>
+<div class="w-full bg-[#d7cfe7] dark:bg-[#2d243d] h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] leading-relaxed italic">Tip: Use more bullet points to make the value easy to scan.</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold">A</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-tight">Add Personality</span>
+<span class="text-[10px] text-[#664c9a] dark:text-[#bbadd7]">The Connection</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-green-500 font-bold">check_circle</span>
+</div>
+<div class="w-full bg-[#d7cfe7] dark:bg-[#2d243d] h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-[#d7cfe7] dark:bg-[#2d243d] text-primary dark:text-[#bbadd7] flex items-center justify-center font-bold">Y</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-tight">Yield to Action</span>
+<span class="text-[10px] text-[#664c9a] dark:text-[#bbadd7]">The CTA</span>
+</div>
+</div>
+<span class="text-[10px] font-bold text-[#664c9a]">Needs focus</span>
+</div>
+<div class="w-full bg-[#d7cfe7] dark:bg-[#2d243d] h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[40%]"></div>
+</div>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] leading-relaxed italic">Tip: Be specific. Tell them exactly what to do (e.g., "Join my newsletter").</p>
+</div>
+</div>
+<div class="mt-auto m-6 p-4 rounded-xl bg-gradient-to-br from-primary to-[#8b5cf6] text-white">
+<h4 class="text-xs font-bold mb-1">Boost Engagement</h4>
+<p class="text-[10px] opacity-90 mb-3">Our AI predicts this post will get 2x more engagement than your average.</p>
+<button class="w-full py-2 bg-white text-primary text-[10px] font-bold rounded-lg">View Detailed Score</button>
+</div>
+</aside>
+<div class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1c162a] border-t-2 border-primary shadow-[0_-10px_30px_rgba(91,19,236,0.1)] z-40">
+<div class="px-8 py-3 flex items-center justify-between cursor-pointer border-b border-[#ebe7f3] dark:border-[#2d243d]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h4 class="font-bold text-sm">Framework-Based Hooks <span class="ml-2 px-2 py-0.5 bg-primary/10 text-primary rounded-full text-[10px]">SLAY Optimized</span></h4>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-xs font-bold text-primary hover:underline">Regenerate</button>
+<span class="material-symbols-outlined text-[#bbadd7]">keyboard_arrow_down</span>
+</div>
+</div>
+<div class="px-8 py-6 flex gap-4 overflow-x-auto no-scrollbar">
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary italic">"The Stop the Scroll" Hook</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">APPLY</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"99% of marketers are sleeping on this AI tactic..."</p>
+</div>
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">Contrarian Hook</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">APPLY</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"Stop building your marketing on rented land."</p>
+</div>
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">Social Proof Hook</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">APPLY</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"How we saved 40 hours a week using zero-prompt AI."</p>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Campaign Blueprint &amp; Sequencer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #ebe7f3;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #5b13ec50;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #5b13ec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#120d1b] dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#ebe7f3] dark:border-[#2d243d] px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#120d1b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">LinkedIn AI Sequencer</h2>
+</div>
+<label class="flex flex-col min-w-64 h-10">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#664c9a] dark:text-primary/70 flex border-none bg-[#ebe7f3] dark:bg-[#2d243d] items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-[#ebe7f3] dark:bg-[#2d243d] text-[#120d1b] dark:text-white placeholder:text-[#664c9a] px-4 rounded-r-lg text-sm font-normal focus:ring-0" placeholder="Search strategies..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#120d1b] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold" href="#">Campaigns</a>
+<a class="text-[#120d1b] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Templates</a>
+<a class="text-[#120d1b] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-opacity-90 transition-all">
+<span>Save Blueprint</span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Professional user profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0LazENY4VxzsUtYqC4JlzBJDa6V-k-24kmf7RdLH3IKHpDcNlRkDaCzq9i42EP9WaEXUPc8OApgTHySYB2QKC63x81UhzRfXbCURmM5UfdTcP9XLq_7WPuuHkE8g1DAVkZK_BXZh39MpxmDy6LlrgIcnrmbCVfNLCpRrUrGEnzMEp-htbI65x9vzfvJE5cea_CaR4g0euCX92lafHmbSrRnUE2BF9WCOsbwHgAMUOY5tOFUBqJ70EunJDxzgFzBPmPUbCXHw0Ngw");'></div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- Strategy Sidebar -->
+<aside class="w-80 border-r border-[#ebe7f3] dark:border-[#2d243d] bg-white dark:bg-background-dark p-6 flex flex-col gap-8 overflow-y-auto">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-[#664c9a] mb-4">Campaign Strategy</h3>
+<div class="flex flex-col gap-4">
+<div class="p-4 rounded-xl bg-primary/5 border border-primary/10">
+<p class="text-sm font-bold text-primary mb-1">Methodology</p>
+<p class="text-lg font-black text-[#120d1b] dark:text-white">SLAY Framework</p>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-xs font-semibold text-[#664c9a]">Core Topic</label>
+<input class="bg-background-light dark:bg-[#2d243d] border-none rounded-lg text-sm focus:ring-primary h-10" type="text" value="B2B AI Automation"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-xs font-semibold text-[#664c9a]">Target Audience</label>
+<input class="bg-background-light dark:bg-[#2d243d] border-none rounded-lg text-sm focus:ring-primary h-10" type="text" value="SaaS Founders &amp; CTOs"/>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-[#664c9a] mb-2">Configure</h3>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary text-white cursor-pointer group">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+<p class="text-sm font-bold">Sequence Blueprint</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#120d1b] dark:text-white hover:bg-primary/10 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-[20px]">target</span>
+<p class="text-sm font-medium">Goal Alignment</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#120d1b] dark:text-white hover:bg-primary/10 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-[20px]">brush</span>
+<p class="text-sm font-medium">Tone of Voice</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#120d1b] dark:text-white hover:bg-primary/10 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<p class="text-sm font-medium">Global Settings</p>
+</div>
+</nav>
+<div class="mt-auto p-4 rounded-xl bg-gradient-to-br from-primary to-[#8e54e9] text-white">
+<p class="text-xs font-bold opacity-80 mb-1">AI Credits</p>
+<p class="text-xl font-black mb-3">2,450 / 5k</p>
+<div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+<div class="bg-white h-full w-1/2"></div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Page Heading -->
+<div class="p-8 border-b border-[#ebe7f3] dark:border-[#2d243d] bg-white dark:bg-background-dark">
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-wider">AI Generated Roadmap</span>
+</div>
+<h1 class="text-3xl font-black tracking-tight text-[#120d1b] dark:text-white">Q4 Growth Blueprint: Authority &amp; Conversion</h1>
+<p class="text-[#664c9a] dark:text-primary/60 text-base">A 30-day sequence optimized for CTO engagement using the SLAY methodology.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 rounded-lg h-10 px-4 border border-[#ebe7f3] dark:border-[#2d243d] text-[#120d1b] dark:text-white text-sm font-bold hover:bg-gray-50 transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export Schedule</span>
+</button>
+<button class="flex items-center gap-2 rounded-lg h-10 px-4 bg-[#ebe7f3] dark:bg-[#2d243d] text-[#120d1b] dark:text-white text-sm font-bold hover:bg-opacity-80 transition-all">
+<span class="material-symbols-outlined text-lg">refresh</span>
+<span>Regenerate All</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Horizontal Timeline Controls -->
+<div class="bg-white dark:bg-background-dark border-b border-[#ebe7f3] dark:border-[#2d243d] px-8">
+<div class="flex gap-8">
+<a class="flex flex-col items-center border-b-4 border-primary text-primary pb-3 pt-4" href="#">
+<span class="text-sm font-bold">Week 1: Awareness</span>
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">The Hooks</span>
+</a>
+<a class="flex flex-col items-center border-b-4 border-transparent text-[#664c9a] dark:text-gray-400 pb-3 pt-4 hover:text-primary transition-all" href="#">
+<span class="text-sm font-bold">Week 2: Value</span>
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">The Education</span>
+</a>
+<a class="flex flex-col items-center border-b-4 border-transparent text-[#664c9a] dark:text-gray-400 pb-3 pt-4 hover:text-primary transition-all" href="#">
+<span class="text-sm font-bold">Week 3: Authority</span>
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">The Proof</span>
+</a>
+<a class="flex flex-col items-center border-b-4 border-transparent text-[#664c9a] dark:text-gray-400 pb-3 pt-4 hover:text-primary transition-all" href="#">
+<span class="text-sm font-bold">Week 4: Conversion</span>
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">The Close</span>
+</a>
+</div>
+</div>
+<!-- Horizontal Sequencer Container -->
+<div class="flex-1 overflow-x-auto p-8 custom-scrollbar bg-background-light dark:bg-background-dark/50">
+<div class="flex gap-6 min-w-max pb-4">
+<!-- Day Card 1 (Drafted) -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white font-black">01</div>
+<div class="h-px bg-primary/20 flex-1"></div>
+</div>
+<div class="bg-white dark:bg-[#1f162e] p-5 rounded-2xl shadow-sm border-t-4 border-primary group hover:shadow-md transition-all h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase tracking-wider">Awareness Hook</span>
+<span class="material-symbols-outlined text-green-500 text-xl" title="Drafted">check_circle</span>
+</div>
+<h4 class="text-lg font-bold mb-2 text-[#120d1b] dark:text-white leading-snug">The Industry Hook: Why AI is Failing SaaS Founders</h4>
+<p class="text-sm text-[#664c9a] dark:text-gray-400 flex-1">A controversial take on the current state of automation in B2B...</p>
+<div class="mt-6 flex flex-col gap-2">
+<button class="w-full py-2 bg-[#ebe7f3] dark:bg-[#2d243d] text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Edit Script</button>
+<div class="flex justify-between items-center text-[10px] font-bold text-[#664c9a] mt-2">
+<span>POSTED BY AI</span>
+<span>2 MIN READ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Day Card 2 (Empty) -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center gap-3 opacity-40">
+<div class="size-10 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-white font-black">02</div>
+<div class="h-px bg-gray-300 dark:bg-gray-700 flex-1"></div>
+</div>
+<div class="bg-white/60 dark:bg-[#1f162e]/40 p-5 rounded-2xl border-2 border-dashed border-primary/20 flex flex-col items-center justify-center text-center gap-4 h-[320px]">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-bold text-[#120d1b] dark:text-white">Day 2: Common Myths</h4>
+<p class="text-xs text-[#664c9a] mt-1">Ready for AI generation</p>
+</div>
+<button class="mt-2 px-6 py-2 bg-primary text-white text-sm font-bold rounded-lg shadow-lg shadow-primary/30 hover:scale-105 transition-all">Auto-Generate Script</button>
+</div>
+</div>
+<!-- Day Card 3 (Scheduled) -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white font-black">03</div>
+<div class="h-px bg-primary/20 flex-1"></div>
+</div>
+<div class="bg-white dark:bg-[#1f162e] p-5 rounded-2xl shadow-sm border-t-4 border-primary group hover:shadow-md transition-all h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase tracking-wider">Personal Journey</span>
+<span class="material-symbols-outlined text-primary text-xl" title="Scheduled">calendar_month</span>
+</div>
+<h4 class="text-lg font-bold mb-2 text-[#120d1b] dark:text-white leading-snug">From Manual To Automated: My 6-Month Sprint</h4>
+<p class="text-sm text-[#664c9a] dark:text-gray-400 flex-1">Sharing the raw data behind our internal automation pivot...</p>
+<div class="mt-6 flex flex-col gap-2">
+<button class="w-full py-2 border border-primary text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Preview Post</button>
+<div class="flex justify-between items-center text-[10px] font-bold text-[#664c9a] mt-2">
+<span>SCHEDULED: OCT 12</span>
+<span>10:30 AM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Day Card 4 (Empty) -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center gap-3 opacity-40">
+<div class="size-10 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-white font-black">04</div>
+<div class="h-px bg-gray-300 dark:bg-gray-700 flex-1"></div>
+</div>
+<div class="bg-white/60 dark:bg-[#1f162e]/40 p-5 rounded-2xl border-2 border-dashed border-primary/20 flex flex-col items-center justify-center text-center gap-4 h-[320px]">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">poll</span>
+</div>
+<div>
+<h4 class="font-bold text-[#120d1b] dark:text-white">Day 4: Awareness Poll</h4>
+<p class="text-xs text-[#664c9a] mt-1">Drive early engagement</p>
+</div>
+<button class="mt-2 px-6 py-2 bg-primary text-white text-sm font-bold rounded-lg shadow-lg shadow-primary/30 hover:scale-105 transition-all">Auto-Generate Script</button>
+</div>
+</div>
+<!-- Day Card 5 (Empty) -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center gap-3 opacity-40">
+<div class="size-10 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-white font-black">05</div>
+<div class="h-px bg-gray-300 dark:bg-gray-700 flex-1"></div>
+</div>
+<div class="bg-white/60 dark:bg-[#1f162e]/40 p-5 rounded-2xl border-2 border-dashed border-primary/20 flex flex-col items-center justify-center text-center gap-4 h-[320px]">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">lightbulb</span>
+</div>
+<div>
+<h4 class="font-bold text-[#120d1b] dark:text-white">Day 5: Problem Teaser</h4>
+<p class="text-xs text-[#664c9a] mt-1">Hinting at the value week</p>
+</div>
+<button class="mt-2 px-6 py-2 bg-primary text-white text-sm font-bold rounded-lg shadow-lg shadow-primary/30 hover:scale-105 transition-all">Auto-Generate Script</button>
+</div>
+</div>
+<!-- Day Card 6 (Empty) -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center gap-3 opacity-40">
+<div class="size-10 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-white font-black">06</div>
+<div class="h-px bg-gray-300 dark:bg-gray-700 flex-1"></div>
+</div>
+<div class="bg-white/60 dark:bg-[#1f162e]/40 p-5 rounded-2xl border-2 border-dashed border-primary/20 flex flex-col items-center justify-center text-center gap-4 h-[320px]">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+</div>
+<div>
+<h4 class="font-bold text-[#120d1b] dark:text-white">Day 6: Expert Insight</h4>
+<p class="text-xs text-[#664c9a] mt-1">Leveraging niche knowledge</p>
+</div>
+<button class="mt-2 px-6 py-2 bg-primary text-white text-sm font-bold rounded-lg shadow-lg shadow-primary/30 hover:scale-105 transition-all">Auto-Generate Script</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Status Bar -->
+<footer class="bg-white dark:bg-[#110c1a] border-t border-[#ebe7f3] dark:border-[#2d243d] px-8 py-4 flex justify-between items-center">
+<div class="flex gap-6 items-center">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-semibold text-[#664c9a]">3/30 Days Ready</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-primary"></div>
+<span class="text-xs font-semibold text-[#664c9a]">1 Scheduled</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-gray-300"></div>
+<span class="text-xs font-semibold text-[#664c9a]">26 Pending</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-xs text-[#664c9a]">Last updated: Today at 2:45 PM</p>
+<button class="px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-bold hover:bg-primary/20 transition-all">Preview Full Timeline</button>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

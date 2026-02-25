@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review &amp; Optimize - Video Post-Production</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#120d1b] dark:text-white">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-solid border-[#ebe7f3] dark:border-[#2d253d] bg-white dark:bg-[#1c152a] px-8 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+</svg>
+</div>
+<div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Review &amp; Optimize</h2>
+<p class="text-xs text-[#664c9a] dark:text-[#a389d4]">Project Alpha • LinkedIn Video</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#ebe7f3] dark:hover:bg-[#2d253d] transition-colors">
+<span class="material-symbols-outlined text-lg">save</span>
+                Save Draft
+            </button>
+<button class="flex min-w-[140px] items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+<span>Publish to LinkedIn</span>
+</button>
+<div class="h-8 w-px bg-[#ebe7f3] dark:bg-[#2d253d] mx-2"></div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User profile avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNZWMJ0D4tZEQLU9sKzvikhfCoqac_CEQlW5YIEJgnWWw1Ew3FKAnIj-JS1_4slb-DmtWKERaJT9A60PkYCaRfS5Hzcz5OJk6FjpcCtxHFVHY2YE9QgEGD7K7XMm5npGqhlcwBK-0Jti6HmMSXMZSU_TdYi80bAa6AKz2yGMcewfv1QNHVrrq3cOExyBegZII28wgilwyXUUkwrDTWIUjgzSiI3MhLt7RRH-nVP-8JHQ08a2Y1F44auG7js0qJvSpauRDIzsnfsCM");'></div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto grid grid-cols-12 gap-8 p-8">
+<!-- Left Column: Editor -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-6">
+<!-- Media Player Section -->
+<section class="bg-white dark:bg-[#1c152a] rounded-xl overflow-hidden border border-[#ebe7f3] dark:border-[#2d253d] shadow-sm">
+<div class="p-4 border-b border-[#ebe7f3] dark:border-[#2d253d] flex items-center justify-between">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">movie</span>
+                        Video Review
+                    </h3>
+<div class="flex gap-2">
+<span class="px-2 py-1 rounded bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">HD 1080p</span>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">AI Hook Detected</span>
+</div>
+</div>
+<div class="relative flex items-center justify-center bg-black aspect-video group" data-alt="Main video player display area" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4f-kEjDFzhP6p6juB7FlDV7tVnAziTOwG8ZR6z2xSLSaM8Bjg58oW5JyuodInfFUrj5cPCZ2ajuhZaxa_9FTpIbOKwEMbL5aczv8nthzZMhxxfFTfUrR0c_7bEo9D3RyBwrVfI2jBoKodeqfX2k7ErEDArQDIBotGxOCsvvTlUc7inFfPnCENAS2MmDeNTxzJUHBxNTlZdBuN-PCoXYuxXtjbPHb6D7ZbPGcX4wx7DiPtU-HKeFZkX7IT5NFKAnhmiZ5MapOugTw"); background-size: cover; background-position: center;'>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all"></div>
+<button class="relative z-10 flex shrink-0 items-center justify-center rounded-full size-16 bg-white/20 backdrop-blur-md text-white border border-white/30 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined scale-150" style="font-variation-settings: 'FILL' 1">play_arrow</span>
+</button>
+<div class="absolute inset-x-0 bottom-0 px-6 py-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex h-1.5 items-center justify-center mb-2">
+<div class="h-full w-1/3 rounded-full bg-primary relative">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 size-4 rounded-full bg-white border-2 border-primary shadow-lg"></div>
+</div>
+<div class="h-full flex-1 rounded-full bg-white/30"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-white text-xs font-medium">0:42 / 2:15</span>
+<span class="material-symbols-outlined text-white text-sm cursor-pointer">volume_up</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white text-sm cursor-pointer">settings</span>
+<span class="material-symbols-outlined text-white text-sm cursor-pointer">fullscreen</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Caption Editor Section -->
+<section class="bg-white dark:bg-[#1c152a] rounded-xl overflow-hidden border border-[#ebe7f3] dark:border-[#2d253d] shadow-sm">
+<div class="p-4 border-b border-[#ebe7f3] dark:border-[#2d253d] flex items-center justify-between bg-primary/5">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_fix_high</span>
+                        AI-Generated Caption
+                    </h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-[#664c9a]">452 characters</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-col border border-[#d7cfe7] dark:border-[#3a314d] rounded-lg bg-background-light dark:bg-[#231a35]">
+<div class="p-4">
+<textarea class="w-full min-h-[180px] bg-transparent border-none focus:ring-0 text-[#120d1b] dark:text-white placeholder-[#bbadd7] text-base leading-relaxed resize-none" placeholder="Edit your AI-generated caption here...">🚀 Why most creators fail in the first 30 days...
+
+The secret isn't more gear. It's consistency and a focused visual hook. In this video, I break down the 3-step framework I used to scale my LinkedIn reach by 400% in just one month.
+
+🔑 Key Takeaways:
+1. Master the 3-second hook
+2. Quality over quantity
+3. Engage with every comment
+
+Watch until the end for a special bonus template! 🎁
+
+#ContentCreation #LinkedInGrowth #VideoStrategy #CreatorEconomy</textarea>
+</div>
+<div class="flex items-center justify-between p-3 border-t border-[#d7cfe7] dark:border-[#3a314d] bg-white dark:bg-[#1c152a] rounded-b-lg">
+<div class="flex items-center gap-1">
+<button class="p-2 hover:bg-[#f6f6f8] dark:hover:bg-[#2d253d] rounded transition-colors text-[#664c9a]">
+<span class="material-symbols-outlined text-xl">format_bold</span>
+</button>
+<button class="p-2 hover:bg-[#f6f6f8] dark:hover:bg-[#2d253d] rounded transition-colors text-[#664c9a]">
+<span class="material-symbols-outlined text-xl">format_italic</span>
+</button>
+<button class="p-2 hover:bg-[#f6f6f8] dark:hover:bg-[#2d253d] rounded transition-colors text-[#664c9a]">
+<span class="material-symbols-outlined text-xl">mood</span>
+</button>
+<div class="w-px h-6 bg-[#d7cfe7] dark:bg-[#3a314d] mx-1"></div>
+<button class="p-2 hover:bg-[#f6f6f8] dark:hover:bg-[#2d253d] rounded transition-colors text-[#664c9a] flex items-center gap-1">
+<span class="material-symbols-outlined text-xl">tag</span>
+<span class="text-xs font-bold uppercase tracking-tight">Suggest Tags</span>
+</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-1.5 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                                Regenerate Hook
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Previews & Thumbnails -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
+<!-- LinkedIn Preview Mockup -->
+<section class="bg-white dark:bg-[#1c152a] rounded-xl border border-[#ebe7f3] dark:border-[#2d253d] shadow-sm flex flex-col h-full">
+<div class="p-4 border-b border-[#ebe7f3] dark:border-[#2d253d] flex items-center justify-between">
+<h3 class="font-bold flex items-center gap-2 text-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[#0a66c2]">visibility</span>
+                        LinkedIn Feed Preview
+                    </h3>
+<div class="flex p-1 bg-background-light dark:bg-[#2d253d] rounded-lg">
+<button class="px-3 py-1 rounded-md text-xs font-bold bg-white dark:bg-primary shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">laptop</span>
+                            Desktop
+                        </button>
+<button class="px-3 py-1 rounded-md text-xs font-bold text-[#664c9a] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">smartphone</span>
+                            Mobile
+                        </button>
+</div>
+</div>
+<div class="flex-1 p-6 bg-[#f3f6f8] dark:bg-[#0d0a15] overflow-y-auto max-h-[500px]">
+<!-- LinkedIn Card Mockup -->
+<div class="bg-white dark:bg-[#1c1c1e] border border-gray-200 dark:border-gray-800 rounded shadow-sm max-w-[500px] mx-auto">
+<div class="p-3 flex gap-2">
+<div class="size-12 rounded-full bg-gray-200 bg-cover" data-alt="Profile picture of the user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsZYPZlRMSIHnFiG68wTeIC6cev7pyjlZBcnYA75bBO-BacM2pESwZNOeK0qKdKdXqjZ6EqtJZpDw6pukSyubmLugR156CnBVOIKuDiDT1AnizM5P2b2ylyXat5eLjHkQij9xC60LyhIdrIJi6JXEQ8yveb8_UFS0Ili9NOeCTyKW8jxBRMv76fN7jNO5cint-zGH7ZsinH3imAwtM5H9_ZOIryKPzmxooDT7Ba_A5uUHze8zINj56Gl7H3vnbDyTbc29Q0bJGSb0");'></div>
+<div class="flex-1">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold hover:text-blue-600 cursor-pointer">Alex Chen</span>
+<span class="text-xs text-gray-500">• 1st</span>
+</div>
+<p class="text-[11px] text-gray-500 leading-none">Senior Product Strategist at TechFlow</p>
+<p class="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5">1h • <span class="material-symbols-outlined text-[12px]">public</span></p>
+</div>
+<button class="text-blue-600 text-sm font-bold flex items-center gap-1 self-start mt-1">
+<span class="material-symbols-outlined text-sm">add</span>
+                                Follow
+                            </button>
+</div>
+<div class="px-3 pb-3 text-sm text-gray-900 dark:text-gray-100 leading-normal">
+<p class="mb-1">🚀 Why most creators fail in the first 30 days...</p>
+<p>The secret isn't more gear. It's consistency and a focused visual hook...</p>
+<button class="text-gray-500 font-semibold hover:text-blue-600 transition-colors">...see more</button>
+</div>
+<div class="relative bg-black aspect-video flex items-center justify-center" data-alt="LinkedIn video preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAj33AO5FpQGj9J79Bvi5o7GAM_BglHv3SaaJ92xLix_4jmCghfAmJNPeC2nKH4MpHeXb80I6n2rpaPU9sWcDm1LZctNcUbS-kvk_0TgwZ8ODjXMV3pJhuzpxZnDu1jpeu9-BCKpdgF_yByeN83hh9dwN4VdHLt7ptDnwFbpNtvevl7YYJHMK14HPqNF0qQQPwrTUyXbHjrNlbGYVNRbMt077Rm1tNe6w7MQVm3SKUEwVlmTgPnoO_KSZn0gb2Wb207aMB3aJmxfjo"); background-size: cover; background-position: center;'>
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="absolute top-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded">2:15</div>
+<button class="relative bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full size-12 flex items-center justify-center text-white border border-white/20 transition-all">
+<span class="material-symbols-outlined scale-125" style="font-variation-settings: 'FILL' 1">play_arrow</span>
+</button>
+</div>
+<div class="px-3 py-2 flex items-center gap-4 border-t border-gray-100 dark:border-gray-800 mt-2">
+<div class="flex items-center gap-1 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm text-blue-500" style="font-variation-settings: 'FILL' 1">thumb_up</span>
+<span class="material-symbols-outlined text-sm text-red-500" style="font-variation-settings: 'FILL' 1">favorite</span>
+<span>142</span>
+</div>
+<div class="flex-1 flex justify-end gap-3 text-xs text-gray-500">
+<span>12 comments</span>
+<span>•</span>
+<span>5 shares</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Thumbnail Generator -->
+<section class="bg-white dark:bg-[#1c152a] rounded-xl border border-[#ebe7f3] dark:border-[#2d253d] shadow-sm">
+<div class="p-4 border-b border-[#ebe7f3] dark:border-[#2d253d] flex items-center justify-between">
+<h3 class="font-bold flex items-center gap-2 text-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                        AI Thumbnail Suggestions
+                    </h3>
+<button class="text-xs text-primary font-bold hover:underline">Customize</button>
+</div>
+<div class="p-4 flex flex-col gap-4">
+<p class="text-xs text-[#664c9a] dark:text-[#a389d4] bg-primary/5 p-2 rounded-lg border border-primary/10">
+<strong>Visual Hook Found:</strong> Detected high-energy facial expression and key text overlay frame at 0:12.
+                    </p>
+<div class="grid grid-cols-3 gap-3">
+<div class="relative group cursor-pointer border-2 border-primary rounded-lg overflow-hidden ring-4 ring-primary/20">
+<div class="aspect-[9/16] bg-cover bg-center" data-alt="AI generated thumbnail option 1 - energetic facial expression" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVNjUEIZCUyWJytgNAIIedgsH1fOEBVjJiD42kP7KGpeIHxzTMHLHkeTJRChkHguNrECDOXrmQ-HWCvx9dkSg6VIXugq_JFThI_nE03CO7eLggM9FALEXcWkRZ69FpZTJ_hjjWXvhxDe5ZWYBv3e7pUgNE0ocbWdK86QYas1pHjkc9Wf-t7er-Ndz0f4NNByPC2euKYvlujHMWYbmN1RZJH8dweuQRRjlF7REVCwGzM1SxFQzzp3mX1-ue7Yr-_DG5yJy_H4uLy5Q");'></div>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute top-2 left-2 bg-primary text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full uppercase">Selected</div>
+</div>
+<div class="relative group cursor-pointer border-2 border-transparent hover:border-primary/50 rounded-lg overflow-hidden transition-all">
+<div class="aspect-[9/16] bg-cover bg-center" data-alt="AI generated thumbnail option 2 - process overview" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDW-rfDPY_xfjKA1QLSSaWQW7Sf2nFQoTqz0E_TQwSQFI-1XO5Mo_J5DPle_UAkqv0hUGM7xhRnvtDxcI3ZOBClAEKCfu93zhqhccW5B02BwVOHfKen2N9xxAmBzjxmRycK0_sLh1D3n6hWsT282-Q1oRvY83zsL4Yb7k4EGgWviM9FEzD_GpbxOZlZWjKJwpUq__b-jvYvpFrb7EvLj64qAukZBiK99SfRmQvctKrbzZOFdHyLTpjesVzLSNHzBsqxt1TrDAk-aw");'></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">check_circle</span>
+</div>
+</div>
+<div class="relative group cursor-pointer border-2 border-transparent hover:border-primary/50 rounded-lg overflow-hidden transition-all">
+<div class="aspect-[9/16] bg-cover bg-center" data-alt="AI generated thumbnail option 3 - text overlay focus" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDK_ymDvanKZKZZsokEppZ--FLn8ctIHA8nnEbZSZeSdgLmPWQ8dL52HrD3hq5Qs16qSi6MqCGa5TxgvgLPyziFFdOs0su3vC_qpplB2XKjzyf_w8xms2Pq3b4xF5nId7Nvcw6Fb_OVYhl4fmBKRhaEdEXxCA0k2RnzgsPGuZwAOQY7pF1Mlp2FEFaIZVMWATagUtkwmEfWFjYcfXHcCd6w3V4_dIMCBJxut2XOcaC7xMql1yWdCXCFtf2fBnN7mAu0QGgPoFv4yuA");'></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">check_circle</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2 border border-[#d7cfe7] dark:border-[#3a314d] rounded-lg text-xs font-bold hover:bg-background-light dark:hover:bg-[#2d253d] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">upload</span>
+                        Upload Custom Thumbnail
+                    </button>
+</div>
+</section>
+<!-- SEO & Best Practices Check -->
+<section class="bg-white dark:bg-[#1c152a] rounded-xl border border-[#ebe7f3] dark:border-[#2d253d] shadow-sm p-4">
+<h4 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Post Health Check</h4>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<div class="size-5 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-green-600 text-[14px] font-bold">check</span>
+</div>
+<div>
+<p class="text-xs font-bold">Optimized Hook</p>
+<p class="text-[10px] text-gray-500">First line is under 40 characters for maximum impact.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="size-5 rounded-full bg-orange-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-orange-600 text-[14px] font-bold">priority_high</span>
+</div>
+<div>
+<p class="text-xs font-bold">Hashtag Density</p>
+<p class="text-[10px] text-gray-500">You used 4 hashtags. 3 is the LinkedIn sweet spot.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="size-5 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-green-600 text-[14px] font-bold">check</span>
+</div>
+<div>
+<p class="text-xs font-bold">Captions Detected</p>
+<p class="text-[10px] text-gray-500">Hard-coded captions found. Good for mobile "sound-off" views.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Action Bar (Mobile Responsive or Quick Tools) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/80 dark:bg-[#1c152a]/80 backdrop-blur-xl border border-[#ebe7f3] dark:border-[#2d253d] px-6 py-3 rounded-full shadow-2xl flex items-center gap-6 z-40 hidden md:flex">
+<button class="flex flex-col items-center gap-0.5 text-primary">
+<span class="material-symbols-outlined">edit</span>
+<span class="text-[10px] font-bold uppercase">Editor</span>
+</button>
+<div class="w-px h-8 bg-gray-200 dark:bg-gray-700"></div>
+<button class="flex flex-col items-center gap-0.5 text-[#664c9a] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase">Insights</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-[#664c9a] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">schedule</span>
+<span class="text-[10px] font-bold uppercase">Schedule</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-[#664c9a] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">share</span>
+<span class="text-[10px] font-bold uppercase">Cross-Post</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brand Pillars &amp; Hook Alignment</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">account_tree</span>
+<h2 class="text-xl font-extrabold tracking-tight">StrategyFlow</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors border-b-2 border-primary py-5" href="#">Pillars</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Hook Library</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors text-slate-500" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Search strategy..." type="text"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="User avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKFwlrwm94TGH3aS5zkXPEuhrwdFlunfcZzILQ91XmYhUBTnPUe-oCszUwimZ1fkFa14ParfWk4pQIeNsiq3PfgTBWAEVOtXBQNgXAIsWv6Ngmh4kx5HUB0xrNKepEuYYKqCJCycjWhlASy-UsLiAyr47loCqxmcmipNy5ORpWGN-E4LYP8QZAJiewWdCXi7Tzcj7xMYJPtQ5Gl693AB6-YzWOFz4WAFUk4xxyRdBH2FMJSkxPUdqtqw6kHB57FPOwVVFk4b4PxOc"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Page Heading -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-black tracking-tight mb-2">Brand Pillars &amp; Hook Alignment</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl">Connect your core brand strategy with high-performing content hooks to maintain authority and voice consistency across all channels.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">add</span>
+                    New Pillar
+                </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-slate-500 mb-1">
+<span class="text-sm font-medium">Voice Consistency</span>
+<span class="material-symbols-outlined text-primary">record_voice_over</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">88%</span>
+<span class="text-emerald-500 text-sm font-bold flex items-center mb-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> 3%
+                    </span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary h-full w-[88%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-slate-500 mb-1">
+<span class="text-sm font-medium">Post Frequency</span>
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">92%</span>
+<span class="text-emerald-500 text-sm font-bold flex items-center mb-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> 5%
+                    </span>
+</div>
+<div class="flex gap-1 mt-3">
+<div class="h-2 flex-1 bg-primary rounded-full"></div>
+<div class="h-2 flex-1 bg-primary rounded-full"></div>
+<div class="h-2 flex-1 bg-primary rounded-full"></div>
+<div class="h-2 flex-1 bg-primary rounded-full"></div>
+<div class="h-2 flex-1 bg-primary rounded-full"></div>
+<div class="h-2 flex-1 bg-slate-100 dark:bg-slate-800 rounded-full"></div>
+<div class="h-2 flex-1 bg-slate-100 dark:bg-slate-800 rounded-full"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-slate-500 mb-1">
+<span class="text-sm font-medium">Active Hooks</span>
+<span class="material-symbols-outlined text-primary">anchor</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">35</span>
+<span class="text-slate-400 text-xs mb-1">Total across pillars</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-slate-500 mb-1">
+<span class="text-sm font-medium">Avg. Engagement</span>
+<span class="material-symbols-outlined text-primary">insights</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">4.2%</span>
+<span class="text-rose-500 text-sm font-bold flex items-center mb-1">
+<span class="material-symbols-outlined text-sm">trending_down</span> 0.5%
+                    </span>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-2 mb-6">
+<h2 class="text-xl font-bold tracking-tight">Core Content Pillars</h2>
+<button class="text-primary text-sm font-bold hover:underline">View All Hooks</button>
+</div>
+<!-- Pillars Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Pillar 1 -->
+<div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl border-2 border-primary/10 shadow-sm hover:border-primary/40 transition-all overflow-hidden">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Abstract blueprint representing industry expertise" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxCGdVAWPtQb2DRSccEsYuNBxH4i1AQT3_0f5W8JUqgTyM-XttMdydeqCXKRsW5wnGiDk1pkX0tA5C6tNm9npHHUy4w_nkP8gq_i99T1cqzV-xZI8GominH4DW8mcQZERbbA2M5jBBNbJtO814hOMSsLQ_dVY4-q1xQR5E582vSwVs3uJ8P5vfc7V9romht7PWiYN8jBugFwgC6_Ovma2ZxQVFmyYpFxgBItK18__PfcNHLvs30j8Xis5deiVmtGVTzeFhCij0Icw');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary bg-white rounded-full p-1 text-xs">verified</span>
+<span class="text-xs font-bold uppercase tracking-widest text-white/80">Strategy Focus</span>
+</div>
+<h3 class="text-xl font-bold">Industry Expert</h3>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Authority-building content that positions you as a thought leader through deep dives and insights.</p>
+<div class="space-y-3 mb-6">
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Top Hook Templates (12)</p>
+<div class="group cursor-pointer p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<p class="text-sm font-medium mb-1 line-clamp-1">"The mistake I see 90% of [Niche] making..."</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">8.2% Conv</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<div class="group cursor-pointer p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<p class="text-sm font-medium mb-1 line-clamp-1">"Stop using [Method]. Here is what works now..."</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">7.5% Conv</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary text-slate-600 dark:text-slate-300 font-bold text-sm rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit_square</span>
+                        Draft from Pillar
+                    </button>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl border-2 border-primary/10 shadow-sm hover:border-primary/40 transition-all overflow-hidden">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Office setup with warm lighting for behind the scenes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOeJ6geHLrKWDQMBFBSjHPcZCSop5zx-5L14glDpH8Y5Ka7AUQuGmeJG-kUUFcG7lGlbj10hDE2dlVlIcZAn4tOO0j-bPzhfXwSCWVKeAIHhKIUQ7oCJBZ_GKNSb9TAAGYmFbqf9A5QqYBxq2gMwv4OFnSGvcNVclQgj9bAkdjtuIS71VgLOY1sqzyoiZGiFCtsxTaaMfVWMBc78DH8F9UHz_IGiK43bRot_5CUO9119jXMzqk6L4tykhC6ZcF4L4mwBG_pvPzOoQ');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary bg-white rounded-full p-1 text-xs">visibility</span>
+<span class="text-xs font-bold uppercase tracking-widest text-white/80">Strategy Focus</span>
+</div>
+<h3 class="text-xl font-bold">Behind the Scenes</h3>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Humanize your brand through relatability, transparency, and showing the "how" of your daily work.</p>
+<div class="space-y-3 mb-6">
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Top Hook Templates (8)</p>
+<div class="group cursor-pointer p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<p class="text-sm font-medium mb-1 line-clamp-1">"What a typical Tuesday really looks like..."</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">High Engage</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<div class="group cursor-pointer p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<p class="text-sm font-medium mb-1 line-clamp-1">"The mess behind the success: A story about..."</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">High Engage</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary text-slate-600 dark:text-slate-300 font-bold text-sm rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit_square</span>
+                        Draft from Pillar
+                    </button>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl border-2 border-primary/10 shadow-sm hover:border-primary/40 transition-all overflow-hidden">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Growth chart or positive transformation visuals" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVn8ugu3cTA7lDPlsCw46Hz4HJMH4VI18mz8iplHKx6wrvCn-73_q2sXi1G-HLs9DlQzSgF6A4_l5kvAwQZYtkfFBLksN4UoAANOF8t9gwafGzH6jZNHrfhLXBIQwdG3mireQhXV6QgK3SPTEOoT-2dFgGsCalxrok0V4uNhBfHFC275d8R692GTT1lP77QlHWIRJxggnwpBcKsXuqm9AiTqFLwEJiarqlErTxVT_sk2KNomO_OHss4_G2n-1WTaX8i2Y3szvBZUM');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary bg-white rounded-full p-1 text-xs">trending_up</span>
+<span class="text-xs font-bold uppercase tracking-widest text-white/80">Strategy Focus</span>
+</div>
+<h3 class="text-xl font-bold">Growth &amp; Results</h3>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Social proof, case studies, and transformation stories that demonstrate tangible value and ROI.</p>
+<div class="space-y-3 mb-6">
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Top Hook Templates (15)</p>
+<div class="group cursor-pointer p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<p class="text-sm font-medium mb-1 line-clamp-1">"How we achieved [X] in [Y] days with [Z]..."</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">12.4% Conv</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<div class="group cursor-pointer p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<p class="text-sm font-medium mb-1 line-clamp-1">"3 Clients, 30 days, $50k in new pipeline..."</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">10.1% Conv</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary text-slate-600 dark:text-slate-300 font-bold text-sm rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit_square</span>
+                        Draft from Pillar
+                    </button>
+</div>
+</div>
+</div>
+<!-- Weekly Tracker Footer Area -->
+<div class="mt-12 p-8 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1">
+<h3 class="text-lg font-bold mb-2">Post Frequency Tracker</h3>
+<p class="text-sm text-slate-500 mb-6">You're on track for your weekly goal of 5 posts. Consistency is the key to algorithmic favor.</p>
+<div class="flex justify-between items-center max-w-lg">
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">MON</span>
+<div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">TUE</span>
+<div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">WED</span>
+<div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">THU</span>
+<div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">FRI</span>
+<div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">SAT</span>
+<div class="h-10 w-10 rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">SUN</span>
+<div class="h-10 w-10 rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-px h-24 bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
+<div class="flex items-center gap-6">
+<div class="relative h-24 w-24">
+<svg class="h-full w-full transform -rotate-90">
+<circle class="text-slate-100 dark:text-slate-800" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="30" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-xl font-black">88%</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold">Consistency Score</h4>
+<p class="text-xs text-slate-500 max-w-[200px]">Your content perfectly aligns with your brand voice.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

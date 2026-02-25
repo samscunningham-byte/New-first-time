@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Branded AI Writer Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "accent-blue": "#3b82f6",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0f0a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">body {
+    font-family: "Manrope", sans-serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px
+    }
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent
+    }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full;
+    }
+.gauge-ring {
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 62.8
+    }
+.brand-texture {
+    background-image: radial-gradient(at 0% 0%, rgba(91, 19, 236, 0.15) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0, transparent 50%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuDinj2FVU3tc-fBSDLsSzMLL5-U5oN97cLbC--DBqIeilFjP8CVyRTTJ8u2r5C6rdzabxQRtjprOH6uVygNdzd7yMBDQrpg4MAHbkSNMHRNURgOdfqBvtUhb0Mm-aZgwE2y0fGY00tUKoy2QHOC-nNdSJtVamtVK8fRCWxmIlBYx4XmOAQAfU5bPXf5HpQGekDOFn2fqbp7elYtiWUW_3CjajzdPjbWCLhBul0Q1ncpwgdyqj1Bq1XkGWQgZKtBkxsouVqV9f0lqmw)
+    }
+.sidebar-texture {
+    background-image: linear-gradient(to bottom, rgba(28, 20, 46, 0.95), rgba(25, 19, 40, 0.98)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuAgVFoJ-_RH_dsbN4zQ0jxjoxEKNp0FMaX1bdZGps_l-m-nuu6xsmoMeBGNs5j-FW0vaWaUEsKycTbDfs-zrjOxARM8gh5vCpfb8mPg_TVXXxE1o85_ueScB40nJH4vmihYauJwh-ZGNCOQtvxiPoNrVxaByyibz2oTR_KPyALWj3mXowgLZ_7YA7-l6yL2mt2LxcNc4Js5LijWpCCI9xZyfQo26iI8qH4nY7LKFyWb06w5YDbGMRl5osy2GpZVpu7bAHhdP1jsgUU)
+    }
+.viral-glow {
+    box-shadow: 0 0 20px rgba(91, 19, 236, 0.3)
+    }
+.prediction-glow {
+    box-shadow: 0 0 15px rgba(91, 19, 236, 0.2), 0 0 30px rgba(59, 130, 246, 0.1)
+    }</style>
+</head>
+<body class="bg-background-dark text-white min-h-screen">
+<div class="flex h-screen overflow-hidden brand-texture">
+<aside class="w-64 flex-shrink-0 border-r border-white/5 bg-[#1c142e]/80 backdrop-blur-xl flex flex-col justify-between p-4 z-30 sidebar-texture">
+<div class="flex flex-col gap-8">
+<div class="flex gap-3 items-center px-2">
+<div class="bg-primary rounded-lg p-2 text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-none tracking-tight">Creator Hub</h1>
+<p class="text-primary/70 text-[10px] font-bold uppercase tracking-widest">Enterprise AI</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-white font-semibold border border-primary/20 transition-colors shadow-inner" href="#">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+<span class="text-sm">AI Writer</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm font-medium">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="text-sm font-medium">Inspiration</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<div class="p-4 bg-gradient-to-br from-primary/20 to-accent-blue/10 rounded-xl border border-white/10 relative overflow-hidden group">
+<div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<p class="text-[10px] font-bold text-primary uppercase tracking-wider mb-1 relative z-10">Usage Status</p>
+<div class="w-full bg-white/10 h-1.5 rounded-full mb-3 relative z-10">
+<div class="bg-primary h-full rounded-full w-[85%]"></div>
+</div>
+<button class="w-full bg-primary text-white text-xs font-bold py-2 rounded-lg hover:bg-primary/90 transition-all relative z-10">
+                    Upgrade Plan
+                </button>
+</div>
+</div>
+</aside>
+<aside class="w-72 flex-shrink-0 border-r border-white/5 bg-[#191328]/60 backdrop-blur-md flex flex-col z-20">
+<div class="p-6 border-b border-white/5">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-extrabold text-white uppercase tracking-widest">Hook Library</h3>
+<span class="bg-primary/20 text-primary text-[10px] font-black px-2 py-0.5 rounded-full border border-primary/30">160+</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">search</span>
+<input class="w-full pl-9 pr-4 py-2 bg-black/20 border border-white/10 rounded-lg text-xs focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-gray-600 transition-all" placeholder="Search frameworks..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-2">
+<div class="mb-4 rounded-xl overflow-hidden h-24 bg-cover bg-center border border-white/5" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBB_FP3AvH6c2eG-_uq-2Yb-q4EuSOFfCTmt_hcMDqJRISgTB52nqF9eyEJp2UIa-r6nHM45DSIJJiUzMaeJJRGack77lJcOTMpCFpDBatVCru7Kb0Rmh-VvQif6JpxrPz_psjbY1qgUAFhauFndXgBbZoOwwfPF7YtfAviPwq4Imd6CFxxZMyxqRNR5hMGVdgVPKeUStpIPxAkNYO45mTBJ4FUoCIcs7Iw542e2BhCAbq1WUVLPc0u4psUe6zilbpVKz87Oln8d0');">
+<div class="w-full h-full bg-gradient-to-t from-[#191328] to-transparent flex items-end p-3">
+<span class="text-[10px] font-black uppercase tracking-tighter text-white/80">Premium Collection</span>
+</div>
+</div>
+<button class="w-full text-left p-4 rounded-xl hover:bg-white/5 group transition-all border border-transparent hover:border-white/10">
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Conversion Focus</p>
+<h4 class="text-sm font-bold text-white mb-1">The AIDA Formula</h4>
+<p class="text-[11px] text-gray-500 leading-relaxed">Attention, Interest, Desire, and Action for maximum conversion.</p>
+</button>
+<button class="w-full text-left p-4 rounded-xl bg-white/5 border border-white/10 group shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<p class="text-[10px] font-bold text-accent-blue uppercase tracking-widest mb-1">Popular</p>
+<h4 class="text-sm font-bold text-white mb-1">PAS Formula</h4>
+<p class="text-[11px] text-gray-400 leading-relaxed">Problem, Agitate, Solve. The ultimate psychological trigger.</p>
+</button>
+<button class="w-full text-left p-4 rounded-xl hover:bg-white/5 group transition-all border border-transparent hover:border-white/10">
+<p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Engagement</p>
+<h4 class="text-sm font-bold text-white mb-1">The Slippery Slide</h4>
+<p class="text-[11px] text-gray-500 leading-relaxed">Make every sentence impossible to stop reading.</p>
+</button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden bg-[#120d1b]">
+<header class="flex-shrink-0 flex items-center justify-between border-b border-white/5 bg-[#1c142e]/40 backdrop-blur-md px-8 py-4 z-10">
+<div class="flex items-center gap-8">
+<h2 class="text-white text-xl font-bold tracking-tight">AI Writer</h2>
+<div class="flex items-center gap-3 px-4 py-1.5 bg-white/5 rounded-full border border-white/10">
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Script Mode</span>
+<div class="relative inline-block w-8 h-4 align-middle select-none transition duration-200 ease-in">
+<div class="block w-8 h-4 bg-primary rounded-full"></div>
+<div class="absolute left-4 top-0.5 w-3 h-3 bg-white rounded-full transition-transform"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4 px-3 py-1 bg-green-500/10 text-green-400 rounded-md text-[10px] font-black uppercase tracking-widest border border-green-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    AI Online
+                </div>
+<button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:scale-[1.02] transition-all shadow-xl shadow-primary/20">
+<span class="material-symbols-outlined text-base">rocket_launch</span>
+                    Optimize
+                </button>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden">
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+<div class="max-w-3xl mx-auto space-y-6 pb-24">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-black text-white tracking-tight">New Video Script</h3>
+<p class="text-sm text-gray-500 font-medium">Project: Viral Tech Analysis • SLAY Framework</p>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="relative group">
+<div class="flex flex-col gap-2 p-6 rounded-2xl border border-white/10 bg-[#1c142e]/60 backdrop-blur-sm shadow-xl hover:border-primary/40 transition-all">
+<div class="flex justify-between items-center mb-2">
+<label class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] flex items-center gap-2">
+<span class="material-symbols-outlined text-base">anchor</span>
+                                        The Hook
+                                    </label>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-green-500/10 text-green-400 rounded text-[9px] font-black border border-green-500/20">
+                                        LIVE ANALYSIS
+                                    </div>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-xl font-bold text-white placeholder-white/10 resize-none min-h-[80px]" id="hook-textarea" placeholder="Start with a pattern interrupt...">[Concept 1] = [Outcome 1]
+Why most people fail at [Common Process]...
+Wait for the end to see the 100% result.</textarea>
+<div class="flex justify-between items-center pt-4 border-t border-white/5">
+<p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Ideal: Under 3 seconds</p>
+<button class="text-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">auto_fix_high</span>
+</button>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="flex flex-col gap-2 p-6 rounded-2xl border border-white/5 bg-[#1c142e]/40 backdrop-blur-sm hover:border-white/20 transition-all">
+<div class="flex justify-between items-center mb-2">
+<label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] flex items-center gap-2">
+<span class="material-symbols-outlined text-base">diamond</span>
+                                        The Value
+                                    </label>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-base text-gray-200 placeholder-white/10 min-h-[160px] leading-relaxed" placeholder="Deliver the meat of the post immediately. No fluff.">Here is the [Step-by-Step] to achieving [Outcome 1]:
+1. [Actionable Tip A]
+2. [Actionable Tip B]
+3. [Actionable Tip C]
+The secret is [Key Insight].</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="w-80 flex-shrink-0 border-l border-white/5 bg-[#1c142e]/40 backdrop-blur-xl flex flex-col z-20 overflow-y-auto custom-scrollbar">
+<div class="p-6 border-b border-white/5 bg-gradient-to-r from-primary/5 to-transparent">
+<h3 class="text-xs font-black text-white uppercase tracking-widest mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                        Virality Score
+                    </h3>
+<p class="text-[10px] font-bold text-gray-500 uppercase tracking-tighter">Hook &amp; Structure Intelligence</p>
+</div>
+<div class="px-6 py-4">
+<div class="w-full h-32 rounded-xl bg-cover bg-center border border-white/10 relative overflow-hidden group" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfjUse4-qdZ2NwA9fhrHFL1c6VgwOhI8N1PpYLL4tYlSD7xER_cFaLwdmQGzZoZDIs3na-PkiHJGnjV1MK8RijnLsBv62bT7MsUKQi9AZVJoBZIiQPV_e_m88Bgue6LjVMdQ_sDPCM3kdWmQm-UJLUTPwzlLKCi09npUq-6oIBvmoSWhPUzxiwGh7YpNP7BMQh-fWAf4hjAxqxsJ9UxqRdtux93Pt6DX6pVguP4zR-p506yH_sIqA6e3mkjNWRarphIGc0Mnn6mDA');">
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent flex items-end p-3">
+<div class="flex gap-1 items-end h-8 w-full">
+<div class="w-2 bg-primary h-[40%] rounded-t-sm"></div>
+<div class="w-2 bg-primary/60 h-[60%] rounded-t-sm"></div>
+<div class="w-2 bg-accent-blue h-[80%] rounded-t-sm"></div>
+<div class="w-2 bg-primary h-[50%] rounded-t-sm"></div>
+<div class="w-2 bg-accent-blue/40 h-[90%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0 space-y-6">
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-md bg-green-500/10 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-green-500 text-sm font-bold">check</span>
+</div>
+<div>
+<h4 class="text-[11px] font-black text-white uppercase">Sentence Length</h4>
+<p class="text-[10px] text-gray-500">First 3 lines are mobile-optimized.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-md bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+<span class="material-symbols-outlined text-orange-500 text-sm font-bold">pending</span>
+</div>
+<div>
+<h4 class="text-[11px] font-black text-white uppercase">Lexical Density</h4>
+<p class="text-[10px] text-gray-500">Readability is at 8.5/10. Simplify words.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center py-6 border-y border-white/5 bg-white/[0.02] rounded-2xl">
+<div class="relative w-36 h-36 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+<circle class="text-white/5" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary gauge-ring transition-all duration-700" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-linecap="round" stroke-width="6" style="stroke-dashoffset: 80;"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-3xl font-black text-white">75<span class="text-sm">%</span></span>
+<span class="text-[8px] font-bold text-gray-500 uppercase tracking-widest">Score</span>
+</div>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 prediction-glow transition-all hover:border-primary/40 group">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[10px] font-black text-white uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-blue text-base">insights</span>
+                                Engagement Predictor
+                            </h3>
+<span class="bg-primary/90 text-white text-[8px] font-black px-1.5 py-0.5 rounded border border-white/20 uppercase tracking-tighter">Viral Hook</span>
+</div>
+<div class="mb-5">
+<div class="text-4xl font-black text-white tracking-tighter group-hover:text-primary transition-colors">2.4k</div>
+<div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Expected Engagement</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end mb-1">
+<span class="text-[9px] font-bold text-primary uppercase tracking-[0.2em]">Trending Potential</span>
+<span class="bg-green-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">Trending</span>
+</div>
+<div class="flex gap-1 h-2">
+<div class="flex-1 bg-primary rounded-sm"></div>
+<div class="flex-1 bg-primary rounded-sm"></div>
+<div class="flex-1 bg-primary rounded-sm"></div>
+<div class="flex-1 bg-primary rounded-sm"></div>
+<div class="flex-1 bg-accent-blue rounded-sm"></div>
+<div class="flex-1 bg-accent-blue rounded-sm opacity-60"></div>
+<div class="flex-1 bg-white/10 rounded-sm"></div>
+<div class="flex-1 bg-white/10 rounded-sm"></div>
+</div>
+<div class="flex justify-between text-[8px] font-bold text-gray-600 tracking-widest">
+<span>CONSERVATIVE</span>
+<span>MAX POTENTIAL</span>
+</div>
+</div>
+</div>
+<div class="p-4 bg-primary/10 rounded-xl border border-primary/20">
+<p class="text-[10px] font-black text-primary mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tips_and_updates</span>
+                            PRO TIP
+                        </p>
+<p class="text-[10px] text-gray-400 leading-relaxed italic">
+                            "Hooks that use a negative constraint typically see 24% higher click-through rates."
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-[#1c142e]/90 backdrop-blur-2xl border border-white/10 px-4 py-3 rounded-2xl shadow-2xl z-40">
+<div class="flex items-center gap-1 pr-4 border-r border-white/10">
+<button class="p-2 hover:bg-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">format_bold</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">format_italic</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">link</span>
+</button>
+</div>
+<div class="flex items-center gap-4 pl-2">
+<div class="text-[10px] font-black text-gray-500 uppercase tracking-widest">
+<span class="text-primary">142</span> Words
+                </div>
+<button class="bg-primary text-white text-xs font-black px-6 py-2 rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 uppercase tracking-widest">
+                    Schedule
+                </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

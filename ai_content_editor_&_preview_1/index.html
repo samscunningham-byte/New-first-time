@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Post Architect - Editor with Integrated Hook Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hook-sidebar-transition { transition: width 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#120d1b] dark:text-[#f9f8fc] overflow-hidden h-screen flex flex-col">
+<header class="flex items-center justify-between border-b border-[#ebe7f3] dark:border-[#2d243d] px-8 py-3 bg-white dark:bg-[#1c162a] z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="text-lg font-bold leading-tight tracking-tight">AI Post Architect</h2>
+<div class="flex items-center gap-2 text-xs text-[#664c9a] dark:text-[#bbadd7]">
+<span>Saved to Drafts</span>
+<span class="size-1 bg-[#d7cfe7] rounded-full"></span>
+<span>Just now</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-6 mr-6 border-r border-[#ebe7f3] dark:border-[#2d243d] pr-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Drafts</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Templates</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#ebe7f3] dark:bg-[#2d243d] text-[#120d1b] dark:text-[#f9f8fc] text-sm font-bold">
+<span>Schedule</span>
+</button>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+<span>Post Now</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ml-2 border-2 border-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEJjZvTfLYQNLR0bnIqGmgToLjFEjIfWv9HqvKfqYn_3suwE1c2ESm5SW-Ra78MkucYVAu6Jh4hHbgl_gVRg3RPJdY8tFb936iIcgpIq-WmNJWYW-hiETkR7q_3oIH2pFIlSKSw0timIl9vmWumgbQQlXt7jUj4pjQpwT9M9ODZCz8XuvXur33ss2778QJmcPjpmk4aLM2lQXSvY4nYiC3y77bT93HQjUFP7d1eIaXXwqB6ur67zKH3uRuhW40_Mu3-ei2ylbRyrE");'></div>
+</div>
+</header>
+<div class="flex items-center gap-2 px-8 py-2 bg-white dark:bg-[#1c162a] border-b border-[#ebe7f3] dark:border-[#2d243d]">
+<a class="text-[#664c9a] dark:text-[#bbadd7] text-xs font-medium" href="#">Dashboard</a>
+<span class="text-[#664c9a] dark:text-[#bbadd7] text-xs">/</span>
+<span class="text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">Content Editor</span>
+</div>
+<main class="flex-1 flex overflow-hidden">
+<aside class="w-80 flex flex-col bg-white dark:bg-[#1c162a] border-r border-[#ebe7f3] dark:border-[#2d243d] z-30">
+<div class="p-6 pb-2">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary">Hook Library</h3>
+<span class="material-symbols-outlined text-[#664c9a] dark:text-[#bbadd7] text-xl">auto_awesome</span>
+</div>
+<div class="relative mb-6">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#bbadd7] text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-[#251d38] border-none rounded-lg text-sm focus:ring-1 focus:ring-primary placeholder:text-[#bbadd7]" placeholder="Search 'The Escape'..." type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-6">
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-bold hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-sm">trending_up</span> Viral
+                </button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 bg-background-light dark:bg-[#251d38] text-[#664c9a] dark:text-[#bbadd7] border border-[#ebe7f3] dark:border-[#2d243d] rounded-lg text-xs font-bold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">auto_stories</span> Story
+                </button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 bg-background-light dark:bg-[#251d38] text-[#664c9a] dark:text-[#bbadd7] border border-[#ebe7f3] dark:border-[#2d243d] rounded-lg text-xs font-bold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">view_carousel</span> Carousel
+                </button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 bg-background-light dark:bg-[#251d38] text-[#664c9a] dark:text-[#bbadd7] border border-[#ebe7f3] dark:border-[#2d243d] rounded-lg text-xs font-bold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">workspace_premium</span> Success
+                </button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-6 pb-6 space-y-3 no-scrollbar">
+<button class="w-full text-left p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] hover:border-primary hover:bg-white dark:hover:bg-[#2d243d] transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] uppercase font-bold text-primary">Viral</span>
+<span class="material-symbols-outlined text-sm text-[#bbadd7] group-hover:text-primary">add_circle</span>
+</div>
+<h5 class="text-sm font-bold mb-1">The Escape</h5>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] line-clamp-2 italic">"I escaped the 9-5 grind by using [System]. Here is exactly how..."</p>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] hover:border-primary hover:bg-white dark:hover:bg-[#2d243d] transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] uppercase font-bold text-primary">Viral</span>
+<span class="material-symbols-outlined text-sm text-[#bbadd7] group-hover:text-primary">add_circle</span>
+</div>
+<h5 class="text-sm font-bold mb-1">The Addiction</h5>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] line-clamp-2 italic">"I was addicted to [Bad Habit]. Then I found [Solution]. Life changed."</p>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] hover:border-primary hover:bg-white dark:hover:bg-[#2d243d] transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] uppercase font-bold text-[#664c9a]">Story</span>
+<span class="material-symbols-outlined text-sm text-[#bbadd7] group-hover:text-primary">add_circle</span>
+</div>
+<h5 class="text-sm font-bold mb-1">The Rock Bottom</h5>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] line-clamp-2 italic">"3 years ago, I had $0 in my bank account. Today, I lead a team of 15..."</p>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] hover:border-primary hover:bg-white dark:hover:bg-[#2d243d] transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] uppercase font-bold text-green-500">Success</span>
+<span class="material-symbols-outlined text-sm text-[#bbadd7] group-hover:text-primary">add_circle</span>
+</div>
+<h5 class="text-sm font-bold mb-1">The $100k Case Study</h5>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] line-clamp-2 italic">"How we helped [Client] reach $100k MRR in just 4 months..."</p>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] hover:border-primary hover:bg-white dark:hover:bg-[#2d243d] transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] uppercase font-bold text-amber-500">Carousel</span>
+<span class="material-symbols-outlined text-sm text-[#bbadd7] group-hover:text-primary">add_circle</span>
+</div>
+<h5 class="text-sm font-bold mb-1">The 7-Step Roadmap</h5>
+<p class="text-[11px] text-[#664c9a] dark:text-[#bbadd7] line-clamp-2 italic">"Swipe to see the exact roadmap I used to build [Product]..."</p>
+</button>
+</div>
+</aside>
+<section class="flex-1 flex flex-col bg-white dark:bg-[#1c162a] border-r border-[#ebe7f3] dark:border-[#2d243d] relative">
+<div class="flex items-center justify-between px-6 pt-4">
+<div class="flex gap-4">
+<button class="flex items-center gap-1 text-primary text-xs font-bold border-b-2 border-primary pb-2">
+<span class="material-symbols-outlined text-sm">edit_note</span> Write
+                </button>
+<button class="flex items-center gap-1 text-[#664c9a] dark:text-[#bbadd7] text-xs font-bold pb-2 hover:text-primary">
+<span class="material-symbols-outlined text-sm">analytics</span> Analyze
+                </button>
+</div>
+<div class="text-[10px] uppercase tracking-widest text-[#bbadd7] font-bold">Post Editor</div>
+</div>
+<div class="flex-1 flex flex-col p-8 pt-4 overflow-y-auto no-scrollbar">
+<div class="flex gap-1 p-1 bg-white dark:bg-[#2d243d] shadow-xl border border-[#ebe7f3] dark:border-[#3d3154] rounded-xl w-fit mb-4">
+<button class="flex items-center gap-1 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span> Improve
+                </button>
+<div class="w-px h-4 bg-[#ebe7f3] dark:bg-[#3d3154] self-center"></div>
+<button class="flex items-center gap-1 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">
+<span class="material-symbols-outlined text-lg">content_cut</span> Shorten
+                </button>
+<div class="w-px h-4 bg-[#ebe7f3] dark:bg-[#3d3154] self-center"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">
+<span class="material-symbols-outlined text-lg">psychology</span> Change Tone
+                    <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<textarea class="flex-1 w-full text-lg leading-relaxed text-[#120d1b] dark:text-[#f9f8fc] placeholder:text-[#bbadd7] bg-transparent border-none focus:ring-0 resize-none" placeholder="Select a hook from the library or start writing your viral LinkedIn post here...">I was addicted to bad content strategies.
+Then I found the AI scale framework.
+Life changed.
+Here is the exact framework I used to analyze 1,000 viral posts:</textarea>
+<div class="flex items-center justify-between mt-4 py-3 border-t border-[#ebe7f3] dark:border-[#2d243d]">
+<div class="flex gap-4">
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">image</span></button>
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">mood</span></button>
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">bar_chart</span></button>
+</div>
+<div class="text-xs text-[#664c9a] dark:text-[#bbadd7] font-medium">
+                    1,420 / 3,000 characters
+                </div>
+</div>
+</div>
+</section>
+<section class="w-[480px] flex flex-col bg-background-light dark:bg-background-dark overflow-y-auto no-scrollbar pb-10">
+<div class="flex items-center justify-between px-8 py-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-[#664c9a] dark:text-[#bbadd7]">Live Preview</h3>
+<div class="flex bg-white dark:bg-[#1c162a] p-1 rounded-lg border border-[#ebe7f3] dark:border-[#2d243d]">
+<button class="flex items-center gap-1 px-3 py-1 bg-primary text-white rounded-md text-xs font-bold">
+<span class="material-symbols-outlined text-sm">desktop_windows</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1 text-[#664c9a] dark:text-[#bbadd7] text-xs font-bold">
+<span class="material-symbols-outlined text-sm">smartphone</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center px-4">
+<div class="w-full max-w-[420px] bg-white dark:bg-[#1c162a] border border-[#e0e0e0] dark:border-[#2d243d] rounded-lg shadow-sm overflow-hidden">
+<div class="p-3 flex items-start justify-between">
+<div class="flex gap-2">
+<div class="size-10 rounded-full bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSkDVB15Dez2JU89T4Jd5j57T1wprzez2xfvJnYkJzkRXtNgrkWjQTEDjOnwViVcXGd1r9th4lWf8yPWdBC7WIVuiHdFVRCCUGxBvgjs3Y1RPDCLCSPROqPjpsSkeoF9dTRCo_mqYobwHSh7m2lHSG-LWEAju3reOSspZ3PlGMOx-5WyeIb2f0K4BOLl3jw5euFr14FVzNzPjNUS50ntDTb6qGNuXrhiEsatN8ihzzhvKzuN48BvsD3_5bhWyps98ui2E8kdjkB8s");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-gray-900 dark:text-gray-100">Alex Rivera</span>
+<span class="text-[10px] text-gray-500">• 1st</span>
+</div>
+<span class="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">Founder @ AI Scale | Creator</span>
+<div class="flex items-center gap-1 text-[10px] text-gray-400">
+<span>Just now</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[10px]">public</span>
+</div>
+</div>
+</div>
+<button class="text-gray-400"><span class="material-symbols-outlined text-sm">more_horiz</span></button>
+</div>
+<div class="px-3 pb-3 text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
+<p class="mb-2">I was addicted to bad content strategies.</p>
+<p class="mb-2">Then I found the AI scale framework.</p>
+<p class="mb-2">Life changed.</p>
+<button class="text-gray-500 font-semibold hover:underline">...see more</button>
+</div>
+<div class="px-2 py-1 border-t border-gray-100 dark:border-[#2d243d] flex justify-between">
+<button class="flex items-center gap-1 px-2 py-1.5 text-gray-500 font-semibold text-[11px] hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-base">thumb_up</span> Like
+                    </button>
+<button class="flex items-center gap-1 px-2 py-1.5 text-gray-500 font-semibold text-[11px] hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-base">chat</span> Comment
+                    </button>
+<button class="flex items-center gap-1 px-2 py-1.5 text-gray-500 font-semibold text-[11px] hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-base">share</span> Repost
+                    </button>
+</div>
+</div>
+</div>
+<div class="mt-auto mx-4 mb-4 p-4 bg-white dark:bg-[#1c162a] border border-primary/30 rounded-xl shadow-lg">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary/10 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">lightbulb</span>
+</div>
+<span class="text-[11px] font-bold uppercase text-[#664c9a] dark:text-[#bbadd7]">AI Suggestion</span>
+</div>
+<button class="text-[10px] font-bold text-primary hover:underline">REGENERATE</button>
+</div>
+<p class="text-xs italic text-[#120d1b] dark:text-[#f9f8fc] mb-3">"Most people think AI replaces human voice. But they have it backwards..."</p>
+<button class="w-full py-2 bg-primary text-white text-[11px] font-bold rounded-lg shadow-sm hover:bg-primary/90">
+                Apply to Draft
+            </button>
+</div>
+</section>
+</main>
+
+</body></html>

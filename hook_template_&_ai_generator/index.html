@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HookGen AI - Template Generator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2f2348;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #443267;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#2f2348] px-6 py-3 bg-white dark:bg-[#161022] z-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">HookGen AI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Hook Library</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">My Drafts</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+<a class="text-primary text-sm font-bold" href="#">Creator Studio</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden lg:flex flex-col min-w-40 h-9 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg bg-slate-100 dark:bg-[#2f2348]">
+<div class="text-slate-400 dark:text-[#a492c9] flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full border-none bg-transparent focus:ring-0 text-sm placeholder:text-slate-400 dark:placeholder:text-[#a492c9] px-2" placeholder="Search templates..."/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold tracking-wide hover:bg-opacity-90 transition-all">
+                Upgrade Pro
+            </button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border border-slate-200 dark:border-[#2f2348]" data-alt="User profile avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7T7gAV83-7nu9ULSMesuDGxdOFNgkdFWbjvYhqR3uIEb1Qvjh0BmbAMPiJtMlJwkY6glcLjKRbk_2ljNbEPFGw3WB5JI29nCwwBZGC6sIGxGzzjru1lnKHsuPBbQgguUur-EA9ZAcZHxLrr1b-oDoxj2GN3_g1QrXUgbFeTIGaWIp8NpD7eCd1v4eWWuifXj5lZOJktgQkXBkqCvocBkVKWIZdGWCawtx6_EqMiqhmex4O0bjK7zAw2vh6cJfBp7POyrJoFTpYlM");'></div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Navigation -->
+<aside class="w-64 hidden xl:flex flex-col border-r border-slate-200 dark:border-[#2f2348] bg-white dark:bg-background-dark p-4 gap-6">
+<div class="flex flex-col gap-1">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-[#a492c9] px-3">Menu</h3>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#2f2348] rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-sm font-bold">Templates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#2f2348] rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">star</span>
+<span class="text-sm font-medium">Favorites</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#2f2348] rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">history</span>
+<span class="text-sm font-medium">History</span>
+</a>
+</div>
+<div class="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/10">
+<p class="text-xs font-bold text-primary uppercase mb-2">Usage</p>
+<div class="h-1.5 w-full bg-slate-200 dark:bg-[#2f2348] rounded-full overflow-hidden mb-2">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+<p class="text-[10px] text-slate-500 dark:text-[#a492c9]">750 / 1000 AI Credits left</p>
+</div>
+</aside>
+<!-- Main Workspace Area -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Breadcrumbs & Header -->
+<div class="px-6 py-4 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-400 dark:text-[#a492c9]">
+<a class="hover:text-primary" href="#">Hook Library</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-slate-900 dark:text-white">Justin Welsh: The Escape</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<h1 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Justin Welsh: The Escape</h1>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 border border-slate-200 dark:border-[#2f2348] text-slate-600 dark:text-white text-sm font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-[#2f2348] transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+                            Save
+                        </button>
+<button class="flex items-center gap-2 px-3 py-1.5 border border-slate-200 dark:border-[#2f2348] text-slate-600 dark:text-white text-sm font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-[#2f2348] transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<p class="text-sm text-slate-500 dark:text-[#a492c9]">A high-converting template for stories about career transitions and freedom.</p>
+</div>
+<!-- Workspace Split -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left: Breakdown and Proof -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-6 pb-10">
+<div class="flex border-b border-slate-200 dark:border-[#443267] gap-8 mb-6 sticky top-0 bg-background-light dark:bg-background-dark z-10">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-3 pt-4" href="#">
+<p class="text-sm font-bold tracking-wide">Template Breakdown</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-400 dark:text-[#a492c9] pb-3 pt-4 hover:text-slate-600 transition-colors" href="#">
+<p class="text-sm font-bold tracking-wide">Real-World Proof</p>
+</a>
+</div>
+<div class="space-y-8">
+<!-- Formula Section -->
+<section>
+<h3 class="text-sm font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest mb-4">The Formula</h3>
+<div class="p-6 rounded-xl bg-white dark:bg-[#1e1e24] border border-slate-200 dark:border-[#2f2348] shadow-sm">
+<p class="text-lg leading-relaxed text-slate-800 dark:text-slate-100 font-medium">
+                                    "I spent <span class="text-primary font-bold">[Time Period]</span> doing <span class="text-primary font-bold">[Painful Activity]</span>. 
+                                    I thought it was the only way to <span class="text-primary font-bold">[Goal]</span>.
+                                    Then I discovered <span class="text-primary font-bold">[The Pivot]</span>.
+                                    Now I <span class="text-primary font-bold">[Success State]</span>."
+                                </p>
+</div>
+</section>
+<!-- Component Breakdown -->
+<section>
+<h3 class="text-sm font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest mb-4">Logic Breakdown</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex gap-4 p-4 rounded-lg border border-slate-200 dark:border-[#2f2348]">
+<div class="size-8 rounded bg-primary/20 text-primary flex items-center justify-center shrink-0">
+<span class="font-bold">01</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">The Relatable Struggle</h4>
+<p class="text-sm text-slate-500 dark:text-[#a492c9]">Hook the reader with a common industry pain point they are currently feeling.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg border border-slate-200 dark:border-[#2f2348]">
+<div class="size-8 rounded bg-primary/20 text-primary flex items-center justify-center shrink-0">
+<span class="font-bold">02</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">The False Belief</h4>
+<p class="text-sm text-slate-500 dark:text-[#a492c9]">Identify the mental block that keeps them stuck in that pain.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg border border-slate-200 dark:border-[#2f2348]">
+<div class="size-8 rounded bg-primary/20 text-primary flex items-center justify-center shrink-0">
+<span class="font-bold">03</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">The Breakthrough</h4>
+<p class="text-sm text-slate-500 dark:text-[#a492c9]">Introduce your unique mechanism or solution as the catalyst for change.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Real World Examples -->
+<section>
+<h3 class="text-sm font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest mb-4">Successful Examples</h3>
+<div class="space-y-4">
+<div class="p-5 bg-white dark:bg-[#1e1e24] rounded-xl border border-slate-200 dark:border-[#2f2348] shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 bg-green-500/10 text-green-500 text-[10px] font-bold uppercase rounded-bl-lg">2.4k Likes</div>
+<div class="flex items-center gap-3 mb-3">
+<div class="size-8 rounded-full bg-slate-200" data-alt="Profile of successful creator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAA7ZE4hYUCiJNkAC_vEsg2Qpq-7aauNix5kv6Qcx_Wp2wJDLoUtkkzpsSxVlFO-1EDgkoabNjhbUtyE0u7D4u1giK5fl-UZivOHJnMgTQQbn6TPa5-Oy8YK1Eh-57YY19tBkH8bibH36Ff_yYldQkfp4ONlwpzSIF4Av0bzTr9G8BjO54tsZL7i3Ua8Ql3evtuy5WYMIy_w3DXxFx6Tuvy4EnCKR8KkqPvXCgoYspgrVBh9K0X2MOub6PvHLrRxMrT64eiP1qqNtY"); background-size: cover;'></div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Justin Welsh</p>
+<p class="text-[10px] text-slate-400">Solopreneur • 1M+ followers</p>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 italic">"I spent 10 years climbing the corporate ladder. I thought it was the only way to build wealth. Then I discovered digital assets. Now I work 4 hours a day and earn 3x more."</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Right: AI Magic Generator -->
+<div class="w-[450px] border-l border-slate-200 dark:border-[#2f2348] bg-slate-50 dark:bg-[#1c152a] flex flex-col">
+<div class="p-6 flex-1 overflow-y-auto custom-scrollbar">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">magic_button</span>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">AI Magic Panel</h2>
+</div>
+<!-- Input Area -->
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-slate-500 dark:text-[#a492c9] uppercase tracking-widest mb-2">Input Your Story/Topic</label>
+<textarea class="w-full h-32 rounded-xl bg-white dark:bg-[#2f2348] border-slate-200 dark:border-transparent focus:ring-2 focus:ring-primary text-sm p-4 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#a492c9]" placeholder="Example: I worked as a software engineer for 5 years but felt burnt out, so I started freelancing and now I travel the world while coding..."></textarea>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 dark:text-[#a492c9] uppercase tracking-widest mb-2">Tone of Voice</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full bg-primary text-white text-xs font-bold">Punchy</button>
+<button class="px-3 py-1.5 rounded-full bg-white dark:bg-[#2f2348] text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-[#3d2e5e] transition-colors">Minimalist</button>
+<button class="px-3 py-1.5 rounded-full bg-white dark:bg-[#2f2348] text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-[#3d2e5e] transition-colors">Provocative</button>
+<button class="px-3 py-1.5 rounded-full bg-white dark:bg-[#2f2348] text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-[#3d2e5e] transition-colors">Storyteller</button>
+</div>
+</div>
+<button class="w-full py-3 bg-primary hover:bg-opacity-90 transition-all rounded-xl text-white font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                                Generate Variations
+                            </button>
+<!-- Results Section -->
+<div class="pt-6 border-t border-slate-200 dark:border-[#2f2348] space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest">3 Variations Generated</h3>
+<button class="text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+                                        Regen
+                                    </button>
+</div>
+<!-- Variation 1 -->
+<div class="group relative p-4 rounded-xl bg-white dark:bg-[#2f2348] border border-primary/40 shadow-sm transition-all hover:border-primary">
+<div class="absolute -top-2 -left-2 size-6 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-slate-50 dark:border-[#1c152a]">1</div>
+<p class="text-sm leading-relaxed text-slate-800 dark:text-slate-100">
+                                        I spent <span class="bg-primary/10 text-primary px-1 rounded">5 years</span> debugging legacy code. I thought it was the only way to <span class="bg-primary/10 text-primary px-1 rounded">earn a 6-figure salary</span>. Then I discovered <span class="bg-primary/10 text-primary px-1 rounded">freelance consulting</span>. Now I <span class="bg-primary/10 text-primary px-1 rounded">choose my clients and work from Bali</span>.
+                                    </p>
+<div class="mt-4 flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded bg-slate-100 dark:bg-[#3d2e5e] text-slate-500 dark:text-[#a492c9] hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded bg-slate-100 dark:bg-[#3d2e5e] text-slate-500 dark:text-[#a492c9] hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Variation 2 -->
+<div class="group relative p-4 rounded-xl bg-white dark:bg-[#2f2348] border border-slate-200 dark:border-transparent shadow-sm transition-all hover:border-primary">
+<div class="absolute -top-2 -left-2 size-6 bg-slate-300 dark:bg-[#3d2e5e] text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-slate-50 dark:border-[#1c152a]">2</div>
+<p class="text-sm leading-relaxed text-slate-800 dark:text-slate-100">
+                                        I spent <span class="bg-primary/10 text-primary px-1 rounded">half a decade</span> stuck in a cubicle. I thought it was the only way to <span class="bg-primary/10 text-primary px-1 rounded">be a "successful" engineer</span>. Then I discovered <span class="bg-primary/10 text-primary px-1 rounded">the solopreneur path</span>. Now I <span class="bg-primary/10 text-primary px-1 rounded">build my own products and travel the world</span>.
+                                    </p>
+<div class="mt-4 flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded bg-slate-100 dark:bg-[#3d2e5e] text-slate-500 dark:text-[#a492c9] hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded bg-slate-100 dark:bg-[#3d2e5e] text-slate-500 dark:text-[#a492c9] hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Sticky Actions for AI Panel -->
+<div class="p-4 bg-white dark:bg-[#2f2348] border-t border-slate-200 dark:border-transparent flex flex-col gap-2">
+<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-opacity-90">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                            Send to Editor
+                        </button>
+<p class="text-[10px] text-center text-slate-400 dark:text-[#a492c9]">Press Cmd + Enter to generate new variations</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Feedback Notification -->
+<div class="fixed bottom-6 right-6 px-4 py-3 bg-slate-900 text-white rounded-xl shadow-2xl flex items-center gap-3 animate-bounce-slow z-50 pointer-events-none">
+<div class="size-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span class="text-sm font-bold">Copied to Clipboard!</span>
+</div>
+</body></html>

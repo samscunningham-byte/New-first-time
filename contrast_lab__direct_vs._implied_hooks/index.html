@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contrast Lab: Direct vs. Implied Hooks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2f2348;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-white">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 border-b border-slate-200 dark:border-[#2f2348] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-3">
+<div class="max-w-[1400px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block" style="font-size: 24px;">contrast</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Contrast Lab</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">My Library</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Templates</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-lg transition-all">
+                    Upgrade to Pro
+                </button>
+<div class="size-10 rounded-full border border-slate-200 dark:border-[#443267] bg-cover bg-center" data-alt="User profile avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtrw3ci4NchS1JgClzxiL2XKave_79hOIg-zN9EdgncDX0cUSgZmbzzx7IjkAXR2L7c2KGm1-KidmJOUw5RYgX4saO4IDAdjp76Mv-YX-5DZM2dDg-dVENhhxikq9RbDDeu7DMrTD_bsFXYazjx41w6erZO9fM0Nvlvh4eOua_ZgiWqD3L6E5chUHlbSXwCxVbL-FJNkYagwmYCEDGvbfUmza-TWWysyhRlrZXyf8YnxLc0Msqc_aGpZJLXc90fsOX1XOYMT-0FeA");'>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1400px] mx-auto px-6 lg:px-20 py-8">
+<!-- Hero Section -->
+<div class="text-center mb-10">
+<h1 class="text-4xl font-extrabold tracking-tight mb-3">Hook Variant Generator</h1>
+<p class="text-slate-500 dark:text-[#a492c9] max-w-2xl mx-auto">
+                Generate high-conversion LinkedIn hooks using the Contrast Principle. Input your core topic to see Direct and Implied variants side-by-side.
+            </p>
+</div>
+<!-- Input Section -->
+<div class="bg-white dark:bg-[#221933] border border-slate-200 dark:border-[#443267] p-6 rounded-xl shadow-sm mb-12">
+<div class="flex flex-col md:flex-row gap-4">
+<div class="flex-1 relative">
+<label class="block text-sm font-semibold mb-2 ml-1">Core Topic</label>
+<div class="flex">
+<input class="w-full bg-slate-50 dark:bg-[#171122] border border-slate-200 dark:border-[#443267] rounded-l-lg px-4 py-3.5 focus:ring-1 focus:ring-primary focus:outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-[#a492c9]" placeholder="e.g. Remote work productivity, AI in marketing, Personal branding..." type="text"/>
+<div class="bg-slate-50 dark:bg-[#171122] border-y border-r border-slate-200 dark:border-[#443267] rounded-r-lg px-4 flex items-center text-slate-400">
+<span class="material-symbols-outlined">magic_button</span>
+</div>
+</div>
+</div>
+<div class="md:w-64 flex flex-col justify-end">
+<button class="bg-primary hover:shadow-lg hover:shadow-primary/20 text-white font-bold py-3.5 px-6 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span>Generate Hooks</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Workflow Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Column 1: Direct Contrast -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 pb-2 border-b-2 border-primary w-fit">
+<span class="material-symbols-outlined text-primary">compare_arrows</span>
+<h3 class="text-xl font-bold uppercase tracking-wider">Direct Contrast</h3>
+</div>
+<p class="text-sm text-slate-500 dark:text-[#a492c9] italic mb-2">Explicitly dismantling myths: "Most people think X... but actually Y"</p>
+<!-- Hook Card 1 -->
+<div class="bg-white dark:bg-[#1e1e2d] border border-slate-200 dark:border-[#2f2348] rounded-xl overflow-hidden hover:border-primary/50 transition-colors">
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded border border-primary/20">The Disruptor</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">bookmark</span></button>
+</div>
+</div>
+<p class="text-lg font-bold leading-relaxed mb-6">
+                            Most founders think high productivity is about working more hours. In reality, the best performers work 50% less by automating 90% of their admin tasks.
+                        </p>
+<!-- Metrics -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-slate-400">Contrast Dist.</span>
+<span class="text-lg font-black text-primary">88%</span>
+</div>
+<div class="size-10 flex items-center justify-center border-4 border-primary rounded-full">
+<span class="material-symbols-outlined text-primary scale-75">radar</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg">
+<span class="text-[10px] uppercase font-bold text-slate-400">Speed to Value</span>
+<div class="flex mt-1 text-primary">
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm">bolt</span>
+</div>
+</div>
+</div>
+<!-- Visual Pairing -->
+<div class="border border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-4 bg-slate-50/50 dark:bg-[#171122]/50">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm text-primary">palette</span>
+<span class="text-xs font-bold uppercase text-slate-500">Visual Pairing Recommendation</span>
+</div>
+<p class="text-xs leading-relaxed text-slate-600 dark:text-[#a492c9]">
+                                Use high-contrast <span class="text-yellow-400 font-bold italic">yellow text</span> on a <span class="text-blue-600 font-bold italic">dark navy</span> background for the carousel image.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Hook Card 2 -->
+<div class="bg-white dark:bg-[#1e1e2d] border border-slate-200 dark:border-[#2f2348] rounded-xl overflow-hidden hover:border-primary/50 transition-colors">
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded border border-primary/20">The Authority</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">bookmark</span></button>
+</div>
+</div>
+<p class="text-lg font-bold leading-relaxed mb-6">
+                            AI won't replace your job. But the person using AI to do 5 jobs at once will. Here's why "Efficiency" is the new corporate killer.
+                        </p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-slate-400">Contrast Dist.</span>
+<span class="text-lg font-black text-primary">74%</span>
+</div>
+<div class="size-10 flex items-center justify-center border-4 border-primary/40 rounded-full">
+<span class="material-symbols-outlined text-primary scale-75">radar</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg">
+<span class="text-[10px] uppercase font-bold text-slate-400">Speed to Value</span>
+<div class="flex mt-1 text-primary">
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+</div>
+</div>
+</div>
+<div class="border border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-4 bg-slate-50/50 dark:bg-[#171122]/50">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm text-primary">palette</span>
+<span class="text-xs font-bold uppercase text-slate-500">Visual Pairing Recommendation</span>
+</div>
+<p class="text-xs leading-relaxed text-slate-600 dark:text-[#a492c9]">
+                                Minimalist <span class="font-bold">Black &amp; White</span> grid layout with bold serif typography for a premium feeling.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Implied Contrast -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 pb-2 border-b-2 border-primary w-fit">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<h3 class="text-xl font-bold uppercase tracking-wider">Implied Contrast</h3>
+</div>
+<p class="text-sm text-slate-500 dark:text-[#a492c9] italic mb-2">Challenging status quo: "Stop doing X if you want Y" (The Contrarian)</p>
+<!-- Hook Card 3 -->
+<div class="bg-white dark:bg-[#1e1e2d] border border-slate-200 dark:border-[#2f2348] rounded-xl overflow-hidden hover:border-primary/50 transition-colors">
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded border border-primary/20">The Maverick</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">bookmark</span></button>
+</div>
+</div>
+<p class="text-lg font-bold leading-relaxed mb-6">
+                            Stop networking. Start building assets that network for you while you sleep. Here is my 3-step engine for passive deal-flow.
+                        </p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-slate-400">Contrast Dist.</span>
+<span class="text-lg font-black text-primary">95%</span>
+</div>
+<div class="size-10 flex items-center justify-center border-4 border-primary rounded-full">
+<span class="material-symbols-outlined text-primary scale-75">radar</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg">
+<span class="text-[10px] uppercase font-bold text-slate-400">Speed to Value</span>
+<div class="flex mt-1 text-primary">
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span class="material-symbols-outlined text-sm">bolt</span>
+</div>
+</div>
+</div>
+<div class="border border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-4 bg-slate-50/50 dark:bg-[#171122]/50">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm text-primary">palette</span>
+<span class="text-xs font-bold uppercase text-slate-500">Visual Pairing Recommendation</span>
+</div>
+<p class="text-xs leading-relaxed text-slate-600 dark:text-[#a492c9]">
+                                High-energy <span class="text-primary font-bold">Electric Purple</span> gradients with grainy textures for a modern tech vibe.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Hook Card 4 -->
+<div class="bg-white dark:bg-[#1e1e2d] border border-slate-200 dark:border-[#2f2348] rounded-xl overflow-hidden hover:border-primary/50 transition-colors">
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded border border-primary/20">The Visionary</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"><span class="material-symbols-outlined text-sm">bookmark</span></button>
+</div>
+</div>
+<p class="text-lg font-bold leading-relaxed mb-6">
+                            Your "Professional" LinkedIn headshot is hurting your brand. The internet doesn't want polished, it wants permission to be human.
+                        </p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-slate-400">Contrast Dist.</span>
+<span class="text-lg font-black text-primary">82%</span>
+</div>
+<div class="size-10 flex items-center justify-center border-4 border-primary/60 rounded-full">
+<span class="material-symbols-outlined text-primary scale-75">radar</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-[#2a2a3d] p-3 rounded-lg">
+<span class="text-[10px] uppercase font-bold text-slate-400">Speed to Value</span>
+<div class="flex mt-1 text-primary">
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm fill-1">bolt</span>
+<span class="material-symbols-outlined text-sm">bolt</span>
+</div>
+</div>
+</div>
+<div class="border border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-4 bg-slate-50/50 dark:bg-[#171122]/50">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm text-primary">palette</span>
+<span class="text-xs font-bold uppercase text-slate-500">Visual Pairing Recommendation</span>
+</div>
+<p class="text-xs leading-relaxed text-slate-600 dark:text-[#a492c9]">
+                                Split-screen comparison: <span class="font-bold">Dull Gray vs. Vibrant Color</span> to visually demonstrate the "Human" factor.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Stats Sidebar (Aggregated) -->
+<div class="mt-16 p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-background-light to-primary/10 dark:from-primary/20 dark:via-background-dark dark:to-primary/20 border border-primary/20 text-center">
+<h4 class="text-xl font-bold mb-6">Predicted Performance Overview</h4>
+<div class="flex flex-wrap justify-center gap-8 lg:gap-16">
+<div class="flex flex-col items-center">
+<span class="text-3xl font-black text-primary">~4.2%</span>
+<span class="text-xs uppercase font-bold tracking-widest text-slate-500 mt-1">Avg. CTR</span>
+</div>
+<div class="w-px h-12 bg-slate-200 dark:bg-[#2f2348] hidden md:block"></div>
+<div class="flex flex-col items-center">
+<span class="text-3xl font-black text-primary">89/100</span>
+<span class="text-xs uppercase font-bold tracking-widest text-slate-500 mt-1">Viral Potential</span>
+</div>
+<div class="w-px h-12 bg-slate-200 dark:bg-[#2f2348] hidden md:block"></div>
+<div class="flex flex-col items-center">
+<span class="text-3xl font-black text-primary">12s</span>
+<span class="text-xs uppercase font-bold tracking-widest text-slate-500 mt-1">Read Time</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-12 py-10 border-t border-slate-200 dark:border-[#2f2348] text-center">
+<div class="flex justify-center gap-4 mb-4">
+<span class="material-symbols-outlined text-slate-400">analytics</span>
+<span class="material-symbols-outlined text-slate-400">auto_awesome</span>
+<span class="material-symbols-outlined text-slate-400">insights</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-[#a492c9]">© 2024 Contrast Lab. Built for creators who refuse to blend in.</p>
+</footer>
+</body></html>

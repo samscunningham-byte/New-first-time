@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workflow Announcement Final Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#2f2348] px-10 py-3 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">LinkedIn Creator Pro</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Workflows</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Scripts</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Analytics</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Library</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 border border-slate-300 dark:border-[#443267] text-slate-900 dark:text-white text-sm font-bold leading-normal">
+<span>Save Draft</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-primary" data-alt="User avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcgMHVnVTXVP-iQUB2lAK20VcaeyMn1r2SETQf6junVI6Qh_FepDY6zNvzULvIlczPCIuOJsgPX1ip54AGH0uDtAb7wI9TPL8iksfk52GPCHbxCXJ3M8xa5Yz24XkOU80X41Cpwr7dNHNZK_FfIZ1hwmj8kg4lQjVygwUfpJuGCxhsB67aKIgeq8DfzLgG35mUOwdvU6yT4eoolkX4Lgr3JdU7PkassAYSnGMoH5NWqA82HQUJE9Mu7dXmdftS0SkufWdyDTon3_Q");'></div>
+</div>
+</header>
+<main class="flex-1 flex flex-col px-4 md:px-10 lg:px-20 xl:px-40 py-8 gap-6">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-end gap-3">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-white text-3xl font-extrabold leading-tight tracking-tight">Workflow Announcement Final Review</h1>
+<p class="text-slate-500 dark:text-[#a492c9] text-sm font-normal">Review your script and preview the LinkedIn post before going live.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 dark:border-[#443267] text-sm font-bold">
+<span class="material-symbols-outlined text-sm">history</span> History
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">send</span> Ready to Publish
+                    </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-slate-200 dark:border-[#443267]">
+<div class="flex gap-8">
+<a class="flex items-center border-b-[3px] border-primary text-primary pb-3 pt-2 px-2" href="#">
+<p class="text-sm font-bold">Final Review</p>
+</a>
+<a class="flex items-center border-b-[3px] border-transparent text-slate-500 dark:text-[#a492c9] pb-3 pt-2 px-2 hover:text-primary transition-colors" href="#">
+<p class="text-sm font-bold">A/B Testing</p>
+</a>
+<a class="flex items-center border-b-[3px] border-transparent text-slate-500 dark:text-[#a492c9] pb-3 pt-2 px-2 hover:text-primary transition-colors" href="#">
+<p class="text-sm font-bold">SEO Tags</p>
+</a>
+</div>
+</div>
+<!-- Main Three-Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Section: Final Script Review (5 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+<h2 class="text-xl font-bold dark:text-white">Announcement Script</h2>
+</div>
+<div class="bg-white dark:bg-[#221933] rounded-xl border border-slate-200 dark:border-[#443267] overflow-hidden shadow-sm">
+<!-- SLAY Framework Color Coding -->
+<div class="p-6 flex flex-col gap-6">
+<!-- Hook Section -->
+<div class="p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
+<div class="flex justify-between mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">The Hook (S)</span>
+<span class="material-symbols-outlined text-xs text-primary">verified</span>
+</div>
+<p class="text-slate-800 dark:text-white font-semibold leading-relaxed">
+                                    "Most creators are building workflows for 2022. But the game has changed. Here is how we're automating the next decade..."
+                                </p>
+</div>
+<!-- The Meat -->
+<div class="p-4 rounded-lg bg-blue-500/10 border-l-4 border-blue-500">
+<div class="flex justify-between mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-blue-500">The Meat (L &amp; A)</span>
+<span class="material-symbols-outlined text-xs text-blue-500">auto_awesome</span>
+</div>
+<p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                                    I spent the last 6 months refining the 'New Workflow' framework. It’s not just about speed; it’s about strategic leverage.
+                                </p>
+<ul class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed list-disc pl-4 space-y-2">
+<li>Automated Research Phase</li>
+<li>AI-Assisted Hook Generation</li>
+<li>Systemic Distribution Matrix</li>
+</ul>
+</div>
+<!-- The CTA -->
+<div class="p-4 rounded-lg bg-emerald-500/10 border-l-4 border-emerald-500">
+<div class="flex justify-between mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">The CTA (Y)</span>
+<span class="material-symbols-outlined text-xs text-emerald-500">campaign</span>
+</div>
+<p class="text-slate-800 dark:text-white font-medium leading-relaxed">
+                                    "Comment 'WORKFLOW' below and I'll send you the 2026 blueprint for free. Let's build together."
+                                </p>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-primary/5 px-6 py-3 flex justify-between items-center border-t border-slate-200 dark:border-[#443267]">
+<span class="text-xs text-slate-500 dark:text-[#a492c9]">142 Words / 890 Characters</span>
+<button class="text-primary text-xs font-bold hover:underline">Edit Script</button>
+</div>
+</div>
+</div>
+<!-- Center Section: LinkedIn Feed Preview (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<h2 class="text-xl font-bold dark:text-white">Desktop Feed Preview</h2>
+</div>
+<!-- LinkedIn Mockup -->
+<div class="bg-white dark:bg-[#1b1b1b] rounded-lg border border-slate-200 dark:border-white/10 shadow-xl overflow-hidden">
+<!-- Post Header -->
+<div class="p-4 flex gap-3">
+<div class="size-12 rounded-full bg-slate-200 dark:bg-slate-800 bg-cover" data-alt="Creator profile picture in feed" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAs87V539KN8ue7T8SnuLbPfJvE0AzbpGzGQLjoAMewzjnfVkW0sDVT7CBuwL0TjlI9HpdzOSkUrqvOMz95gL7KNGF_KaYEpZs6LSEeyew_4_Z1rPH5bISW558Dk2OPmoI8SuTsIEqmdyHk8xa7BoJbOT89rGhE8ebmG1IJh03Xckyczw92ylwMZmbm4sphKGKue5bAdvqHtjBmPZbQPeqL-XB6-IX3YwNCmaeaHkswC6QJ1TBqRCa846YqE0v167Qu1QULHtAoPXI');"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold dark:text-white hover:text-blue-600 cursor-pointer">Justin Welsh </span>
+<span class="text-xs text-slate-500">• 1st</span>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">Building a portfolio of one-person businesses</span>
+<div class="flex items-center gap-1 text-[11px] text-slate-500">
+<span>Just now</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[12px]">public</span>
+</div>
+</div>
+</div>
+<!-- Post Text -->
+<div class="px-4 pb-3">
+<p class="text-sm text-slate-900 dark:text-slate-100">Most creators are building workflows for 2022. But the game has changed. Here is how we're automating the next decade...</p>
+<span class="text-sm text-slate-500 font-semibold cursor-pointer hover:underline">...see more</span>
+</div>
+<!-- Video Player Placeholder -->
+<div class="relative aspect-video bg-black flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-60 bg-gradient-to-tr from-primary to-blue-600" data-alt="Abstract video thumbnail gradient"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="size-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 cursor-pointer hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-white text-4xl leading-none">play_arrow</span>
+</div>
+<span class="text-white text-[10px] mt-2 font-medium tracking-widest uppercase bg-black/40 px-2 py-1 rounded">0:58 Preview</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="w-1/3 h-full bg-primary"></div>
+</div>
+</div>
+<!-- Interaction Stats -->
+<div class="px-4 py-2 border-b border-slate-100 dark:border-white/5 flex justify-between items-center">
+<div class="flex items-center gap-1">
+<div class="flex -space-x-1">
+<div class="size-4 bg-blue-500 rounded-full flex items-center justify-center ring-2 ring-white dark:ring-[#1b1b1b]"><span class="material-symbols-outlined text-[10px] text-white">thumb_up</span></div>
+<div class="size-4 bg-red-500 rounded-full flex items-center justify-center ring-2 ring-white dark:ring-[#1b1b1b]"><span class="material-symbols-outlined text-[10px] text-white">favorite</span></div>
+</div>
+<span class="text-xs text-slate-500 hover:text-blue-600 cursor-pointer">122</span>
+</div>
+<div class="flex gap-2">
+<span class="text-xs text-slate-500 hover:text-blue-600 cursor-pointer">0 comments</span>
+<span class="text-xs text-slate-500 hover:text-blue-600 cursor-pointer">0 reposts</span>
+</div>
+</div>
+<!-- Buttons -->
+<div class="px-2 py-1 flex justify-between text-slate-600 dark:text-slate-400">
+<button class="flex items-center gap-1 px-3 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-md font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">thumb_up</span> Like
+                            </button>
+<button class="flex items-center gap-1 px-3 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-md font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">comment</span> Comment
+                            </button>
+<button class="flex items-center gap-1 px-3 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-md font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">sync</span> Repost
+                            </button>
+<button class="flex items-center gap-1 px-3 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-md font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">send</span> Send
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Section: Optimization Sidebar (3 cols) -->
+<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h2 class="text-xl font-bold dark:text-white">Optimization</h2>
+</div>
+<!-- Viral Score Card -->
+<div class="bg-white dark:bg-[#221933] p-6 rounded-xl border border-slate-200 dark:border-[#443267] flex flex-col items-center gap-4 shadow-sm">
+<div class="relative size-32 flex items-center justify-center">
+<svg class="size-full" viewbox="0 0 36 36">
+<path class="stroke-current text-slate-100 dark:text-[#443267]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="stroke-current text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="100, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-3xl font-extrabold dark:text-white">100%</span>
+<span class="text-[10px] uppercase font-bold text-primary tracking-tighter">Viral Ready</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-sm dark:text-slate-300 font-medium">Your post hits all key viral markers for high engagement.</p>
+</div>
+</div>
+<!-- Framework Reminder -->
+<div class="bg-primary/20 p-4 rounded-xl border border-primary/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div class="flex flex-col gap-1">
+<p class="text-xs font-bold uppercase tracking-tight text-primary">Framework Match</p>
+<p class="text-sm dark:text-white font-semibold">This script follows the 2026 systems framework.</p>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 mt-auto pt-8">
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-xl shadow-primary/30 flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">rocket_launch</span> Publish Now
+                        </button>
+<div class="flex gap-2">
+<button class="flex-1 py-3 border border-slate-300 dark:border-[#443267] rounded-xl text-sm font-bold dark:text-white hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_month</span> Schedule
+                            </button>
+<button class="py-3 px-4 border border-slate-300 dark:border-[#443267] rounded-xl text-sm font-bold dark:text-white hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Optimization Breakdown Mini-Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+<div class="flex gap-4 rounded-lg border border-slate-200 dark:border-[#443267] bg-white dark:bg-[#221933] p-4 items-center">
+<div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
+<span class="material-symbols-outlined">query_stats</span>
+</div>
+<div class="flex flex-col">
+<h3 class="dark:text-white text-sm font-bold">Readability Score</h3>
+<p class="text-[#a492c9] text-xs font-normal">Grade 6 - Optimized for mobile skimming.</p>
+</div>
+</div>
+<div class="flex gap-4 rounded-lg border border-slate-200 dark:border-[#443267] bg-white dark:bg-[#221933] p-4 items-center">
+<div class="p-2 rounded-lg bg-blue-500/10 text-blue-500">
+<span class="material-symbols-outlined">sentiment_very_satisfied</span>
+</div>
+<div class="flex flex-col">
+<h3 class="dark:text-white text-sm font-bold">Sentiment Analysis</h3>
+<p class="text-[#a492c9] text-xs font-normal">92% Positive - High trust signals detected.</p>
+</div>
+</div>
+<div class="flex gap-4 rounded-lg border border-slate-200 dark:border-[#443267] bg-white dark:bg-[#221933] p-4 items-center">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div class="flex flex-col">
+<h3 class="dark:text-white text-sm font-bold">Pacing Checker</h3>
+<p class="text-[#a492c9] text-xs font-normal">Fast transition detected at 0:15.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

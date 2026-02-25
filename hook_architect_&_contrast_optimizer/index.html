@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hook Architect &amp; Contrast Optimizer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(47, 35, 72, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-border:focus-within {
+            box-shadow: 0 0 15px rgba(91, 19, 236, 0.3);
+            border-color: #5b13ec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-solid border-slate-200 dark:border-[#2f2348] px-6 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Hook Architect</h2>
+<p class="text-xs text-slate-500 dark:text-[#a492c9] font-medium uppercase tracking-widest">Contrast Optimizer v2.4</p>
+</div>
+</div>
+<div class="flex flex-1 justify-center max-w-xl px-10">
+<nav class="flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-primary" href="#">Workspace</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Library</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span>Deploy to LinkedIn</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-[#2f2348] text-slate-600 dark:text-white hover:bg-slate-200 dark:hover:bg-[#3d2e5d] transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-[#2f2348] text-slate-600 dark:text-white hover:bg-slate-200 dark:hover:bg-[#3d2e5d] transition-all">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden h-[calc(100vh-64px-60px)]">
+<!-- Section 1: Visual Stop -->
+<section class="w-1/4 border-r border-slate-200 dark:border-[#2f2348] flex flex-col bg-white/50 dark:bg-transparent">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<h3 class="text-lg font-bold">Visual Stop</h3>
+</div>
+<div class="relative flex items-center justify-center bg-slate-200 dark:bg-[#2f2348] aspect-[4/5] rounded-xl overflow-hidden group shadow-2xl">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic neon tech workspace setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPWQyoa-2hqJhNgwE_im7o3HhFRjXLvd0ZMh3u5MYKrIKZGRzX-L78nAKkXdt8c6NBD8JR_Yf0FBfgNE0mYUKHbYx5h-UvS6fA-Dh-r--ZMouxsGUU84CsOF69retw1kDtNfzD8zM5yD7k1qjfDHUtqcu8cnccOX6RcVQ8o0hMICFUiM2pt0dJw2e5CjuwBgij9ZmF1BUofYMtU_4MoBlpHxPMXZGdPj-RK0gWuYaZBbl_PK0js3eykuNfoLmS5aSQCUcOnPfhoIU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+<button class="relative z-10 flex shrink-0 items-center justify-center rounded-full size-16 bg-primary/80 text-white backdrop-blur-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</button>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<span class="text-[10px] font-bold bg-black/50 px-2 py-1 rounded uppercase tracking-tighter">Preview Mode</span>
+<span class="text-[10px] font-bold bg-primary px-2 py-1 rounded uppercase tracking-tighter">High Contrast</span>
+</div>
+</div>
+<div class="mt-8 space-y-2">
+<p class="text-xs font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest mb-4">Impact Tuning</p>
+<!-- Slider: Color Saturation -->
+<div class="py-2">
+<div class="flex justify-between mb-1">
+<p class="text-sm font-medium">Color Saturation</p>
+<p class="text-xs font-bold text-primary">85%</p>
+</div>
+<div class="flex h-4 items-center gap-4">
+<div class="flex h-1 flex-1 rounded-full bg-slate-200 dark:bg-[#443267]">
+<div class="h-full w-[85%] rounded-full bg-primary relative">
+<div class="absolute -right-2 -top-1.5 size-4 rounded-full bg-primary border-2 border-white dark:border-background-dark shadow-lg"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slider: Contrast Gap -->
+<div class="py-2">
+<div class="flex justify-between mb-1">
+<p class="text-sm font-medium">Contrast Gap</p>
+<p class="text-xs font-bold text-primary">92%</p>
+</div>
+<div class="flex h-4 items-center gap-4">
+<div class="flex h-1 flex-1 rounded-full bg-slate-200 dark:bg-[#443267]">
+<div class="h-full w-[92%] rounded-full bg-primary relative">
+<div class="absolute -right-2 -top-1.5 size-4 rounded-full bg-primary border-2 border-white dark:border-background-dark shadow-lg"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slider: Brightness Peak -->
+<div class="py-2">
+<div class="flex justify-between mb-1">
+<p class="text-sm font-medium">Brightness Peak</p>
+<p class="text-xs font-bold text-primary">64%</p>
+</div>
+<div class="flex h-4 items-center gap-4">
+<div class="flex h-1 flex-1 rounded-full bg-slate-200 dark:bg-[#443267]">
+<div class="h-full w-[64%] rounded-full bg-primary relative">
+<div class="absolute -right-2 -top-1.5 size-4 rounded-full bg-primary border-2 border-white dark:border-background-dark shadow-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Hook Architect -->
+<section class="flex-1 flex flex-col bg-white dark:bg-background-dark/50 p-8">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_square</span>
+<h3 class="text-lg font-bold">Hook Architect</h3>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-[#2f2348] text-xs font-bold hover:bg-slate-50 dark:hover:bg-[#2f2348]">A/B Variant</button>
+<button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-[#2f2348] text-xs font-bold hover:bg-slate-50 dark:hover:bg-[#2f2348]">Templates</button>
+</div>
+</div>
+<div class="space-y-6 flex-1">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest">01. The Context (The Familiar)</label>
+<div class="glow-border relative group rounded-xl border-2 border-slate-100 dark:border-[#2f2348] bg-white dark:bg-[#1c142b] p-1 transition-all">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-xl font-medium leading-relaxed min-h-[140px] p-4 resize-none placeholder:text-slate-300 dark:placeholder:text-slate-700" placeholder="Start with a relatable observation or a status quo..."></textarea>
+<div class="absolute bottom-4 right-4 flex items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400">CONTEXT MATCH: 88%</span>
+<div class="size-2 rounded-full bg-green-500"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest">02. The Contrast (The Twist)</label>
+<div class="glow-border relative group rounded-xl border-2 border-slate-100 dark:border-[#2f2348] bg-white dark:bg-[#1c142b] p-1 transition-all">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-xl font-bold leading-relaxed min-h-[140px] p-4 resize-none placeholder:text-slate-300 dark:placeholder:text-slate-700 text-primary" placeholder="Now, flip the script. What's the shocking truth?"></textarea>
+<div class="absolute bottom-4 right-4 flex items-center gap-2">
+<span class="text-[10px] font-bold text-primary">GAP POLARITY: HIGH</span>
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex items-start gap-4 mt-10">
+<span class="material-symbols-outlined text-primary mt-1">auto_awesome</span>
+<div>
+<p class="text-sm font-bold text-white mb-1">AI Suggestion</p>
+<p class="text-sm text-[#a492c9] leading-relaxed">Your contrast is currently "Implied." Try using a specific number or a contradictory power-word to make it "Direct" for a 40% higher CTR.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: SLAY Scorecard -->
+<section class="w-1/4 border-l border-slate-200 dark:border-[#2f2348] flex flex-col glass-panel">
+<div class="p-6 flex flex-col h-full">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h3 class="text-lg font-bold">SLAY Scorecard</h3>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center">
+<!-- Score Meter Representation -->
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-slate-200 dark:text-[#2f2348]" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502" stroke-dashoffset="120" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-5xl font-black tracking-tighter">164</span>
+<span class="text-[10px] font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-[0.2em]">Distance</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+<span class="text-xs font-medium text-slate-400">Contrast Type</span>
+<span class="text-xs font-bold text-green-400">DIRECT</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+<span class="text-xs font-medium text-slate-400">Stop Power</span>
+<span class="text-xs font-bold text-white">ELITE (9.2/10)</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+<span class="text-xs font-medium text-slate-400">Pattern Interrupt</span>
+<span class="text-xs font-bold text-primary">ACTIVE</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-[#2f2348]">
+<h4 class="text-xs font-bold text-slate-400 dark:text-[#a492c9] uppercase tracking-widest mb-4">Real-time Feedback</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<p class="text-xs text-slate-500 dark:text-[#a492c9]">Strong juxtaposition detected.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">info</span>
+<p class="text-xs text-slate-500 dark:text-[#a492c9]">Reading ease: 8th grade level.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">pending</span>
+<p class="text-xs text-slate-500 dark:text-[#a492c9]">Analyzing scroll-depth probability...</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Bar: Grammar & Pace -->
+<footer class="h-[60px] border-t border-slate-200 dark:border-[#2f2348] bg-white dark:bg-[#120c1d] px-6 flex items-center justify-between z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Word Count</span>
+<span class="text-sm font-bold">42 words</span>
+</div>
+<div class="h-4 w-px bg-slate-200 dark:bg-[#2f2348]"></div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Active Voice</span>
+<div class="w-24 h-2 bg-slate-200 dark:bg-[#2f2348] rounded-full overflow-hidden">
+<div class="h-full bg-green-500 w-[92%]"></div>
+</div>
+<span class="text-sm font-bold">92%</span>
+</div>
+<div class="h-4 w-px bg-slate-200 dark:bg-[#2f2348]"></div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Pace Bar</span>
+<div class="flex gap-1">
+<div class="w-4 h-1.5 bg-primary rounded-full"></div>
+<div class="w-4 h-1.5 bg-primary rounded-full"></div>
+<div class="w-4 h-1.5 bg-primary rounded-full"></div>
+<div class="w-4 h-1.5 bg-slate-200 dark:bg-[#2f2348] rounded-full"></div>
+</div>
+<span class="text-sm font-bold uppercase text-primary">Punchy</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">history</span>
+<span class="text-xs text-slate-400 italic">Autosaved 2 mins ago</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-slate-100 dark:bg-[#2f2348] text-xs font-bold hover:bg-slate-200 dark:hover:bg-[#3d2e5d] transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                    Copy Hook
+                </button>
+</div>
+</footer>
+</div>
+</body></html>

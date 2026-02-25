@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Template-Based AI Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2f2348;
+            border-radius: 10px;
+        }
+        .linkedin-border {
+            border: 1px solid #e0e0e0;
+        }
+        .dark .linkedin-border {
+            border: 1px solid #333333;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-solid border-slate-200 dark:border-[#2f2348] px-6 py-3 bg-background-light dark:bg-background-dark z-10">
+<div class="flex items-center gap-4">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">AI Post Editor</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">My Templates</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Drafts</a>
+</nav>
+<div class="h-6 w-px bg-slate-200 dark:bg-[#2f2348] mx-2"></div>
+<div class="flex gap-2">
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90">
+<span class="truncate">Post to LinkedIn</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-slate-200 dark:bg-[#2f2348] text-sm font-bold hover:bg-slate-300 dark:hover:bg-[#3d2e5e] transition-all">
+<span>Switch Template</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfnT3Cs_y3TJY3hzhL1SBErd4kHMSLrMASDEF0Wj4RaFn76-x3-VgqOy4dtO0E58D5Nq_eTxDbf6v-NGY5TX0DHgcsPfQ4qS_3_dNGgirO0Tu4TMKL6aCulILxSMyP9ifhZ133HwGOoTyUgJCkHYaF2e6kMqZ4p1I82i_l3PzIda3HXKQxr0GU0uLLwWNB9g26qFZ8ORWOzza-oIywzlTtef4Yzed_FkmcL8LhN4g9XVFOWLJCve745YpG47P8i1gaJIvs5Yp3QQA");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Template Assistant -->
+<aside class="w-[400px] border-r border-slate-200 dark:border-[#2f2348] flex flex-col bg-white dark:bg-background-dark overflow-y-auto custom-scrollbar">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary">Marketing Formula</span>
+</div>
+<h1 class="text-2xl font-bold mb-1">AIDA Assistant</h1>
+<p class="text-slate-500 dark:text-[#a492c9] text-sm">Fill in the fields to generate your viral post.</p>
+</div>
+<div class="flex flex-col gap-6 px-6 pb-10">
+<!-- Field: Attention -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary text-white text-xs font-bold">1</span>
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400">Attention</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium">Achieve a common goal</label>
+<textarea class="form-input w-full rounded-lg border border-slate-200 dark:border-[#443267] bg-slate-50 dark:bg-[#221933] focus:ring-2 focus:ring-primary focus:border-primary p-3 text-sm min-h-[80px] resize-none" placeholder="e.g., Build a $10k/mo agency in 90 days"></textarea>
+</div>
+</section>
+<!-- Field: Interest -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary text-white text-xs font-bold">2</span>
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400">Interest</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium">Specific pain point or insight</label>
+<textarea class="form-input w-full rounded-lg border border-slate-200 dark:border-[#443267] bg-slate-50 dark:bg-[#221933] focus:ring-2 focus:ring-primary focus:border-primary p-3 text-sm min-h-[80px] resize-none" placeholder="e.g., Most people spend 40 hours a week on manual outreach..."></textarea>
+</div>
+</section>
+<!-- Field: Desire -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary text-white text-xs font-bold">3</span>
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400">Desire</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium">The transformation/solution</label>
+<textarea class="form-input w-full rounded-lg border border-slate-200 dark:border-[#443267] bg-slate-50 dark:bg-[#221933] focus:ring-2 focus:ring-primary focus:border-primary p-3 text-sm min-h-[80px] resize-none" placeholder="e.g., Imagine having 5 qualified leads in your inbox every morning..."></textarea>
+</div>
+</section>
+<!-- Field: Action -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary text-white text-xs font-bold">4</span>
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400">Action</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium">Call to action</label>
+<input class="form-input w-full rounded-lg border border-slate-200 dark:border-[#443267] bg-slate-50 dark:bg-[#221933] focus:ring-2 focus:ring-primary focus:border-primary h-12 px-3 text-sm" placeholder="e.g., Comment 'SYSTEM' for the full guide" type="text"/>
+</div>
+</section>
+<div class="pt-4">
+<button class="w-full flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary font-bold py-3 rounded-xl transition-all border border-primary/30">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                        Optimize with AI
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Editor Area: Preview -->
+<main class="flex-1 flex flex-col bg-slate-50 dark:bg-[#0f0b18] overflow-y-auto custom-scrollbar relative">
+<div class="sticky top-0 z-10 w-full p-4 flex justify-center">
+<div class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md rounded-full border border-slate-200 dark:border-[#2f2348] px-4 py-2 flex items-center gap-4 shadow-xl">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-primary/10 text-xs font-bold text-slate-600 dark:text-[#a492c9] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">history</span> History
+                    </button>
+<div class="h-4 w-px bg-slate-200 dark:bg-[#2f2348]"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-primary/10 text-xs font-bold text-slate-600 dark:text-[#a492c9] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span> Rewrite Hook
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-primary/10 text-xs font-bold text-slate-600 dark:text-[#a492c9] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">mood</span> Add Emojis
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-primary/10 text-xs font-bold text-slate-600 dark:text-[#a492c9] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">short_text</span> Shorter
+                    </button>
+</div>
+</div>
+<div class="max-w-[600px] w-full mx-auto py-8 px-6">
+<div class="mb-4 flex items-center justify-between">
+<h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Live LinkedIn Preview</h2>
+<span class="text-[10px] bg-green-500/20 text-green-500 px-2 py-0.5 rounded-full font-bold">AUTO-SAVING</span>
+</div>
+<!-- LinkedIn Mockup -->
+<div class="bg-white dark:bg-[#1b1b1b] rounded-lg shadow-sm linkedin-border overflow-hidden">
+<div class="p-4">
+<div class="flex items-start gap-3">
+<div class="size-12 rounded-full bg-cover bg-center" data-alt="Profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdxFpvUHJg2ra_Of_-3ExxgkXLuF6REoojAk593eTTqAPZikm2YizU0wDOaKI43xtPYljnpBMUF7O5FwaLLYQiSBmIoO8hsGwDrrzx8AZHSrunu2o0ZolM0ZWQ48oxiUN5FtjPvQTpUCKX-xK9bkt2tYT6VFbQOzsd2g48izF9uJ1BPn2pFN2KdMR3tkoLgUvLthX1SFD4UhHSx1Qn-wEnEVD-7bu6lRtFut4MmzpU0Wp1clguNC6UqbtqA68Ou2rXz4S5xpongcs');"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Alex Rivers</span>
+<span class="text-xs text-slate-500">• 1st</span>
+</div>
+<span class="text-xs text-slate-500 leading-tight">Founder @ AI Launchpad | Building the future of content 🚀</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-xs text-slate-500">1h • Edited •</span>
+<span class="material-symbols-outlined text-[14px] text-slate-500">public</span>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-4 text-[14px] leading-relaxed text-slate-800 dark:text-slate-200">
+<p class="font-bold text-lg">How to build a $10k/mo agency in 90 days (without burnout) 👇</p>
+<p>Most people spend 40 hours a week on manual outreach, wondering why their calendar is empty. They're chasing leads instead of attracting them.</p>
+<p>Imagine having 5 qualified leads in your inbox every morning while you were sleeping. No cold calls. No spamming LinkedIn DMs. Just a system that works while you don't.</p>
+<p>It's not magic, it's automation.</p>
+<p>I've put together a full guide on the exact tech stack we use to scale.</p>
+<p class="font-bold text-primary">Comment 'SYSTEM' below and I'll send it over to your DMs! 🚀</p>
+<div class="pt-2 text-primary font-medium">#agency #growth #ai #productivity</div>
+</div>
+</div>
+<div class="px-4 py-3 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
+<div class="flex items-center -space-x-1">
+<div class="size-4 rounded-full bg-blue-500 flex items-center justify-center border border-white dark:border-[#1b1b1b]">
+<span class="material-symbols-outlined text-[10px] text-white">thumb_up</span>
+</div>
+<div class="size-4 rounded-full bg-red-500 flex items-center justify-center border border-white dark:border-[#1b1b1b]">
+<span class="material-symbols-outlined text-[10px] text-white">favorite</span>
+</div>
+<div class="size-4 rounded-full bg-yellow-500 flex items-center justify-center border border-white dark:border-[#1b1b1b]">
+<span class="material-symbols-outlined text-[10px] text-white">lightbulb</span>
+</div>
+<span class="pl-2 text-[12px] text-slate-500">42 comments</span>
+</div>
+<span class="text-[12px] text-slate-500">12 shares</span>
+</div>
+<div class="flex items-center border-t border-slate-100 dark:border-white/5 px-2 py-1">
+<button class="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded transition-colors text-slate-600 dark:text-slate-400 font-medium text-sm">
+<span class="material-symbols-outlined text-lg">thumb_up</span> Like
+                        </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded transition-colors text-slate-600 dark:text-slate-400 font-medium text-sm">
+<span class="material-symbols-outlined text-lg">comment</span> Comment
+                        </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded transition-colors text-slate-600 dark:text-slate-400 font-medium text-sm">
+<span class="material-symbols-outlined text-lg">share</span> Share
+                        </button>
+</div>
+</div>
+<!-- AI Quick Actions Card -->
+<div class="mt-8 p-6 bg-primary/5 border border-primary/20 rounded-2xl flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h4 class="font-bold text-sm">AI Suggestions</h4>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="bg-white dark:bg-[#221933] p-3 rounded-xl border border-primary/10 cursor-pointer hover:border-primary/40 transition-all">
+<p class="text-xs text-slate-500 mb-1">Alternative Hook:</p>
+<p class="text-[13px] font-medium italic">"Stop trading time for money. Here's how to automate your agency..."</p>
+</div>
+<div class="bg-white dark:bg-[#221933] p-3 rounded-xl border border-primary/10 cursor-pointer hover:border-primary/40 transition-all">
+<p class="text-xs text-slate-500 mb-1">CTA Variant:</p>
+<p class="text-[13px] font-medium italic">"DM me 'GUIDE' if you're ready to scale to $10k/mo."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Video Performance Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<div class="flex justify-center border-b border-solid border-[#2f2348] bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px]">
+<header class="flex items-center justify-between whitespace-nowrap px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined text-3xl">insights</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">LinkedIn Creator Analytics</h2>
+</div>
+<div class="flex items-center gap-9">
+<a class="text-[#a492c9] hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-white text-sm font-medium leading-normal border-b-2 border-primary pb-1" href="#">Video Analytics</a>
+<a class="text-[#a492c9] hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Audience</a>
+<a class="text-[#a492c9] hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Monetization</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#a492c9] flex border-none bg-[#2f2348] items-center justify-center pl-4 rounded-l-lg" data-icon="search">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2f2348] focus:border-none h-full placeholder:text-[#a492c9] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search videos..." value=""/>
+</div>
+</label>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/50" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCdEEHw2TnNX09L-5vovb-8ki1X1mojUVbL-Y7Pw6H2EmNvMeR_FGY159Mi1-8yklwiquKrymjYinS3FuSa_r7S8qkTPKnSsG5D0CUtRk0UqPgblKI2i8sLYWzxtlb-oJp-NsvsI-SqYSU7fPhHv3lctMdCXGnJPwZ-6tX7vy-EcGL6laTOfmPsf9v0H9Hfqqbt3B9bxQGUwEfx6Njs69ks2K7skiZ8aCw0Be3-FewFDROSu30gMvSULGEllqT_gCcC-X9lwMBpkNc");'></div>
+</div>
+</header>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px] px-4">
+<!-- Breadcrumbs & Heading -->
+<div class="flex flex-wrap gap-2 px-4 mb-2">
+<a class="text-[#a492c9] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="text-[#a492c9] text-sm font-medium leading-normal">/</span>
+<span class="text-white text-sm font-medium leading-normal">Video Analytics</span>
+</div>
+<div class="flex flex-wrap justify-between items-end gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">Video Performance: How to Build a Personal Brand</p>
+<div class="flex items-center gap-4">
+<p class="text-[#a492c9] text-base font-normal leading-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Published on Oct 12, 2023
+                                </p>
+<p class="text-[#a492c9] text-base font-normal leading-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 1:15 duration
+                                </p>
+<span class="bg-primary/20 text-primary text-xs font-bold px-2 py-1 rounded">PUBLIC</span>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/80 text-white font-bold py-2 px-6 rounded-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">download</span> Export Data
+                        </button>
+</div>
+<!-- KPI Cards -->
+<div class="flex flex-wrap gap-4 p-4">
+<!-- Card 1 -->
+<div class="flex min-w-[280px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#443267] bg-[#1c142e] relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-5xl">visibility</span>
+</div>
+<p class="text-[#a492c9] text-base font-medium leading-normal">Total Unique Reach</p>
+<div class="flex items-baseline gap-2">
+<p class="text-white tracking-light text-3xl font-bold leading-tight">45,281</p>
+<p class="text-[#0bda6f] text-sm font-bold leading-normal flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12.4%
+                                </p>
+</div>
+<div class="mt-4 w-full bg-[#2f2348] h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]" data-alt="Reach goal progress"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex min-w-[280px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#443267] bg-[#1c142e] relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-5xl">timer</span>
+</div>
+<p class="text-[#a492c9] text-base font-medium leading-normal">Avg. Watch Time <span class="text-xs opacity-60 ml-1">(Target: 15s)</span></p>
+<div class="flex items-baseline gap-2">
+<p class="text-white tracking-light text-3xl font-bold leading-tight">18.4s</p>
+<p class="text-[#0bda6f] text-sm font-bold leading-normal flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> +2.1%
+                                </p>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex-1 bg-[#2f2348] h-1.5 rounded-full overflow-hidden">
+<div class="bg-blue-400 h-full w-[100%]" data-alt="Watch time target reached"></div>
+</div>
+<span class="text-[10px] text-blue-400 font-bold">TARGET MET</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex min-w-[280px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#443267] bg-[#1c142e] relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-5xl">bolt</span>
+</div>
+<p class="text-[#a492c9] text-base font-medium leading-normal">Engagement Rate <span class="text-xs opacity-60 ml-1">(Target: &gt;5%)</span></p>
+<div class="flex items-baseline gap-2">
+<p class="text-white tracking-light text-3xl font-bold leading-tight">6.2%</p>
+<p class="text-[#0bda6f] text-sm font-bold leading-normal flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> +0.8%
+                                </p>
+</div>
+<div class="mt-4 w-full bg-[#2f2348] h-1.5 rounded-full overflow-hidden">
+<div class="bg-purple-500 h-full w-[62%]" data-alt="Engagement rate progress"></div>
+</div>
+</div>
+</div>
+<!-- Graph and Insights Container -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4">
+<!-- Retention Graph -->
+<div class="lg:col-span-2 flex flex-col rounded-xl border border-[#443267] bg-[#1c142e] p-6">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Audience Retention Graph</h2>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 text-xs text-[#a492c9]"><span class="size-2 rounded-full bg-primary"></span> This Video</span>
+<span class="flex items-center gap-1 text-xs text-[#a492c9]"><span class="size-2 rounded-full bg-[#443267]"></span> Average</span>
+</div>
+</div>
+<!-- Simplified Vector Graph Representation -->
+<div class="relative h-64 w-full mt-4 bg-[#171122]/50 rounded-lg p-4 border border-[#2f2348]/30">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-4 px-8 opacity-10">
+<div class="border-t border-white w-full"></div>
+<div class="border-t border-white w-full"></div>
+<div class="border-t border-white w-full"></div>
+<div class="border-t border-white w-full"></div>
+</div>
+<!-- The Graph Line (SVG) -->
+<svg class="absolute inset-0 w-full h-full px-8 py-4" preserveaspectratio="none" viewbox="0 0 1000 100">
+<defs>
+<lineargradient id="gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgba(91, 19, 236, 0.4)"></stop>
+<stop offset="100%" style="stop-color:rgba(91, 19, 236, 0)"></stop>
+</lineargradient>
+</defs>
+<!-- Area Fill -->
+<path d="M0,20 Q100,10 200,35 T400,30 T600,45 T800,55 T1000,60 L1000,100 L0,100 Z" fill="url(#gradient)"></path>
+<!-- Main Line -->
+<path d="M0,20 Q100,10 200,35 T400,30 T600,45 T800,55 T1000,60" fill="none" stroke="#5b13ec" stroke-width="3"></path>
+<!-- Benchmark Line -->
+<path d="M0,40 Q150,35 300,50 T600,55 T1000,70" fill="none" stroke="#443267" stroke-dasharray="5,5" stroke-width="2"></path>
+<!-- Markers -->
+<circle cx="50" cy="15" fill="#5b13ec" r="5"></circle>
+<circle cx="850" cy="56" fill="#5b13ec" r="5"></circle>
+</svg>
+<!-- Labels for Markers -->
+<div class="absolute top-4 left-10 flex flex-col items-center">
+<div class="bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-lg">HOOK</div>
+<div class="h-10 border-l border-primary/50 border-dashed"></div>
+</div>
+<div class="absolute bottom-16 right-20 flex flex-col items-center">
+<div class="bg-blue-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-lg">CTA</div>
+<div class="h-10 border-l border-blue-500/50 border-dashed"></div>
+</div>
+</div>
+<!-- Timeline Axis -->
+<div class="flex justify-between mt-4 px-8 text-[#a492c9] text-xs font-medium">
+<span>0:00</span>
+<span>0:15</span>
+<span>0:30</span>
+<span>0:45</span>
+<span>1:00</span>
+<span>1:15</span>
+</div>
+</div>
+<!-- Actionable Insights -->
+<div class="flex flex-col gap-4">
+<div class="rounded-xl border border-primary/30 bg-[#1c142e] p-6 shadow-[0_0_20px_rgba(91,19,236,0.1)]">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<h3 class="text-white text-lg font-bold">Actionable Insights</h3>
+</div>
+<div class="space-y-4">
+<!-- Insight 1 -->
+<div class="p-3 rounded-lg bg-primary/10 border border-primary/20 flex gap-3 group hover:bg-primary/20 transition-all cursor-default">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">closed_caption</span>
+</div>
+<div>
+<p class="text-white text-sm font-semibold">Add burning captions</p>
+<p class="text-[#a492c9] text-xs mt-1">Increasing caption visibility can improve engagement by <span class="text-[#0bda6f]">+2.1%</span>.</p>
+</div>
+</div>
+<!-- Insight 2 -->
+<div class="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 flex gap-3 group hover:bg-blue-500/20 transition-all cursor-default">
+<div class="size-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-blue-400 text-sm">cut</span>
+</div>
+<div>
+<p class="text-white text-sm font-semibold">Shorten your intro</p>
+<p class="text-[#a492c9] text-xs mt-1">Users drop off at 0:04. Trimming the hook will improve 3s retention.</p>
+</div>
+</div>
+<!-- Insight 3 -->
+<div class="p-3 rounded-lg bg-[#2f2348] border border-transparent flex gap-3 hover:border-[#443267] transition-all cursor-default">
+<div class="size-8 rounded-full bg-[#443267] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-sm">lightbulb</span>
+</div>
+<div>
+<p class="text-white text-sm font-semibold">CTA optimization</p>
+<p class="text-[#a492c9] text-xs mt-1">Your CTA at 0:45 performed 15% better than last week's video.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-primary/30 text-primary text-sm font-bold rounded-lg hover:bg-primary hover:text-white transition-all">
+                                    View Detailed AI Report
+                                </button>
+</div>
+<!-- Mini Video Preview Card -->
+<div class="rounded-xl border border-[#443267] bg-[#1c142e] overflow-hidden">
+<div class="relative aspect-video bg-black flex items-center justify-center group cursor-pointer" data-alt="Video thumbnail with play overlay">
+<img alt="Video thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvz1VA-n_ENd0GT_8DNPdcgAvNu8BQhCGnQjqZVR_7-H0E-DzB-c4fP9Cvef2ofr5xrRkc3nQQ7yK5gN8dqsSFgIQGsfE5VOobrIlLBvMbPNVptWcnec4AL3V7NtDlPx3X2uJ4dgYkm6ZOPVHJJBRkCwdkKhd45Sx7WZ86KWBkkxpm0YeMQGX4c4JRq7j9EA4pve5O49c6FKiqKqfgyLGSFZ3TxljVinkEJa8NWBqX1Vs_w3QcjkgeGfY29YIAJ3qFJ8fKPAtxA8g"/>
+<span class="material-symbols-outlined absolute text-5xl text-white group-hover:scale-110 transition-transform">play_circle</span>
+<div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded text-[10px] text-white">1:15</div>
+</div>
+<div class="p-4">
+<p class="text-white text-sm font-medium truncate">How to Build a Personal Brand</p>
+<p class="text-[#a492c9] text-xs">LinkedIn Video Post • 12.4k Views</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Details Table / Grid -->
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+<div class="p-4 rounded-lg bg-[#1c142e] border border-[#443267] flex items-center gap-4">
+<div class="size-10 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">thumb_up</span>
+</div>
+<div>
+<p class="text-white text-lg font-bold">1,204</p>
+<p class="text-[#a492c9] text-xs">Reactions</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-[#1c142e] border border-[#443267] flex items-center gap-4">
+<div class="size-10 rounded bg-blue-500/20 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined">comment</span>
+</div>
+<div>
+<p class="text-white text-lg font-bold">452</p>
+<p class="text-[#a492c9] text-xs">Comments</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-[#1c142e] border border-[#443267] flex items-center gap-4">
+<div class="size-10 rounded bg-purple-500/20 flex items-center justify-center text-purple-400">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div>
+<p class="text-white text-lg font-bold">89</p>
+<p class="text-[#a492c9] text-xs">Shares</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-[#1c142e] border border-[#443267] flex items-center gap-4">
+<div class="size-10 rounded bg-green-500/20 flex items-center justify-center text-green-400">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div>
+<p class="text-white text-lg font-bold">+24</p>
+<p class="text-[#a492c9] text-xs">Follows from post</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Branded Video Creator Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6366f1",
+                        "secondary": "#0a69c2",
+                        "accent": "#8b5cf6",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#020617",
+                        "surface-dark": "#0f172a",
+                        "border-dark": "#1e293b"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    backgroundImage: {
+                        'tech-texture': "url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070')",
+                        'office-bg': "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069')",
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Manrope', sans-serif; }
+        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        .studio-glass {
+            @apply bg-surface-dark/80 backdrop-blur-md border border-white/10;
+        }
+        .branded-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #0a69c2 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display overflow-hidden h-screen flex flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-border-dark px-6 py-3 bg-white dark:bg-background-dark/95 backdrop-blur-sm z-30">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4">
+<div class="size-9 branded-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined font-bold">movie_edit</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight tracking-tight">Video Creator Studio</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full overflow-hidden">
+<div class="text-slate-400 dark:text-slate-500 flex border-none bg-slate-100 dark:bg-surface-dark items-center justify-center pl-4" data-icon="search">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-surface-dark focus:outline-0 focus:ring-0 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 text-sm font-normal" placeholder="Search projects..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Library</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Brand Assets</a>
+</nav>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+<span>Upgrade to Pro</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-10 border-2 border-primary/50" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvgM4QtRk_EZfm9aRaVG5KWm91N9Y6F8Vyt2b0CMh6YEnIM6GMqx7E6NKpInzKjvjRUf8q0GHdI-nE7ZWnQ6IUYvXV78S-kTQmW29P6iEAKUY-oYth6TyGbIuGwck78rBoDYab8ohvWdb6jZWqJGJZa2I64qFU3c9owMjDtVKU2CZzuAVbY82nSzFsd3GEpZCpaIH5THK6QmNoX0qjv9M3g9tmoRs3xQJiZD3n5RKLDtpAwygXEZcb2yFdgnTwzw5XMW2Jd3I2Dzc");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<aside class="w-64 border-r border-slate-200 dark:border-border-dark flex flex-col justify-between bg-white dark:bg-background-dark p-4 shrink-0 z-20">
+<div class="flex flex-col gap-6">
+<div class="flex gap-3 items-center p-2 rounded-xl bg-slate-50 dark:bg-surface-dark border border-slate-200 dark:border-border-dark">
+<div class="bg-primary/20 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">video_settings</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider">Studio Mode</h1>
+<p class="text-primary text-[10px] font-bold">Q4 Growth Strategy</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Home</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined">edit_document</span>
+<p class="text-sm font-bold">Scripts</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-all cursor-pointer">
+<span class="material-symbols-outlined">videocam</span>
+<p class="text-sm font-medium">Recording</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark transition-all cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+<p class="text-sm font-medium">Analytics</p>
+</div>
+</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="bg-slate-50 dark:bg-surface-dark/50 p-4 rounded-2xl border border-slate-200 dark:border-border-dark">
+<div class="flex justify-between items-center mb-2">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Cloud Usage</p>
+<p class="text-[10px] text-primary font-bold">82%</p>
+</div>
+<div class="w-full bg-slate-200 dark:bg-border-dark rounded-full h-1.5 mb-2">
+<div class="branded-gradient h-1.5 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<button class="w-full flex cursor-pointer items-center justify-center rounded-xl h-12 px-4 branded-gradient text-white text-sm font-bold transition-all hover:brightness-110 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl mr-2">add_circle</span>
+                New Script
+            </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden relative">
+<div class="absolute inset-0 bg-tech-texture bg-cover bg-center opacity-5 dark:opacity-10 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-background-light via-transparent to-primary/5 dark:from-background-dark dark:to-primary/10 pointer-events-none"></div>
+<div class="studio-glass border-b p-6 z-10">
+<div class="flex flex-wrap justify-between items-center gap-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Current Project</span>
+<span class="text-slate-400 text-xs">•</span>
+<span class="text-slate-400 text-xs">Last edited 2m ago</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-3xl font-black tracking-tight">Q4 Growth Strategy Video</h1>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 rounded-xl h-11 px-5 bg-white/5 text-slate-700 dark:text-white text-sm font-bold border border-slate-200 dark:border-white/10 hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined text-lg text-accent">bolt</span>
+<span>AI Enhancer</span>
+</button>
+<button class="flex items-center gap-2 rounded-xl h-11 px-6 bg-primary text-white text-sm font-bold shadow-xl shadow-primary/30 hover:scale-[1.02] transition-all">
+<span class="material-symbols-outlined text-lg">settings_overscan</span>
+<span>Teleprompter</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex-1 flex overflow-hidden z-10">
+<div class="w-3/5 flex flex-col border-r border-slate-200 dark:border-white/5 bg-transparent p-8 overflow-y-auto custom-scrollbar">
+<div class="max-w-3xl mx-auto w-full">
+<div class="grid grid-cols-3 gap-4 mb-10">
+<div class="flex flex-col gap-2 rounded-2xl border border-primary/20 bg-primary/5 p-4 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary font-bold">anchor</span>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest">Hook</h2>
+<p class="text-slate-500 text-[10px]">First 3 seconds</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-2xl border border-accent/20 bg-accent/5 p-4 backdrop-blur-sm">
+<span class="material-symbols-outlined text-accent font-bold">auto_awesome</span>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest">Value</h2>
+<p class="text-slate-500 text-[10px]">Core insight</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-2xl border border-secondary/20 bg-secondary/5 p-4 backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary font-bold">ads_click</span>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest">Action</h2>
+<p class="text-slate-500 text-[10px]">Final conversion</p>
+</div>
+</div>
+</div>
+<div class="space-y-8 pb-20">
+<div class="group relative studio-glass p-8 rounded-3xl transition-all hover:ring-2 hover:ring-primary/30">
+<div class="absolute -left-3 top-8 branded-gradient text-white text-[10px] font-black px-3 py-1 rounded-lg shadow-lg">HOOK</div>
+<p class="text-slate-900 dark:text-white text-2xl font-bold leading-relaxed">
+                                "Most B2B leaders are ignoring the biggest growth lever of 2024. Are you one of them?"
+                            </p>
+</div>
+<div class="group relative studio-glass p-8 rounded-3xl transition-all hover:ring-2 hover:ring-accent/30 border-l-4 border-l-accent">
+<div class="absolute -left-3 top-8 bg-accent text-white text-[10px] font-black px-3 py-1 rounded-lg shadow-lg">VALUE</div>
+<p class="text-slate-700 dark:text-slate-300 text-xl leading-relaxed mb-4">
+                                It's not about the budget. It's about personal branding velocity.
+                            </p>
+<p class="text-slate-700 dark:text-slate-300 text-xl leading-relaxed">
+                                Data shows that video-first profiles generate 4x more inbound leads than text-only profiles. The key is consistency over perfection.
+                            </p>
+</div>
+<div class="group relative studio-glass p-8 rounded-3xl transition-all hover:ring-2 hover:ring-secondary/30">
+<div class="absolute -left-3 top-8 bg-secondary text-white text-[10px] font-black px-3 py-1 rounded-lg shadow-lg">ACTION</div>
+<p class="text-slate-900 dark:text-white text-2xl font-bold leading-relaxed">
+                                "Comment 'GROWTH' below if you want my 30-day video blueprint for free."
+                            </p>
+</div>
+<div class="h-40 border-2 border-dashed border-slate-300 dark:border-white/10 rounded-3xl flex flex-col items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all cursor-pointer bg-white/5">
+<span class="material-symbols-outlined text-3xl mb-2">add_circle</span>
+<p class="font-bold text-sm">Insert Next Scene Block</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-2/5 flex flex-col bg-slate-100/30 dark:bg-black/20 backdrop-blur-xl p-8 overflow-y-auto custom-scrollbar">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-slate-900 dark:text-white font-black text-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg">grid_view</span>
+                        Visual Storyboard
+                    </h3>
+<button class="bg-primary/10 text-primary text-xs font-black px-4 py-2 rounded-xl border border-primary/20 hover:bg-primary/20 transition-all uppercase tracking-wider">Add Frame</button>
+</div>
+<div class="space-y-6">
+<div class="studio-glass rounded-3xl p-5 flex gap-5 hover:scale-[1.02] transition-all cursor-grab active:cursor-grabbing group">
+<div class="w-40 h-24 rounded-2xl bg-office-bg bg-cover bg-center shrink-0 border border-white/20 relative shadow-inner overflow-hidden">
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all"></div>
+<div class="absolute bottom-2 right-2 studio-glass text-white text-[10px] px-2 py-0.5 rounded-md font-black">0:00-0:05</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">A-Roll: Office Intro</h4>
+<span class="material-symbols-outlined text-slate-500 text-lg cursor-pointer hover:text-red-500 transition-colors">more_vert</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">Professional office setting, depth of field. Overlay: "2024 VISION"</p>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[9px] rounded-lg font-black border border-primary/10">TALKING HEAD</span>
+<span class="px-2 py-1 bg-white/5 text-slate-400 text-[9px] rounded-lg font-black border border-white/5">MAIN CAM</span>
+</div>
+</div>
+</div>
+<div class="studio-glass rounded-3xl p-5 flex gap-5 ring-2 ring-primary/40 scale-[1.02] bg-surface-dark shadow-2xl shadow-primary/20">
+<div class="w-40 h-24 rounded-2xl bg-tech-texture bg-cover bg-center shrink-0 border border-primary/30 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+<div class="absolute bottom-2 right-2 bg-primary text-white text-[10px] px-2 py-0.5 rounded-md font-black">0:05-0:15</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-sm font-black text-primary uppercase tracking-tight">B-Roll: Tech Growth</h4>
+<span class="material-symbols-outlined text-slate-500 text-lg">drag_indicator</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Abstract data visualization moving across screen. High contrast blue/purple.</p>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-accent/10 text-accent text-[9px] rounded-lg font-black border border-accent/10">ANIMATION</span>
+<span class="px-2 py-1 bg-white/5 text-slate-400 text-[9px] rounded-lg font-black border border-white/5">STOCK</span>
+</div>
+</div>
+</div>
+<div class="studio-glass rounded-3xl p-5 flex gap-5 opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-40 h-24 rounded-2xl bg-white/5 border-2 border-dashed border-white/20 flex flex-col items-center justify-center text-slate-500 shrink-0">
+<span class="material-symbols-outlined text-2xl mb-1">add_a_photo</span>
+<span class="text-[9px] font-bold">DRAG ASSET</span>
+</div>
+<div class="flex-1 py-1">
+<div class="h-4 w-32 bg-white/10 rounded mb-2"></div>
+<div class="h-3 w-full bg-white/5 rounded mb-1"></div>
+<div class="h-3 w-2/3 bg-white/5 rounded mb-4"></div>
+<div class="flex gap-2">
+<div class="h-4 w-12 bg-white/5 rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="h-28 studio-glass border-t flex items-center px-8 gap-10 z-30 shadow-2xl">
+<div class="flex items-center gap-8 border-r border-white/10 pr-10">
+<div class="flex flex-col">
+<span class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Live Diagnostics</span>
+<div class="flex gap-5">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-xs font-bold dark:text-white">Studio Mic</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-xs font-bold dark:text-white">4K Cam</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-amber-500"></div>
+<span class="text-xs font-bold dark:text-white">Ring Light</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 w-56">
+<div class="flex justify-between items-end">
+<span class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Input Gain</span>
+<span class="text-[10px] text-emerald-500 font-black tracking-tighter">STABLE -14dB</span>
+</div>
+<div class="flex gap-1 h-4 items-end">
+<div class="flex-1 bg-emerald-500 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-emerald-500 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-emerald-500 h-[80%] rounded-t-sm"></div>
+<div class="flex-1 bg-emerald-500 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-emerald-500 h-[75%] rounded-t-sm"></div>
+<div class="flex-1 bg-emerald-500 h-[90%] rounded-t-sm"></div>
+<div class="flex-1 bg-amber-500 h-[40%] rounded-t-sm opacity-50"></div>
+<div class="flex-1 bg-amber-500 h-[20%] rounded-t-sm opacity-20"></div>
+<div class="flex-1 bg-red-500 h-[10%] rounded-t-sm opacity-10"></div>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-auto">
+<div class="flex flex-col items-end">
+<p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Estimated Duration</p>
+<p class="text-sm font-black dark:text-white">00:48s <span class="text-slate-500 font-normal">/ 124 words</span></p>
+</div>
+<button class="h-12 w-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-2xl h-14 px-8 bg-red-600 text-white text-base font-black shadow-2xl shadow-red-900/40 hover:bg-red-500 hover:scale-[1.02] active:scale-95 transition-all gap-3 group relative overflow-hidden">
+<div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<span class="size-3 rounded-full bg-white animate-pulse shadow-[0_0_10px_white]"></span>
+<span class="truncate tracking-tight relative z-10">START RECORDING</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+
+</body></html>

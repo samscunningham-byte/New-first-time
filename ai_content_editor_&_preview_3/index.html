@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Post Architect - Content Editor &amp; Preview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#120d1b] dark:text-[#f9f8fc] overflow-hidden h-screen flex flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-[#ebe7f3] dark:border-[#2d243d] px-8 py-3 bg-white dark:bg-[#1c162a] z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="text-lg font-bold leading-tight tracking-tight">AI Post Architect</h2>
+<div class="flex items-center gap-2 text-xs text-[#664c9a] dark:text-[#bbadd7]">
+<span>Saved to Drafts</span>
+<span class="size-1 bg-[#d7cfe7] rounded-full"></span>
+<span>Just now</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-6 mr-6 border-r border-[#ebe7f3] dark:border-[#2d243d] pr-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Drafts</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Templates</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#ebe7f3] dark:bg-[#2d243d] text-[#120d1b] dark:text-[#f9f8fc] text-sm font-bold">
+<span>Schedule</span>
+</button>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+<span>Post Now</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ml-2 border-2 border-primary/20" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEJjZvTfLYQNLR0bnIqGmgToLjFEjIfWv9HqvKfqYn_3suwE1c2ESm5SW-Ra78MkucYVAu6Jh4hHbgl_gVRg3RPJdY8tFb936iIcgpIq-WmNJWYW-hiETkR7q_3oIH2pFIlSKSw0timIl9vmWumgbQQlXt7jUj4pjQpwT9M9ODZCz8XuvXur33ss2778QJmcPjpmk4aLM2lQXSvY4nYiC3y77bT93HQjUFP7d1eIaXXwqB6ur67zKH3uRuhW40_Mu3-ei2ylbRyrE");'></div>
+</div>
+</header>
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 px-8 py-2 bg-white dark:bg-[#1c162a] border-b border-[#ebe7f3] dark:border-[#2d243d]">
+<a class="text-[#664c9a] dark:text-[#bbadd7] text-xs font-medium" href="#">Dashboard</a>
+<span class="text-[#664c9a] dark:text-[#bbadd7] text-xs">/</span>
+<span class="text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">Content Editor</span>
+</div>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden relative">
+<!-- Left: Editor Pane -->
+<section class="w-1/2 flex flex-col bg-white dark:bg-[#1c162a] border-r border-[#ebe7f3] dark:border-[#2d243d] relative">
+<div class="flex items-center justify-between px-6 pt-4">
+<div class="flex gap-4">
+<button class="flex items-center gap-1 text-primary text-xs font-bold border-b-2 border-primary pb-2">
+<span class="material-symbols-outlined text-sm">edit_note</span> Write
+                    </button>
+<button class="flex items-center gap-1 text-[#664c9a] dark:text-[#bbadd7] text-xs font-bold pb-2 hover:text-primary">
+<span class="material-symbols-outlined text-sm">analytics</span> Analyze
+                    </button>
+</div>
+<div class="text-[10px] uppercase tracking-widest text-[#bbadd7] font-bold">Post Editor</div>
+</div>
+<div class="flex-1 flex flex-col p-8 pt-4 overflow-y-auto no-scrollbar">
+<!-- Floating Toolbar Mockup -->
+<div class="flex gap-1 p-1 bg-white dark:bg-[#2d243d] shadow-xl border border-[#ebe7f3] dark:border-[#3d3154] rounded-xl w-fit mb-4">
+<button class="flex items-center gap-1 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span> Improve
+                    </button>
+<div class="w-px h-4 bg-[#ebe7f3] dark:bg-[#3d3154] self-center"></div>
+<button class="flex items-center gap-1 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">
+<span class="material-symbols-outlined text-lg">content_cut</span> Shorten
+                    </button>
+<div class="w-px h-4 bg-[#ebe7f3] dark:bg-[#3d3154] self-center"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 hover:bg-primary/10 rounded-lg text-[#120d1b] dark:text-[#f9f8fc] text-xs font-medium">
+<span class="material-symbols-outlined text-lg">psychology</span> Change Tone
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<textarea class="flex-1 w-full text-lg leading-relaxed text-[#120d1b] dark:text-[#f9f8fc] placeholder:text-[#bbadd7] bg-transparent border-none focus:ring-0 resize-none" placeholder="Start writing your viral LinkedIn post here..."></textarea>
+<div class="flex items-center justify-between mt-4 py-3 border-t border-[#ebe7f3] dark:border-[#2d243d]">
+<div class="flex gap-4">
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">image</span></button>
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">mood</span></button>
+<button class="text-[#664c9a] dark:text-[#bbadd7] hover:text-primary"><span class="material-symbols-outlined">bar_chart</span></button>
+</div>
+<div class="text-xs text-[#664c9a] dark:text-[#bbadd7] font-medium">
+                        1,420 / 3,000 characters
+                    </div>
+</div>
+</div>
+</section>
+<!-- Right: Preview Pane -->
+<section class="w-1/2 flex flex-col bg-background-light dark:bg-background-dark overflow-y-auto no-scrollbar pb-32">
+<div class="flex items-center justify-between px-8 py-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-[#664c9a] dark:text-[#bbadd7]">Live Preview</h3>
+<div class="flex bg-white dark:bg-[#1c162a] p-1 rounded-lg border border-[#ebe7f3] dark:border-[#2d243d]">
+<button class="flex items-center gap-1 px-3 py-1 bg-primary text-white rounded-md text-xs font-bold">
+<span class="material-symbols-outlined text-sm">desktop_windows</span> Desktop
+                    </button>
+<button class="flex items-center gap-1 px-3 py-1 text-[#664c9a] dark:text-[#bbadd7] text-xs font-bold">
+<span class="material-symbols-outlined text-sm">smartphone</span> Mobile
+                    </button>
+</div>
+</div>
+<!-- LinkedIn Post Card Simulation -->
+<div class="flex justify-center p-8">
+<div class="w-full max-w-[550px] bg-white dark:bg-[#1c162a] border border-[#e0e0e0] dark:border-[#2d243d] rounded-lg shadow-sm">
+<!-- LI Header -->
+<div class="p-3 flex items-start justify-between">
+<div class="flex gap-2">
+<div class="size-12 rounded-full bg-cover" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSkDVB15Dez2JU89T4Jd5j57T1wprzez2xfvJnYkJzkRXtNgrkWjQTEDjOnwViVcXGd1r9th4lWf8yPWdBC7WIVuiHdFVRCCUGxBvgjs3Y1RPDCLCSPROqPjpsSkeoF9dTRCo_mqYobwHSh7m2lHSG-LWEAju3reOSspZ3PlGMOx-5WyeIb2f0K4BOLl3jw5euFr14FVzNzPjNUS50ntDTb6qGNuXrhiEsatN8ihzzhvKzuN48BvsD3_5bhWyps98ui2E8kdjkB8s");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold text-gray-900 dark:text-gray-100">Alex Rivera</span>
+<span class="text-xs text-gray-500">• 1st</span>
+</div>
+<span class="text-xs text-gray-500 dark:text-gray-400 leading-tight">Founder @ AI Scale | Helping creators leverage LLMs</span>
+<div class="flex items-center gap-1 text-xs text-gray-400">
+<span>2h</span>
+<span>•</span>
+<span class="material-symbols-outlined text-xs">public</span>
+</div>
+</div>
+</div>
+<button class="text-gray-500"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<!-- LI Body -->
+<div class="px-3 pb-3 text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
+<p class="mb-2">The truth about AI content creation that nobody wants to hear...</p>
+<p class="mb-2">Most people think that AI is going to replace the human element. But they have it backwards. AI is actually going to amplify the unique human voice by handling the repetitive structural work.</p>
+<button class="text-gray-500 font-semibold hover:underline">...see more</button>
+</div>
+<!-- LI Engagement -->
+<div class="px-3 py-2 border-t border-gray-100 dark:border-[#2d243d] flex items-center justify-between text-xs text-gray-500">
+<div class="flex items-center gap-1">
+<div class="flex -space-x-1">
+<span class="size-4 bg-blue-500 rounded-full flex items-center justify-center text-[10px] text-white">👍</span>
+<span class="size-4 bg-red-500 rounded-full flex items-center justify-center text-[10px] text-white">❤️</span>
+</div>
+<span>1,240</span>
+</div>
+<div class="flex gap-2">
+<span>42 comments</span>
+<span>•</span>
+<span>12 shares</span>
+</div>
+</div>
+<!-- LI Actions -->
+<div class="px-2 py-1 border-t border-gray-100 dark:border-[#2d243d] flex justify-between">
+<button class="flex items-center gap-1 px-2 py-2 text-gray-600 dark:text-gray-400 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-lg">thumb_up</span> Like
+                        </button>
+<button class="flex items-center gap-1 px-2 py-2 text-gray-600 dark:text-gray-400 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-lg">chat</span> Comment
+                        </button>
+<button class="flex items-center gap-1 px-2 py-2 text-gray-600 dark:text-gray-400 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-lg">share</span> Repost
+                        </button>
+<button class="flex items-center gap-1 px-2 py-2 text-gray-600 dark:text-gray-400 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+<span class="material-symbols-outlined text-lg">send</span> Send
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Hooks Library Drawer -->
+<div class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1c162a] border-t-2 border-primary shadow-[0_-10px_30px_rgba(91,19,236,0.1)] z-40 transition-all duration-300">
+<div class="px-8 py-3 flex items-center justify-between cursor-pointer border-b border-[#ebe7f3] dark:border-[#2d243d]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h4 class="font-bold text-sm">Hooks Library <span class="ml-2 px-2 py-0.5 bg-primary/10 text-primary rounded-full text-[10px]">5 New Suggestions</span></h4>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-xs font-bold text-primary hover:underline">Regenerate All</button>
+<span class="material-symbols-outlined text-[#bbadd7]">keyboard_arrow_up</span>
+</div>
+</div>
+<div class="px-8 py-6 flex gap-4 overflow-x-auto no-scrollbar">
+<!-- Hook Card 1 -->
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">The Provocateur</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">REPLACE</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"I stopped using ChatGPT for 30 days. Here's what happened to my business..."</p>
+</div>
+<!-- Hook Card 2 -->
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">The Listicle</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">REPLACE</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"5 AI tools that will save you 20 hours a week (and none of them are LLMs):"</p>
+</div>
+<!-- Hook Card 3 -->
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">The Question</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">REPLACE</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"Is your AI workflow actually making you slower? The 'efficiency trap' is real."</p>
+</div>
+<!-- Hook Card 4 -->
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">The Contrarian</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">REPLACE</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"Stop trying to prompt perfectly. The best AI results come from iteration, not magic words."</p>
+</div>
+<!-- Hook Card 5 -->
+<div class="min-w-[300px] p-4 rounded-xl border border-[#d7cfe7] dark:border-[#3d3154] bg-[#f9f8fc] dark:bg-[#251d38] group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase font-bold text-primary">The Authority</span>
+<button class="opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold transition-all">REPLACE</button>
+</div>
+<p class="text-sm font-medium leading-relaxed italic">"I analyzed 1,000 viral posts. Here is the exact framework they all use:"</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Creator Hub - Professional Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0f0a19",
+                        "sidebar-dark": "#161022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-active {
+            @apply bg-primary/20 text-white border-r-2 border-primary;
+            box-shadow: 0 0 15px -5px rgba(91, 19, 236, 0.4);
+        }
+        .blurred-camera-preview {
+            background: linear-gradient(45deg, #2d243d, #5b13ec22), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800');
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px) brightness(0.7);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d243d;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-72 flex-shrink-0 border-r border-[#2d243d] bg-sidebar-dark flex flex-col justify-between p-4">
+<div class="flex flex-col gap-8">
+<div class="flex gap-3 items-center px-4 py-2">
+<div class="bg-primary rounded-lg p-2 text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-none tracking-tight">Creator Hub</h1>
+<p class="text-[#664c9a] text-[10px] font-bold uppercase tracking-widest mt-1">v2.0 Performance</p>
+</div>
+</div>
+<nav class="flex flex-col gap-4">
+<div class="space-y-1">
+<a class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">auto_awesome</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Strategy</span>
+<span class="text-[10px] text-gray-400 font-normal">AI Frameworks &amp; Hooks</span>
+</div>
+</a>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary group-hover:scale-110 transition-transform">edit_square</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Creation</span>
+<span class="text-[10px] text-gray-500 font-normal">Script Editor &amp; Teleprompter</span>
+</div>
+</a>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary group-hover:scale-110 transition-transform">repeat</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Distribution</span>
+<span class="text-[10px] text-gray-500 font-normal">Repurpose &amp; Export</span>
+</div>
+</a>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary group-hover:scale-110 transition-transform">bar_chart</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Insights</span>
+<span class="text-[10px] text-gray-500 font-normal">Analytics &amp; Predictor</span>
+</div>
+</a>
+</div>
+</nav>
+</div>
+<div class="flex flex-col gap-6">
+<button class="w-full bg-red-600/10 hover:bg-red-600/20 text-red-500 border border-red-600/30 flex items-center justify-center gap-3 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-red-600/10">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+</span>
+                Go Live
+            </button>
+<div class="flex items-center gap-3 px-4 py-3 border-t border-[#2d243d] pt-6">
+<div class="h-10 w-10 rounded-full border border-primary/40 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPa-T6Du6Ne0YrxeSbNCPaauyFgGRrxmGrs4UhOEbeZ1BnYNTAlsnGfkyYn2SBYG69JbS1M972Gpn8Uo7WL_XjjQDSVbhWIJjbKxmlFqCIVZ5qP9ZV-iuYZmrs3W7VDjbUAbovJp6VL-5m4VuN8fWCwx8WymFoRdukzGfwOuc0zW4-7VM7HxJAhlosutolPkVuWrUqU5dy3ukCKkzqlkN_TZNeKsXOTpVOcLhP5Bo9LbanCHJrBOXT_ey76-ITuryasZJM4_1tea0');"></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Creator</p>
+<p class="text-[10px] text-gray-500 truncate">Pro Plan Member</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-y-auto">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-[#2d243d] bg-sidebar-dark/80 backdrop-blur-md px-8 py-4">
+<div class="flex items-center gap-8">
+<h2 class="text-white text-xl font-bold tracking-tight">Strategy Dashboard</h2>
+<div class="flex items-center gap-3 px-4 py-1.5 bg-[#2d243d] rounded-full border border-[#3d3352]">
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Focus Mode</span>
+<div class="relative inline-block w-8 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="absolute block w-4 h-4 rounded-full bg-white border-2 appearance-none cursor-pointer right-0 border-primary" id="focusToggle" type="checkbox"/>
+<label class="block overflow-hidden h-4 rounded-full bg-primary cursor-pointer" for="focusToggle"></label>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4 px-3 py-1 bg-green-900/20 text-green-400 rounded-md text-xs font-bold border border-green-900/40">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    AI Online
+                </div>
+<button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined text-base">rocket_launch</span>
+                    Quick Optimize
+                </button>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-extrabold text-white">Workspace Overview</h3>
+<p class="text-sm text-gray-400">Your high-performance content engine is ready.</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Recent Drafts</h4>
+<button class="text-xs font-bold text-primary hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<div class="p-5 rounded-xl border border-[#2d243d] bg-[#1c142e] shadow-sm flex justify-between items-center group hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-white">The future of SaaS in 2024</h5>
+<p class="text-xs text-gray-500">Last edited 2h ago • 342 words</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+<div class="p-5 rounded-xl border border-[#2d243d] bg-[#1c142e] shadow-sm flex justify-between items-center group hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-white">Why personal branding matters</h5>
+<p class="text-xs text-gray-500">Last edited 5h ago • 215 words</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<div class="mt-10 space-y-4">
+<div class="flex items-center justify-between">
+<h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Active Script</h4>
+</div>
+<div class="flex flex-col gap-4">
+<div class="p-6 rounded-xl border border-[#2d243d] bg-[#1c142e] shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<label class="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-base">anchor</span>
+                                        The Hook
+                                    </label>
+<div class="px-2 py-0.5 bg-green-900/30 text-green-400 rounded text-[10px] font-bold border border-green-900/30">
+                                        OPTIMIZED
+                                    </div>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-lg font-bold text-white placeholder-gray-600 resize-none" placeholder="Start with a pattern interrupt..." rows="2"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4">
+<div class="flex flex-col gap-6 sticky top-24">
+<div class="flex items-center justify-between mb-2">
+<h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Video Studio</h4>
+</div>
+<div class="p-6 rounded-xl border border-[#2d243d] bg-[#1c142e] shadow-xl hover:shadow-2xl hover:shadow-primary/5 transition-all flex flex-col gap-5">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#2d243d]">
+<div class="blurred-camera-preview absolute inset-0"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white text-2xl">videocam</span>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 bg-red-600 px-2 py-0.5 rounded text-[10px] font-bold text-white flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                                    CAMERA PREVIEW
+                                </div>
+</div>
+<div class="space-y-2">
+<h5 class="text-base font-bold text-white">Generate Video Script</h5>
+<p class="text-xs text-gray-500 leading-relaxed">Instantly convert your text drafts into professional 9:16 video scripts with teleprompter cues.</p>
+</div>
+<button class="w-full bg-primary text-white font-bold py-3.5 rounded-xl hover:opacity-95 transition-all shadow-lg shadow-primary/40 flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+                                Generate Video Script
+                            </button>
+<div class="pt-4 border-t border-[#2d243d] grid grid-cols-2 gap-4">
+<div class="text-center">
+<p class="text-[10px] text-gray-500 font-bold uppercase tracking-tight">Avg. Length</p>
+<p class="text-sm font-bold text-primary">60 Seconds</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-gray-500 font-bold uppercase tracking-tight">Format</p>
+<p class="text-sm font-bold text-primary">Vertical HD</p>
+</div>
+</div>
+</div>
+<div class="p-5 rounded-xl border border-dashed border-[#2d243d] flex flex-col items-center justify-center text-center py-10 gap-3 opacity-40 hover:opacity-60 cursor-pointer transition-opacity">
+<span class="material-symbols-outlined text-3xl text-gray-400">add_circle</span>
+<p class="text-xs font-bold text-gray-400">Add New Widget</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LinkedIn Video Creator Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a69c2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#182734",
+                        "border-dark": "#314d68"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #314d68; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-border-dark px-6 py-3 bg-white dark:bg-background-dark z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">LinkedIn Video Creator Studio</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 dark:text-[#90aecb] flex border-none bg-slate-100 dark:bg-surface-dark items-center justify-center pl-4 rounded-l-lg" data-icon="search">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-surface-dark focus:outline-0 focus:ring-0 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#90aecb] px-4 rounded-r-lg text-base font-normal" placeholder="Search projects..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-[#90aecb] text-sm font-medium hover:text-white transition-colors" href="#">My Videos</a>
+<a class="text-slate-600 dark:text-[#90aecb] text-sm font-medium hover:text-white transition-colors" href="#">Templates</a>
+</nav>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-opacity hover:opacity-90">
+<span class="truncate">Upgrade to Pro</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvgM4QtRk_EZfm9aRaVG5KWm91N9Y6F8Vyt2b0CMh6YEnIM6GMqx7E6NKpInzKjvjRUf8q0GHdI-nE7ZWnQ6IUYvXV78S-kTQmW29P6iEAKUY-oYth6TyGbIuGwck78rBoDYab8ohvWdb6jZWqJGJZa2I64qFU3c9owMjDtVKU2CZzuAVbY82nSzFsd3GEpZCpaIH5THK6QmNoX0qjv9M3g9tmoRs3xQJiZD3n5RKLDtpAwygXEZcb2yFdgnTwzw5XMW2Jd3I2Dzc");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-slate-200 dark:border-border-dark flex flex-col justify-between bg-white dark:bg-background-dark p-4 shrink-0">
+<div class="flex flex-col gap-6">
+<div class="flex gap-3 items-center">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">video_settings</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-sm font-bold">Studio Mode</h1>
+<p class="text-slate-500 dark:text-[#90aecb] text-xs">Project: Q4 Strategy</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-white hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<p class="text-sm font-medium">Home</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-bold">Scripts</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-white hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined">videocam</span>
+<p class="text-sm font-medium">Recording</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-white hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+<p class="text-sm font-medium">Analytics</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-white hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined">auto_fix</span>
+<p class="text-sm font-medium">AI Tools</p>
+</div>
+</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="bg-slate-100 dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-border-dark">
+<p class="text-xs font-bold text-primary uppercase mb-2">Storage</p>
+<div class="w-full bg-slate-200 dark:bg-border-dark rounded-full h-1.5 mb-2">
+<div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-[10px] text-slate-500 dark:text-[#90aecb]">8.2 GB of 10 GB used</p>
+</div>
+<button class="w-full flex cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-opacity hover:opacity-90">
+<span class="material-symbols-outlined text-sm mr-2">add</span>
+                    New Script
+                </button>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col overflow-hidden bg-slate-50 dark:bg-[#0d151c]">
+<!-- Header Section -->
+<div class="bg-white dark:bg-background-dark border-b border-slate-200 dark:border-border-dark p-4">
+<div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-2xl font-black leading-tight tracking-tight">Q4 Growth Strategy Video</h1>
+<p class="text-slate-500 dark:text-[#90aecb] text-sm">Drafting with SLAY method &amp; Visual Storyboarding</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 rounded-lg h-10 px-4 bg-slate-100 dark:bg-surface-dark text-slate-900 dark:text-white text-sm font-bold border border-slate-200 dark:border-border-dark hover:bg-slate-200 dark:hover:bg-border-dark transition-colors">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+<span>AI Polish</span>
+</button>
+<button class="flex items-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-opacity hover:opacity-90">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+<span>Teleprompter Mode</span>
+</button>
+</div>
+</div>
+<div class="flex border-b border-slate-200 dark:border-border-dark gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 transition-all" href="#">
+<p class="text-sm font-bold">Script Editor</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-[#90aecb] pb-3 hover:text-slate-700 dark:hover:text-white transition-all" href="#">
+<p class="text-sm font-bold">Storyboard</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-[#90aecb] pb-3 hover:text-slate-700 dark:hover:text-white transition-all" href="#">
+<p class="text-sm font-bold">AI Assistant</p>
+</a>
+</div>
+</div>
+<!-- Content Split View -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Scripting Area (Left) -->
+<div class="w-1/2 flex flex-col border-r border-slate-200 dark:border-border-dark bg-white dark:bg-background-dark p-6 overflow-y-auto custom-scrollbar">
+<div class="max-w-2xl mx-auto w-full">
+<!-- SLAY Method Grid -->
+<div class="grid grid-cols-3 gap-3 mb-8">
+<div class="flex flex-col gap-2 rounded-lg border border-primary/30 bg-primary/5 p-3">
+<span class="material-symbols-outlined text-primary text-xl">anchor</span>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider">Hook</h2>
+<p class="text-slate-500 dark:text-[#90aecb] text-[10px]">First 3s attention</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-3">
+<span class="material-symbols-outlined text-emerald-500 text-xl">lightbulb</span>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider">Value</h2>
+<p class="text-slate-500 dark:text-[#90aecb] text-[10px]">The core insight</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
+<span class="material-symbols-outlined text-amber-500 text-xl">touch_app</span>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider">Action</h2>
+<p class="text-slate-500 dark:text-[#90aecb] text-[10px]">The final CTA</p>
+</div>
+</div>
+</div>
+<!-- Editor Content -->
+<div class="space-y-6">
+<div class="p-4 rounded-xl border-l-4 border-primary bg-primary/5 relative">
+<span class="absolute -left-3 top-4 bg-primary text-white text-[10px] font-bold px-1 rounded">HOOK</span>
+<p class="text-slate-900 dark:text-white text-2xl font-semibold leading-relaxed">
+                                    "Most B2B leaders are ignoring the biggest growth lever of 2024. Are you one of them?"
+                                </p>
+</div>
+<div class="p-4 rounded-xl border-l-4 border-emerald-500 bg-emerald-500/5 relative">
+<span class="absolute -left-3 top-4 bg-emerald-500 text-white text-[10px] font-bold px-1 rounded">VALUE</span>
+<p class="text-slate-700 dark:text-slate-300 text-xl leading-relaxed mb-4">
+                                    It's not about the budget. It's about personal branding velocity.
+                                </p>
+<p class="text-slate-700 dark:text-slate-300 text-xl leading-relaxed">
+                                    Data shows that video-first profiles generate 4x more inbound leads than text-only profiles. The key is consistency over perfection.
+                                </p>
+</div>
+<div class="p-4 rounded-xl border-l-4 border-amber-500 bg-amber-500/5 relative">
+<span class="absolute -left-3 top-4 bg-amber-500 text-white text-[10px] font-bold px-1 rounded">ACTION</span>
+<p class="text-slate-900 dark:text-white text-2xl font-semibold leading-relaxed">
+                                    "Comment 'GROWTH' below if you want my 30-day video blueprint for free."
+                                </p>
+</div>
+<div class="h-32 border-2 border-dashed border-slate-200 dark:border-border-dark rounded-xl flex items-center justify-center text-slate-400">
+<p>Click to add more sections...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Storyboard Area (Right) -->
+<div class="w-1/2 flex flex-col bg-slate-50 dark:bg-[#0d151c] p-6 overflow-y-auto custom-scrollbar">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-slate-900 dark:text-white font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">grid_view</span>
+                            Visual Storyboard
+                        </h3>
+<button class="text-primary text-sm font-bold hover:underline">Add Frame</button>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Storyboard Card 1 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-border-dark p-4 flex gap-4 hover:shadow-lg transition-shadow">
+<div class="w-32 h-20 bg-slate-200 dark:bg-background-dark rounded-lg flex items-center justify-center shrink-0 border border-slate-300 dark:border-border-dark overflow-hidden relative group">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-white">upload</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">image</span>
+<div class="absolute bottom-1 right-1 bg-primary text-white text-[8px] px-1 rounded">0:00-0:05</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-xs font-bold text-slate-900 dark:text-white">A-Roll: Talking Head</h4>
+<span class="material-symbols-outlined text-slate-400 text-sm cursor-pointer hover:text-red-500">delete</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-[#90aecb] mb-2">Direct eye contact, professional background. Text overlay: "2024 GROWTH LEVER"</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] rounded font-medium">Text Overlay</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-border-dark text-slate-500 dark:text-slate-300 text-[10px] rounded font-medium">Main Camera</span>
+</div>
+</div>
+</div>
+<!-- Storyboard Card 2 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-primary/50 dark:border-primary/50 p-4 flex gap-4 ring-2 ring-primary/20">
+<div class="w-32 h-20 rounded-lg flex items-center justify-center shrink-0 border border-slate-300 dark:border-border-dark overflow-hidden relative group bg-cover bg-center" data-alt="Stock market chart showing growth" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFFWl1893rWTr_DPsQrAs3klG4p5hZ67OcEIgshIZWIyia40oiNBRyKPBFLvjdeqDf1Q9AsTfR1yfc8pcfkmw5EcE51kkObuKUsjBHsEgbJDLnCBItfb0X90dFNui97O4BFPQ0ZwiavmcJZKVIWfDIaHxVZWUPiTy1DV0yoO7wHCwaE-KMNckUlMnD_aR2NNi6PEwtYpTbFOcxuPGxsmyacJNXXRdJFWu2ktMUKQkX87FYXmW8l38QNrA7Yuk3sszTH3JiBMBHl5Y')">
+<div class="absolute bottom-1 right-1 bg-primary text-white text-[8px] px-1 rounded">0:05-0:15</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-xs font-bold text-slate-900 dark:text-white">B-Roll: Analytics Chart</h4>
+<span class="material-symbols-outlined text-slate-400 text-sm cursor-pointer">delete</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-[#90aecb] mb-2">Slow zoom on growth chart. Show the contrast between 2023 and 2024.</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-[10px] rounded font-medium">Stock Footage</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-border-dark text-slate-500 dark:text-slate-300 text-[10px] rounded font-medium">Secondary</span>
+</div>
+</div>
+</div>
+<!-- Storyboard Card 3 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-border-dark p-4 flex gap-4">
+<div class="w-32 h-20 bg-slate-200 dark:bg-background-dark rounded-lg flex items-center justify-center shrink-0 border border-slate-300 dark:border-border-dark overflow-hidden relative">
+<span class="material-symbols-outlined text-slate-400">add_to_photos</span>
+<div class="absolute bottom-1 right-1 bg-primary text-white text-[8px] px-1 rounded">0:15-0:25</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-xs font-bold text-slate-400">Empty Scene</h4>
+</div>
+<p class="text-xs text-slate-400 italic">Drag media here or add a prompt...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recording Prep Panel (Bottom) -->
+<footer class="h-24 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-border-dark flex items-center px-6 gap-8 z-20">
+<!-- Checklist -->
+<div class="flex items-center gap-6 border-r border-slate-200 dark:border-border-dark pr-8">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400 dark:text-[#90aecb] uppercase mb-1">Hardware Prep</span>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
+<span class="text-xs font-medium dark:text-white">Mic</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
+<span class="text-xs font-medium dark:text-white">Camera</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-500 text-lg">error</span>
+<span class="text-xs font-medium dark:text-white">Lighting</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Audio Levels -->
+<div class="flex flex-col gap-2 w-48">
+<div class="flex justify-between">
+<span class="text-[10px] font-bold text-slate-400 dark:text-[#90aecb] uppercase">Audio Input</span>
+<span class="text-[10px] text-emerald-500 font-bold">-12db</span>
+</div>
+<div class="flex gap-0.5 h-3">
+<div class="flex-1 bg-emerald-500 rounded-sm"></div>
+<div class="flex-1 bg-emerald-500 rounded-sm"></div>
+<div class="flex-1 bg-emerald-500 rounded-sm"></div>
+<div class="flex-1 bg-emerald-500 rounded-sm"></div>
+<div class="flex-1 bg-emerald-500 rounded-sm"></div>
+<div class="flex-1 bg-emerald-500 rounded-sm"></div>
+<div class="flex-1 bg-amber-500 rounded-sm opacity-50"></div>
+<div class="flex-1 bg-amber-500 rounded-sm opacity-20"></div>
+<div class="flex-1 bg-red-500 rounded-sm opacity-20"></div>
+</div>
+</div>
+<!-- Main Actions -->
+<div class="flex-1 flex justify-end items-center gap-4">
+<div class="flex flex-col items-end">
+<p class="text-[10px] font-bold text-slate-400 dark:text-[#90aecb] uppercase mb-1">Script Stats</p>
+<p class="text-xs font-medium dark:text-white">~45 seconds • 124 words</p>
+</div>
+<button class="h-12 w-12 rounded-full border border-slate-200 dark:border-border-dark flex items-center justify-center hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-white">settings</span>
+</button>
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-red-600 text-white text-base font-bold shadow-lg shadow-red-900/20 hover:bg-red-700 transition-all gap-2 group">
+<span class="size-3 rounded-full bg-white animate-pulse group-hover:scale-110"></span>
+<span class="truncate">Start Recording</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS - AI Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "brand-purple": "#2d1b4d",
+                        "brand-blue": "#0a84ff",
+                        "brand-slate": "#1e293b",
+                        "background-dark": "#0a0712",
+                        "sidebar-dark": "#0f0b1a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">body {
+    font-family: "Manrope", sans-serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.nav-active {
+    @apply bg-primary/10 text-white border-r-2 border-primary;
+    box-shadow: inset 0 0 20px -5px rgba(91, 19, 236, 0.3);
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.4)
+    }
+.nav-active .material-symbols-outlined {
+    @apply text-primary;
+    filter: drop-shadow(0 0 5px rgba(91, 19, 236, 0.6))
+    }
+.glass-card {
+    @apply bg-sidebar-dark/40 backdrop-blur-xl border border-white/5;
+    }
+.abstract-bg {
+    background-image: linear-gradient(135deg, rgba(15, 11, 26, 0.9) 0%, rgba(45, 27, 77, 0.4) 100%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuC0PgcSK7dwc2ePSLqRIgpLF1cuQN6LkZV8Fv8MwBbKIKSK9m8BxESOBcdQFU_hDbgLYf9tI7aNUjWTc_Ah-9ucJHMbZuPe-pksEDxjN8DWjhw004Os2ESZh4_iIgRXMhfPV3R4aru8H96_8_ZbQXYA0eOG3ra5RIbdsKK8QNaWjPTWVVEcN13j7bdmjAYW4G27HY0I05Bvxt-a-9m87j9C6ZEm7AlahOi429Eac07xP1Fjjt6EyCz7Fs-0SVsLXgvwy4kj98m82I4);
+    background-size: cover;
+    background-position: center
+    }
+.office-bg {
+    background-image: linear-gradient(to bottom, rgba(10, 7, 18, 0.8), rgba(10, 7, 18, 0.95)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuDpyxfZLXGStDJb2fIMArbBl5gsngHXVyNOLX50pQHBktWeQv82AEDbdvGjeI40dFD0UctUdWEnN2ZPSDHHJxHTIW9NqPYUiphmO2TRcoQNfT9QzsAG3PGOhOdvL1zqJv17XruuU0Q-1rRMMt102NvNW6EIWp4nhDfxsb0hbGMwlnitGyPNyS4j_EbmZacUMCgh6EcWHCbVTNwrReiQYe7x4W0VDsEwQgUlHiBGmbn2fWVyQ_ziy0KtJlipkGWWNzAU2_RN21Wiafo);
+    background-size: cover;
+    background-position: center
+    }
+.studio-preview {
+    background-image: linear-gradient(45deg, rgba(45, 27, 77, 0.6), rgba(10, 132, 255, 0.2)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuD2fFML2Br21k1D1aO0NgkxbGjxMCRn1TEDztJ5XII_EfVRxMN4u5JeiFC9KCNWWn3sWjo_OFh1CAMZht5DZi6KSiF5funuFR47OeqlSbvqCQwGAOUBS9Z3zO_idvjE76Qz3rP00vsd6ow1HAyhoHjUZ6ZNJxfc4A5FUad4N_c3dtIwpnP11lwppzjLqPLz4mX4pYIxQQBRlFdN9fEoqQkvPNACk5lJEAoBp2QYpyTNivU6J92HeBx6lShYcJqEsXFNLDbFl-dFwrA);
+    background-size: cover;
+    background-position: center
+    }
+::-webkit-scrollbar {
+    width: 4px
+    }
+::-webkit-scrollbar-track {
+    background: transparent
+    }
+::-webkit-scrollbar-thumb {
+    background: #2d243d;
+    border-radius: 10px
+    }</style>
+</head>
+<body class="bg-background-dark text-white min-h-screen office-bg">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-72 flex-shrink-0 border-r border-white/5 bg-sidebar-dark/95 backdrop-blur-2xl flex flex-col justify-between">
+<div class="flex flex-col">
+<div class="flex gap-3 items-center px-8 py-8">
+<div class="bg-gradient-to-br from-primary to-brand-blue rounded-xl p-2.5 text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-2xl">grid_view</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-extrabold leading-none tracking-tight">Creator OS</h1>
+<p class="text-brand-blue text-[10px] font-bold uppercase tracking-[0.2em] mt-1">LinkedIn Elite</p>
+</div>
+</div>
+<nav class="flex flex-col px-4 gap-2">
+<a class="nav-active flex items-center gap-4 px-4 py-4 rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined">colors_spark</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Strategy</span>
+<span class="text-[10px] text-gray-400 font-medium">AI Frameworks &amp; Hooks</span>
+</div>
+</a>
+<a class="flex items-center gap-4 px-4 py-4 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">edit_square</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Creation</span>
+<span class="text-[10px] text-gray-500 font-medium">Script Editor &amp; Teleprompter</span>
+</div>
+</a>
+<a class="flex items-center gap-4 px-4 py-4 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">repeat</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Distribution</span>
+<span class="text-[10px] text-gray-500 font-medium">Repurposing &amp; Carousels</span>
+</div>
+</a>
+<a class="flex items-center gap-4 px-4 py-4 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">bar_chart</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Insights</span>
+<span class="text-[10px] text-gray-500 font-medium">Analytics &amp; Predictor</span>
+</div>
+</a>
+</nav>
+</div>
+<div class="p-6 space-y-6">
+<button class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20 flex items-center justify-center gap-3 py-4 rounded-2xl font-bold transition-all group">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+</span>
+<span class="tracking-wide">GO LIVE</span>
+</button>
+<div class="flex items-center gap-3 p-3 glass-card rounded-2xl">
+<div class="h-10 w-10 rounded-full border border-primary/40 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPa-T6Du6Ne0YrxeSbNCPaauyFgGRrxmGrs4UhOEbeZ1BnYNTAlsnGfkyYn2SBYG69JbS1M972Gpn8Uo7WL_XjjQDSVbhWIJjbKxmlFqCIVZ5qP9ZV-iuYZmrs3W7VDjbUAbovJp6VL-5m4VuN8fWCwx8WymFoRdukzGfwOuc0zW4-7VM7HxJAhlosutolPkVuWrUqU5dy3ukCKkzqlkN_TZNeKsXOTpVOcLhP5Bo9LbanCHJrBOXT_ey76-ITuryasZJM4_1tea0');"></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Creator</p>
+<p class="text-[10px] text-brand-blue font-bold uppercase tracking-wider">Pro Edition</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-y-auto bg-gradient-to-br from-transparent to-brand-purple/10">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-white/5 bg-sidebar-dark/60 backdrop-blur-xl px-10 py-5">
+<div class="flex items-center gap-10">
+<h2 class="text-white text-xl font-extrabold tracking-tight">Strategy Dashboard</h2>
+<div class="flex items-center gap-3 px-4 py-2 bg-brand-slate/40 rounded-full border border-white/5">
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Deep Focus</span>
+<div class="relative inline-block w-8 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="absolute block w-4 h-4 rounded-full bg-white border-2 appearance-none cursor-pointer right-0 border-primary" id="focusToggle" type="checkbox"/>
+<label class="block overflow-hidden h-4 rounded-full bg-primary/40 cursor-pointer" for="focusToggle"></label>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-brand-blue/10 text-brand-blue rounded-lg text-xs font-extrabold border border-brand-blue/20">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-blue shadow-[0_0_8px_rgba(10,132,255,0.8)]"></span>
+                        AI NEURAL SYNC
+                    </div>
+<button class="flex items-center gap-2 bg-gradient-to-r from-primary to-brand-blue text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:scale-[1.02] transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">bolt</span>
+                        Quick Optimize
+                    </button>
+</div>
+</header>
+<div class="p-10 max-w-7xl mx-auto w-full space-y-10">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-3xl font-extrabold text-white tracking-tight">Workspace Overview</h3>
+<p class="text-gray-400 mt-1">Refining your personal brand strategy with real-time insights.</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div>
+<div class="flex items-center justify-between mb-4 px-1">
+<h4 class="text-[11px] font-black text-brand-blue uppercase tracking-[0.3em]">Pipeline Drafts</h4>
+<button class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+                                    All Projects <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="p-6 rounded-2xl glass-card hover:bg-white/5 transition-all cursor-pointer flex justify-between items-center group border-l-4 border-l-primary">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-white group-hover:text-primary transition-colors">2024 SaaS Architecture Deep-Dive</h5>
+<p class="text-xs text-gray-500 mt-1">Updated 2h ago • <span class="text-brand-blue/80">High Potential</span></p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-700 group-hover:text-white transition-all transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+<div class="p-6 rounded-2xl glass-card hover:bg-white/5 transition-all cursor-pointer flex justify-between items-center group border-l-4 border-l-brand-blue">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-white group-hover:text-brand-blue transition-colors">The Psychology of Content Hooks</h5>
+<p class="text-xs text-gray-500 mt-1">Updated 5h ago • <span class="text-brand-blue/80">Trending Topic</span></p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-700 group-hover:text-white transition-all transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center mb-4 px-1">
+<h4 class="text-[11px] font-black text-brand-blue uppercase tracking-[0.3em]">Active Script Canvas</h4>
+</div>
+<div class="p-8 rounded-2xl glass-card relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">anchor</span>
+<span class="text-xs font-black text-white uppercase tracking-widest">Hook Optimization</span>
+</div>
+<div class="px-3 py-1 bg-brand-blue/20 text-brand-blue rounded-md text-[10px] font-black border border-brand-blue/20">
+                                        AI SCORE: 94/100
+                                    </div>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 text-xl font-bold text-white placeholder-gray-700 resize-none min-h-[120px]" placeholder="Start with a pattern interrupt that challenges the status quo..."></textarea>
+<div class="mt-4 pt-6 border-t border-white/5 flex gap-4">
+<button class="px-4 py-2 rounded-lg bg-white/5 text-xs font-bold text-gray-300 hover:bg-white/10">A/B Variation</button>
+<button class="px-4 py-2 rounded-lg bg-white/5 text-xs font-bold text-gray-300 hover:bg-white/10">Rewrite with Tone</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div>
+<h4 class="text-[11px] font-black text-brand-blue uppercase tracking-[0.3em] mb-4 px-1">Creator Studio</h4>
+<div class="rounded-2xl glass-card overflow-hidden shadow-2xl transition-all hover:shadow-primary/5 border border-white/10">
+<div class="relative w-full aspect-video">
+<div class="studio-preview absolute inset-0"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl">videocam</span>
+</div>
+</div>
+<div class="absolute top-4 left-4 bg-red-600/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black text-white flex items-center gap-2 border border-white/20">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                                        LIVE PREVIEW
+                                    </div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h5 class="text-base font-bold text-white">Teleprompter Logic</h5>
+<p class="text-xs text-gray-400 leading-relaxed mt-2">Syncing your active script into auto-scrolling studio mode with AI pacing.</p>
+</div>
+<button class="w-full bg-white text-background-dark font-black py-4 rounded-xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined">smart_display</span>
+                                        Launch Studio Mode
+                                    </button>
+<div class="pt-4 border-t border-white/5 grid grid-cols-2 gap-4">
+<div class="bg-white/5 p-3 rounded-xl text-center">
+<p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter">Bitrate</p>
+<p class="text-xs font-bold text-brand-blue">6000 kbps</p>
+</div>
+<div class="bg-white/5 p-3 rounded-xl text-center">
+<p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter">Resolution</p>
+<p class="text-xs font-bold text-brand-blue">4K Vertical</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8 rounded-2xl border-2 border-dashed border-white/5 bg-white/[0.02] flex flex-col items-center justify-center text-center gap-4 opacity-60 hover:opacity-100 hover:bg-white/[0.04] cursor-pointer transition-all">
+<div class="w-12 h-12 rounded-full bg-brand-slate flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-gray-400">add</span>
+</div>
+<div>
+<p class="text-xs font-black text-white uppercase tracking-widest">Custom Module</p>
+<p class="text-[10px] text-gray-500 mt-1 font-medium">Extend your workspace</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
